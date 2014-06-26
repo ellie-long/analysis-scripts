@@ -1,0 +1,52 @@
+
+
+
+void find_elastic_peak_dp()
+{
+
+	int HeRunNumber = 20487;
+	int endHeRunNumber = 20487;
+	TChain* chainHe = new TChain("T");
+	TString filenameHe;
+
+	for (int thisHeRunNumber=HeRunNumber; thisHeRunNumber<(endHeRunNumber+1); thisHeRunNumber++)
+	{
+		for (int t=0; t<1000; t++)
+		{
+			filenameHe = "/home/ellie/physics/e05-102/ellana/ROOTfiles/q2_01_vert/e05102_R_";
+//			filenameHe = "./e05102_R_";
+			filenameHe += thisHeRunNumber;
+			if (t != 0)
+			{
+				filenameHe += "_";
+				filenameHe += t;
+			}
+			filenameHe += ".root";
+			ifstream ifileHe(filenameHe);
+			if (ifileHe)
+			{
+				cout << "Adding file to chainHe: " << filenameHe << endl;
+				chainHe->Add(filenameHe);
+			}
+			else
+			{
+				cout << "File " << filenameHe << " does not exist. Ending here." << endl;
+				t=999999999;
+			}
+			TFile fileHe(filenameHe);
+		}
+	}
+
+	gStyle->SetPalette(1);
+
+
+	TH1F *hist1 = new TH1F("hist1","dp Elastic Peak Fit", 100, -0.08, 0.08);
+	chainHe->Draw("ExTgtCor_R.dp>>hist1");
+	hist1->Draw();
+
+	TF1 *fit1 = new TF1("fit1","gaus",0.02,0.04);
+	hist1->Fit(fit1);
+	fit1->Draw("same");
+
+
+}

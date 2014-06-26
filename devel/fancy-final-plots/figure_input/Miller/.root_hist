@@ -1,0 +1,79 @@
+TGraph *gr = new TGraph("GEn.dat")
+gr->Draw()
+gr->Draw("ap")
+c1->Clear()
+gr->Draw("alp")
+TSpline3 *spl3 = new TSpline3("mill_gen",gr)
+spl3->Draw()
+spl3->Draw("same")
+gr->Draw()
+c1->Clear()
+gr->Draw("alp")
+gr->SetMarkerStyle(20)
+gr->Draw("alp")
+spl3->Draw("same")
+spl3->Eval(0.)
+spl3->Eval(1.)
+spl3->Eval(.5)
+spl3->Eval(.1)
+,.q
+.q
+.L build_spline_files.C 
+.ls
+build_spline_file("GEn.dat")
+.q
+.L build_spline_files.C 
+build_spline_file("GEn.dat")
+.q
+.L build_spline_files.C 
+build_spline_file("GEn.dat")
+.q
+.L build_spline_files.C 
+build_spline_file("GEn.dat")
+build_spline_file("GMp_GD.dat")
+build_spline_file("GMn_GD.dat")
+.q
+.L build_spline_files.C
+build_spline_file("QF2_kF1.dat")
+.q
+.L build_GE.C
+build_GEp()
+.! emacs build_GE.C
+.L build_GE.C
+build_GEp()
+.q
+.L build_GE.C
+build_GEp()
+.L build_GE.C
+build_GEp()
+.L build_GE.C
+build_GEp()
+build_GEp_spl()
+.L build_GE.C
+build_GEp_spl()
+.L build_spline_files.C
+build_spline_file("mup_GEp_GMp.dat")
+.q
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+gPad
+gPad->GetListOfPrimitives()->Print()
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+.L build_spline_files.C 
+build_spline_file("lattice.GMn.rtf")
+gPad->GetListOfPrimitives()->Print()
+build_spline_file("lattice.GMn.rtf",1,3)
+build_spline_file("lattice.GMn.rtf",1,4)
+.q
+.L build_spline_files.C 
+build_spline_file("GEn.qonly.dat")
+.q

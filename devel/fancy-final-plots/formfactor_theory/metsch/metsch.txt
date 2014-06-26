@@ -1,0 +1,25 @@
+
+De tabellen zijn een spline-interpolatie tussen de
+"steunpunten" Q^2 (in GeV^2):
+0.0001	
+0.0002	
+0.0003	
+0.001	
+0.01	
+0.1	
+0.25	
+0.4	
+0.5	
+0.6	
+0.7	
+1	
+1.5	
+2	
+2.5	
+3	
+
+Met vriendelijke groeten,
+
+Bernard
+
+

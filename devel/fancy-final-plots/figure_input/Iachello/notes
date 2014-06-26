@@ -1,0 +1,9 @@
+Columns for formfactor_*.dat files
+
+Column 1 is Q2 (GeV/c)^2
+Column 2 is (mup GEp)/GMp
+Column 3 is (mu_n GEn)/GMn
+Column 4 is GMp/(mup Gd)
+Column 5 is GMn/(mun Gd)
+Column 6 is GEn
+Column 7 is Q F_2p/kappa_p F_1p

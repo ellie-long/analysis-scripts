@@ -1,0 +1,5 @@
+0	0
+0.03	0.5
+0.1	0.3
+0.5	0.02
+Note: The center value (0.37) is the actual Q2 used in the calculation

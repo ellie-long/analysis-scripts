@@ -1,0 +1,4 @@
+Dataset:      Vertical 3He, Q2=0.5
+Runs:   20922-20922
+Run #	Raw Asym	Stat Err	# Pos Event	HePos	Charge	PosHe LT	# Neg Events	HeNeg	Charge    NegHe LT
+20922	 0.176742622	0.0154566189	     4729	  0.00727	   0.9901	     3315	  0.00728	   0.9907

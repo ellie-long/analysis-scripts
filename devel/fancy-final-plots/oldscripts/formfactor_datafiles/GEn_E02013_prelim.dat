@@ -1,0 +1,8 @@
+#
+#anticipated uncertainties of E02-013
+# assuming GEn follows the Galster parameterization
+# Q2   Galster_V     stat      sys
+#  1.31  2.8476e-2   2.56280912E-03  2.98994397E-03
+2.50    1.75e-02        2.8E-03		2.3E-03
+1.72    3.42e-02	2.3E-03         4.0E-03
+3.47    1.17e-02	3.0E-03         1.0E-03

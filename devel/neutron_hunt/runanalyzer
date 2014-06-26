@@ -1,0 +1,63 @@
+#!/bin/bash -f
+run=$1
+echo $run 
+echo "g++ version is =====> "
+g++ --version
+
+echo "ROOTSYS:"
+#export ROOTSYS="/apps/root/PRO/root"
+
+export ROOTSYS="/u/apps/root/5.26-00-64bit/root"
+export PATH=$ROOTSYS/bin:$PATH
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+
+
+
+# REPLAYDIR (Contains your DB directory!)
+#REPLAYDIR=/w/halla-1/e05102/miham/batch_replay
+REPLAYDIR=/work/halla/e05102/disk1/ellie/analysis-scripts/devel/neutron_hunt/
+# Copy everything (recursive!) from REPLAYDIR to the WORKDIR
+cd $REPLAYDIR
+cp -vrL . $WORKDIR
+cd $WORKDIR
+
+# Setup the WORKDIR as the current Analyzer Directory
+# export DB_DIR=${WORKDIR}/DB
+# export LD_LIBRARY_PATH=${WORKDIR}:$ROOTSYS/lib
+#export DB_DIR ROOTSYS LD_LIBRARY_PATH
+
+
+echo "-------------> DB_DIR: "$(echo "$DB_DIR")
+echo "-------------> ROOTSYS: "$(echo "$ROOTSYS")
+echo "-------------> LD_LIBRARY_PATH: " $(echo "$LD_LIBRARY_PATH")
+echo "-------------> PATH: " $(echo "$PATH")
+
+
+# Make a directory for the ROOTfiles
+mkdir ROOTfiles
+
+# Make directory for the *.dat file results
+
+mkdir Results
+
+# Analyze the run in ROOTs "batch" mode
+ls -latrF
+echo -e ".x hand_beam_asymmetry_vs_nu.C" | analyzer -b
+#echo -e ".x analiza_epd_Full_HRSR.C \n $run \n -1 \n .q" | analyzer -b
+
+
+# Copy the resulting ROOTfile(s) to your experiment workdisk (ROOTDIR)
+ROOTDIR=/work/halla/e05102/disk1/ellie/ROOTfiles/
+ls -al ROOTfiles/
+cd ROOTfiles
+cp -rv . $ROOTDIR
+
+#first we need to go back to the work directory...
+cd $WORKDIR
+
+RESULTS=/work/halla/e05102/disk1/ellie/analysis-scripts/devel/neutron_hunt/Results/
+ls -al Results/
+cd Results
+cp -rv . $RESULTS
+
+

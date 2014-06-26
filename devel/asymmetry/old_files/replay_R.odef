@@ -1,0 +1,522 @@
+# Analyzer output definition file used by THaOutput class.
+# See  http://hallaweb.jlab.org/root/THaOutput.html
+# R. Michaels, June 2003
+# Comments start with '# '  (careful, need a space after #) 
+#
+# There are at present 3 places where output is defined
+# in the C++ analyzer, and this is one of them.
+# The other two are THaRun (run-dependent info) and
+# THaEvent (event-dependent info), which provide quantities 
+# like run number and event number that you always need.
+# In this place, the "outdef" file, one can define
+# global variables, formulas, and histograms, as well
+# as cuts on histograms.  The results of the formulas appear 
+# in the tree with the formula-name given.
+#
+# Syntax of file  -- by example:
+#
+# variable   L.vdc.u2.nclust
+# variable   R.s1.lt
+# formula    targetX  1.464*BB.bpm4b.x-0.464*BB.bpm4a.x
+# TH1F  rv1n  'R-arm vdc hits on V1'   R.vdc.v1.nhit 100 0 10
+# TH1F  rv1w  'R-arm vdc wiremap on V1'  R.vdc.v1.wire 100 0 500
+# TH1F  tgtx  'Target X position'  targetX 100 -2 2 
+# TH2F  t12  'Time stamps on roc1 vs roc2'  D.timeroc1  D.timeroc2
+#       100 0 1000 100 0 1000
+# TH1F  Rv1n 'R-arm VDC nhit (cut)' R.vdc.v1.nhit 100 0 10 R.vdc.v1.nhit>3
+# (note, the cut R.vdc.v1.nhit appears optionally at the end, also
+#  this variable cannot be a variable-sized array)
+#
+#
+# The lines are of the form
+#     keyword  rest-of-line
+#
+# where the keywords are as follows :
+# (the keywords are case-insensitive, the rest of the line is not)
+#
+#  VARIABLE  -- indicates that a global variable is to
+#              be added to the tree.  
+#              The next string is the name of the variable.  
+#              You can see a list of variables by typing 
+#              gHaVars->Print() at the analyzer's root shell prompt.
+#              A variable can also be an array, e.g. R.s1.lt  
+#              Then the values in the tree will be R.s1.lt.data[0], 
+#              R.s1.lt.data[1], etc, up to the array size which
+#              is Ndata.R.s1.lt
+# 
+#  BLOCK   --  An entire block of variables are written to the
+#              output.  E.g. "L.*" writes all Left HRS variables.
+#
+#  FORMULA -- indicates a THaFormula to add to the output.
+#             The next word will be the "name" of the formula result 
+#             in the tree. The 3rd string is the formula to evaluate.  
+#             Note, it cannot have spaces in it.
+#             Formulas can be vectors if the arrays are fixed size.
+#
+#  CUT --     Like a formula, but the data are 0 (false) or 1 (true)
+#
+#  TH1F, TH2F, TH1D, TH2D  -- defines histograms (1D or 2D).
+#              The next word is the name of the object.
+#              The following string (must be in single quotes) is  
+#              the title of the histogram.  Next, the variables
+#              or formulas names that are put into the histogram 
+#              are listed together with bin info: nbin, xlo, xhi and if 2D
+#              the same bin info for y.  Optional cuts can be specified 
+#              at the end of the line.  See examples below.  
+#
+# ------------------------------------
+
+# List of the variable blocks to be written out
+
+block R.tr.*
+block R.s1.*
+block R.s2.*
+block R.cer.*
+block R.ps.*
+block R.sh.*
+block adchel.R.*
+# block adchel2.R.*
+block g0hel.R.*
+block R.vdc.*
+block ReactPt_R.*
+block ExTgtCor_R.*
+# block SecKine.*
+block D.*
+block Rrb.*
+block Rurb.*
+block R.gold.*
+# block Norm.*
+# block Beam.HL.*
+block he3R.*
+block NA.*
+
+#add from physics
+block PriKineR.*
+block PriKineRHe3.*
+# block adchel.R.helicity
+# block adchel2.R.helicity
+# block g0hel.R.helicity
+
+block D.*
+block Rrb.*
+block Rurb.*
+
+# Spin Signal Reading Check
+
+# TH1F he3SpinValid 'General Spin Signal Validity' he3.IsSpinValid 6 -.5 1.5
+# TH1F he3SpinLADC2Valid 'Spin Signal Validity on LHRS ADC2' he3.ladc2.IsSpinValid 6 -.5 1.5
+
+# Spin State Check
+
+# TH1F he3Spin  'Spin state of He3 target, Check with TO' he3.Spin 9 -1.5 1.5 he3.IsSpinValid
+# TH1F he3SpinLADC2 'Spin state reading on LHRS ADC2' he3.ladc2.Spin 9 -1.5 1.5 he3.ladc2.IsSpinValid
+
+
+# Here are variables and formulas that appear in the tree.
+
+# Beam position and Raster
+FORMULA urbax 1000.*Rurb.BPMA.x
+FORMULA urbay 1000.*Rurb.BPMA.y
+FORMULA urbbx 1000.*Rurb.BPMB.x
+FORMULA urbby 1000.*Rurb.BPMB.y
+FORMULA urbx 1000.*Rurb.x
+FORMULA urby 1000.*Rurb.y
+FORMULA rawcurx 1000.*Rrb.Raster.rawcur.x
+FORMULA rawcury 1000.*Rrb.Raster.rawcur.y
+FORMULA urby 1000.*Rurb.y
+FORMULA urby 1000.*Rurb.y
+
+TH1F bpma_x 'BPMA x [mm]' urbax 4000 -7. 7.
+TH1F bpma_y 'BPMA y [mm]' urbay 4000 -7. 7.
+
+TH1F bpmb_x 'BPMB x [mm]' urbbx 4000 -7. 7.
+TH1F bpmb_y 'BPMB y [mm]' urbby 4000 -7. 7.
+
+TH1F beam_x 'x at target [mm]' urbx 4000  -7. 8.
+TH1F beam_y 'y at target [mm]' urby 4000  -7. 8.
+
+TH2F bpma_xy 'BPMA y vs x'  urbax urbay 200 -7.  7. 200 -7. 7.
+TH2F bpmb_xy 'BPMB y vs y'  urbbx  urbby 200 -7.  7. 200 -7.  7.
+TH2F beam_xy 'beam at target y vs x'  urbx urby 200 -7. 8. 200 -7. 8.
+# Added by Bob M. Fri Mar 23, 2007
+TH2F rastxy 'Raster X vs Y (current)' Rrb.Raster.rawcur.y Rrb.Raster.rawcur.x 200 100 7000 200 100 7000
+
+TH1F bpmaraw1 'BPMA Antenna 1' Rurb.BPMA.rawcur.1 2000 0 16500
+TH1F bpmaraw2 'BPMA Antenna 2' Rurb.BPMA.rawcur.2 2000 0 16500
+TH1F bpmaraw3 'BPMA Antenna 3' Rurb.BPMA.rawcur.3 2000 0 16500
+TH1F bpmaraw4 'BPMA Antenna 4' Rurb.BPMA.rawcur.4 2000 0 16500
+TH1F bpmbraw1 'BPMB Antenna 1' Rurb.BPMB.rawcur.1 2000 0 16500
+TH1F bpmbraw2 'BPMB Antenna 2' Rurb.BPMB.rawcur.2 2000 0 16500
+TH1F bpmbraw3 'BPMB Antenna 3' Rurb.BPMB.rawcur.3 2000 0 16500
+TH1F bpmbraw4 'BPMB Antenna 4' Rurb.BPMB.rawcur.4 2000 0 16500
+# 
+TH1F rastraw1 'Raster Current 1' Rrb.Raster.rawcur.x 2000 0 16500
+TH1F rastraw2 'Raster Current 2' Rrb.Raster.rawcur.y 2000 0 16500
+
+# Target and Sieve
+formula    R_sv_x  ExTgtCor_R.x+ExTgtCor_R.th*1.16539
+formula    R_sv_y  ExTgtCor_R.y+ExTgtCor_R.ph*1.16539
+TH2F sieve 'Sieve Slit' R_sv_x R_sv_y  200 -0.1 0.1 200 -0.1 0.1
+TH1F dp 'Deviation from Central Momentum' R.tr.tg_dp 200 -0.1 0.1
+TH1F tgth 'Target Theta' R.tr.tg_th 200 -0.2 0.2
+TH1F tgph 'Target Phi' R.tr.tg_ph 200 -0.2 0.2
+TH1F tgy 'Target Y' R.tr.tg_y 200 -0.2 0.2
+TH1F zreact 'React Z' ReactPt_R.z 200 -0.4 0.4
+
+# ------------------------------------------------------------------
+# RIGHT ARM DETECTORS 
+# ------------------------------------------------------------------
+# 
+
+TH1F EvType  'Trigger type' D.evtype  15 0 10
+
+#TH1F hel 'Helicity States' Beam.HL.helicity 10 -2 2 
+
+# RIGHT ARM S1 and S2  ADC and TDC :
+TH1F Rs1lt 'Right arm S1 L-PMT TDCs' R.s1.lt 750 1000 2000 R.s1.lt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs1rt 'Right arm S1 R-PMT TDCs' R.s1.rt 750 1000 2000 R.s1.rt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2lt 'Right arm S2 L-PMT TDCs' R.s2.lt 750 1000 2000 R.s2.lt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2rt 'Right arm S2 R-PMT TDCs' R.s2.rt 750 1000 2000 R.s2.rt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+
+TH1F Rs1lt_f 'Right arm S1 L-PMT TDCs' R.s1.lt 750 10 4000 R.s1.lt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs1rt_f 'Right arm S1 R-PMT TDCs' R.s1.rt 750 10 4000 R.s1.rt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2lt_f 'Right arm S2 L-PMT TDCs' R.s2.lt 750 10 4000 R.s2.lt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2rt_f 'Right arm S2 R-PMT TDCs' R.s2.rt 750 10 4000 R.s2.rt>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+
+TH1F Rs1la 'Right arm S1 L-PMT ADCs' R.s1.la 1000 1 4000 R.s1.la>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs1ra 'Right arm S1 R-PMT ADCs' R.s1.ra 1000 1 4000 R.s1.ra>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2la 'Right arm S2 L-PMT ADCs' R.s2.la 1000 1 4000 R.s2.la>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2ra 'Right arm S2 R-PMT ADCs' R.s2.ra 1000 1 4000 R.s2.ra>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+
+TH1F Rs1la_p 'Right arm S1 L-PMT ADCs (PedSub)' R.s1.la_p 200 0 3999 R.s1.la_p>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs1ra_p 'Right arm S1 R-PMT ADCs (PedSub)' R.s1.ra_p 200 0 3999 R.s1.ra_p>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2la_p 'Right arm S2 L-PMT ADCs (PedSub)' R.s2.la_p 200 0 3999 R.s2.la_p>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+TH1F Rs2ra_p 'Right arm S2 R-PMT ADCs (PedSub)' R.s2.ra_p 200 0 3999 R.s2.ra_p>0&&(D.evtype==1||D.evtype==2||D.evtype==8)&&D.edtpr==0
+
+
+# ------------------------------------------------------------------
+# RIGHT ARM VDC wires and timing  :
+#CUT rightOnly 1
+TH1F Rvu1t 'R-arm VDC u1 time' R.vdc.u1.rawtime 200 401 2400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvu2t 'R-arm VDC u2 time' R.vdc.u2.rawtime 200 401 2400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvv1t 'R-arm VDC v1 time' R.vdc.v1.rawtime 200 401 2400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvv2t 'R-arm VDC v2 time' R.vdc.v2.rawtime 200 401 2400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+
+TH1F Rvu1w 'R-arm VDC u1 wires' R.vdc.u1.wire 400 1 400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvu2w 'R-arm VDC u2 wires' R.vdc.u2.wire 400 1 400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvv1w 'R-arm VDC v1 wires' R.vdc.v1.wire 400 1 400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+TH1F Rvv2w 'R-arm VDC v2 wires' R.vdc.v2.wire 400 1 400  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+
+#TH1F Rv1nhit 'R-arm VDC v1 hits' R.vdc.v1.nhit 20 1 20  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+#TH1F Rv2nhit 'R-arm VDC v2 hits' R.vdc.v2.nhit 20 1 20  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+#TH1F Ru1nhit 'R-arm VDC u1 hits' R.vdc.u1.nhit 20 1 20  (D.evtype==1||D.evtype==2||D.evtype==8) #rightOnly
+#TH1F Ru2nhit 'R-arm VDC u2 hits' R.vdc.u2.nhit 20 1 20  (D.evtype==1||D.evtype==2||D.evtype==8)  #rightOnly
+
+# ------------------------------------------------------------------
+# RIGHT ARM GAS CHERENKOV  ADC and TDC :
+
+TH1F Rcera 'R-arm Cerenkov ADCs' R.cer.a 250 1 4000 R.cer.a>10&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rcert 'R-arm Cerenkov TDCs' R.cer.t 250 0 3000 R.cer.t>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rcera_p 'R-arm Cerenkov ADCs (PedSub)' R.cer.a_p 250 -10 4999 R.cer.a_p>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+
+TH1F Rcer_sum  'R-arm Cerenkov sum (corrected)' R.cer.asum_c 200 1 4500  R.cer.asum_c>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH2F Rcer_x  'R-arm Cerenkov sum (corrected) vs. X' R.cer.trx R.cer.asum_c 60 -1.2 1.2 200 200 4500 R.cer.asum_c>0&&R.tr.n>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH2F Rcer_y  'R-arm Cerenkov sum (corrected) vs. Y' R.cer.try R.cer.asum_c 60 -0.12 0.12 200 200 4500 R.cer.asum_c>0&&R.tr.n>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+
+
+# ------------------------------------------------------------------
+# RIGHT ARM Preshower/Shower:
+TH1F Rpsa   'Preshower ADCs' R.ps.a 1100 1 5100 R.ps.a>0.&&(D.evtype==1||D.evtype==2||D.evtype==8) 
+
+TH1F Rpsa_p 'Preshower ADCs (PedSub)' R.ps.a_p 500 -10 4100 R.ps.a_p>0.&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rpsa_c 'Preshower ADCs (Corrected)' R.ps.a_c 200 -10 4000 R.ps.a_c>0.&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rpssum  'Preshower sum' R.ps.asum_c 200 1 4000 
+
+TH1F Rsha   'Shower ADCs' R.sh.a 1100 1 5100 R.sh.a>0.&&(D.evtype==1||D.evtype==2||D.evtype==8) 
+TH1F Rsha_p 'Shower ADCs (PedSub)' R.sh.a_p 500 -10 4100 R.sh.a_p>0.&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rsha_c 'Shower ADCs (Corrected)' R.sh.a_c 200 -10 4000 R.sh.a_c>0.&&(D.evtype==1||D.evtype==2||D.evtype==8)
+TH1F Rshsum  'Shower sum' R.sh.asum_c 200 1 4000
+
+
+TH2F Rps_sh  'Preshower sum vs. Shower sum' R.sh.asum_c R.ps.asum_c 200 1 10000 200 1 10000 
+TH2F Rpssumx 'Preshower sum vs. x' R.ps.x R.ps.asum_c 200 -1.2 1.2 200 1 10000 
+TH2F Rpssumy 'Preshower sum vs. y' R.ps.y R.ps.asum_c 200 -1.2 1.2 200 1 10000 
+TH2F Rshsumx 'Shower sum vs. x' R.sh.x R.sh.asum_c 200 -1.2 1.2 200 1 10000 
+TH2F Rshsumy 'Shower sum vs. y' R.sh.y R.sh.asum_c 200 -1.2 1.2 200 1 10000 
+
+TH2F Rshe_pse  	'R-arm Preshower energy vs. Shower energy' R.sh.e R.ps.e 200 1 4000 200 1 2400 R.sh.asum_c>0&&R.ps.asum_c>0&&(D.evtype==1||D.evtype==2||D.evtype==8)
+
+formula    totsh_E_P  (R.ps.e+R.sh.e)/(1000*ExTgtCor_R.p)
+TH1F totshep 'Shower Total Energy Divided by Momentum' totsh_E_P 500 0.0 3.5 R.tr.n==1&&R.ps.e>1.&&R.sh.e>1.&&abs(ExTgtCor_R.dp)<0.05
+
+
+begin scalers right
+   default
+#   default_helicity
+# triggers
+   T1cnt 0 0 counts
+   T2cnt 0 1 counts
+   T3cnt 0 2 counts
+   T4cnt 0 3 counts
+   T5cnt 0 4 counts	
+   T6cnt 0 5 counts
+   T7cnt 0 11 counts
+   Tacc_cnt 0 12 counts
+# triggers gated by helicity
+   P_T1cnt 1 0 counts
+   P_T2cnt 1 1 counts
+   P_T3cnt 1 2 counts
+   P_T4cnt 1 3 counts
+   P_T5cnt 1 4 counts	
+   P_T6cnt 1 5 counts
+   P_T7cnt 1 11 counts
+   P_Tacc_cnt 1 12 counts
+   M_T1cnt 2 0 counts
+   M_T2cnt 2 1 counts
+   M_T3cnt 2 2 counts
+   M_T4cnt 2 3 counts
+   M_T5cnt 2 4 counts	
+   M_T6cnt 2 5 counts
+   M_T7cnt 2 11 counts
+   M_Tacc_cnt 2 12 counts
+# 1024 Hz clock
+   clkcount 0 7 counts
+   P_clkcount 1 7 counts
+   M_clkcount 2 7 counts
+# counts in BCM scaler
+   bcmu1cnt 0 13 counts
+   bcmu3cnt 0 6 counts
+   bcmu10cnt 0 14 counts
+   bcmd1cnt 0 15 counts
+   bcmd3cnt 0 9 counts
+   bcmd10cnt 0 10 counts
+# counts in BCM scaler gated by helicity
+   P_bcmu1cnt 1 13 counts
+   P_bcmu3cnt 1 6 counts
+   P_bcmu10cnt 1 14 counts
+   P_bcmd1cnt 1 15 counts
+   P_bcmd3cnt 1 9 counts
+   P_bcmd10cnt 1 10 counts
+   M_bcmu1cnt 2 13 counts
+   M_bcmu3cnt 2 6 counts
+   M_bcmu10cnt 2 14 counts
+   M_bcmd1cnt 2 15 counts
+   M_bcmd3cnt 2 9 counts
+   M_bcmd10cnt 2 10 counts
+
+# Rates
+# triggers
+   T1 0 0 
+   T2  0 1 
+   T3  0 2 
+   T4  0 3 
+   T5  0 4  
+   T6  0 5  
+   T7  0 11 
+   Tacc  0 12  
+# triggers gated by helicity
+   P_T1  1 0  
+   P_T2  1 1  
+   P_T3  1 2  
+   P_T4  1 3  
+   P_T5  1 4  	
+   P_T6  1 5  
+   P_T7  1 7  
+   P_Tacc  1 12  
+   M_T1  2 0  
+   M_T2  2 1  
+   M_T3  2 2  
+   M_T4  2 3  
+   M_T5  2 4  	
+   M_T6  2 5  
+   M_T7  2 7  
+   M_Tacc  2 12 
+# 1024 Hz clock
+   clk 0 7  
+   P_clk 1 7  
+   M_clk 2 7  
+# counts in BCM scaler
+   bcmu1  0 13  
+   bcmu3  0 6  
+   bcmu10  0 14  
+   bcmd1  0 15  
+   bcmd3  0 9  
+   bcmd10  0 10  
+# counts in BCM scaler gated by helicity
+   P_bcmu1  1 13  
+   P_bcmu3  1 6  
+   P_bcmu10  1 14  
+   P_bcmd1  1 15  
+   P_bcmd3  1 9  
+   P_bcmd10  1 10  
+   M_bcmu1  2 13  
+   M_bcmu3  2 6  
+   M_bcmu10  2 14  
+   M_bcmd1  2 15  
+   M_bcmd3  2 9  
+   M_bcmd10  2 10  
+end scalers
+
+#-------------------------------------------------
+# Neutron Detector below
+#-------------------------------------------------
+
+# HAND Package Scintillator planes
+TH1F V_L_adc_ 'Veto Plane Left Raw ADC' NA.veto.la_c 200 0 10000 NA.veto.la>=0
+TH1F V_R_adc_ 'Veto Plane Right Raw ADC' NA.veto.ra_c 200 0 10000 NA.veto.ra>=0
+TH1F V_L_tdc_ 'Veto Plane Left Raw TDC' NA.veto.lt 200 0 1675 NA.veto.lt>0
+TH1F V_R_tdc_ 'Veto Plane Right Raw ADC' NA.veto.rt 200 0 1675 NA.veto.rt>0
+
+TH1F N1_L_adc_ 'N1 Plane Left Raw ADC' NA.nd.p1.la_c 200 0 10000 NA.nd.p1.la>=0
+TH1F N1_R_adc_ 'N1 Plane Right Raw ADC' NA.nd.p1.ra_c 200 0 10000 NA.nd.p1.ra>=0
+TH1F N1_L_tdc_ 'N1 Plane Left Raw TDC' NA.nd.p1.lt 200 0 1675 NA.nd.p1.lt>0
+TH1F N1_R_tdc_ 'N1 Place Right Raw TDC' NA.nd.p1.rt 200 0 1675 NA.nd.p1.rt>0
+
+TH1F N2_L_adc_ 'N2 Plane Left Raw ADC' NA.nd.p2.la_c 200 0 10000 NA.nd.p2.la>=0
+TH1F N2_R_adc_ 'N2 Plane Right Raw ADC' NA.nd.p2.ra_c 200 0 10000 NA.nd.p2.ra>=0
+TH1F N2_L_tdc_ 'N2 Plane Left Raw TDC' NA.nd.p2.lt 200 0 1675 NA.nd.p2.lt>0
+TH1F N2_R_tdc_ 'N2 Plane Right Raw TDC' NA.nd.p2.rt 200 0 1675 NA.nd.p2.rt>0
+
+TH1F N3_L_adc_ 'N3 Plane Left Raw ADC' NA.nd.p3.la_c 200 0 10000 NA.nd.p3.la>=0
+TH1F N3_R_adc_ 'N3 Plane Right Raw ADC' NA.nd.p3.ra_c 200 0 10000 NA.nd.p3.ra>=0
+TH1F N3_L_tdc_ 'N3 Plane Left Raw TDC' NA.nd.p3.lt 200 0 1675 NA.nd.p3.lt>0
+TH1F N3_R_tdc_ 'N3 Plane Right Raw TDC' NA.nd.p3.rt 200 0 1675 NA.nd.p3.rt>0
+
+TH1F N4_L_adc_ 'N4 Plane Left Raw ADC' NA.nd.p4.la_c 200 0 10000 NA.nd.p4.la>=0
+TH1F N4_R_adc_ 'N4 Plane Right Raw ADC' NA.nd.p4.ra_c 200 0 10000 NA.nd.p4.ra>=0
+TH1F N4_L_tdc_ 'N4 Plane Left Raw TDC' NA.nd.p4.lt 200 0 1675 NA.nd.p4.lt>0
+TH1F N4_R_tdc_ 'N4 Plane Right Raw TDC' NA.nd.p4.rt 200 0 1675 NA.nd.p4.rt>0
+
+TH1F V_L_adcp_ 'Veto Plane Left Raw ADC' NA.veto.la 200 0 1000 NA.veto.la>=0
+TH1F V_R_adcp_ 'Veto Plane Right Raw ADC' NA.veto.ra 200 0 1000 NA.veto.ra>=0
+
+TH1F N1_L_adcp_ 'N1 Plane Left Raw ADC' NA.nd.p1.la 200 0 1000 NA.nd.p1.la>=0
+TH1F N1_R_adcp_ 'N1 Plane Right Raw ADC' NA.nd.p1.ra 200 0 1000 NA.nd.p1.ra>=0
+
+TH1F N2_L_adcp_ 'N2 Plane Left Raw ADC' NA.nd.p2.la 200 0 1000 NA.nd.p2.la>=0
+TH1F N2_R_adcp_ 'N2 Plane Right Raw ADC' NA.nd.p2.ra 200 0 1000 NA.nd.p2.ra>=0
+
+TH1F N3_L_adcp_ 'N3 Plane Left Raw ADC' NA.nd.p3.la 200 0 1000 NA.nd.p3.la>=0
+TH1F N3_R_adcp_ 'N3 Plane Right Raw ADC' NA.nd.p3.ra 200 0 1000 NA.nd.p3.ra>=0
+
+TH1F N4_L_adcp_ 'N4 Plane Left Raw ADC' NA.nd.p4.la 200 0 1000 NA.nd.p4.la>=0
+TH1F N4_R_adcp_ 'N4 Plane Right Raw ADC' NA.nd.p4.ra 200 0 1000 NA.nd.p4.ra>=0
+
+begin epics
+   IPM1H04B.XPOS
+   IPM1H04B.YPOS
+   hac_bcm_average
+   hac_bcm_dvm1_read
+   hac_bcm_dvm2_read
+   hac_bcm_dvm1_current
+   hac_bcm_dvm2_current
+   hac_unser_current
+   HacL_D1_NMR:SIG
+#  HC+ibcm1
+   IBC0L02Current
+   IFY1H04:rtd_target
+   IFY1H04:rtd_P11042
+   IFY1H04:rtd_P11047
+   IFY1H04:rtd_P11044
+   IFY1H04:rtd_P11048
+   IFY1H04:rtd_P11055
+   IFY1H04:rtd_P11051
+end epics
+
+
+
+
+########################################
+# Physics Part
+########################################
+
+# ------------------------------------------------
+# Status Check
+# ------------------------------------------------
+
+# Trigger
+
+TH1F HEvType  'Trigger type' D.evtype    20 2 9
+
+# Helicity
+
+TH1F adchel 'Helicity (ADC)' adchel.R.helicity 10 -2 2
+TH1F g0hel 'Helicity (G0/TIR)' g0hel.R.helicity 10 -2 2
+TH1F heldiff 'Helicity Diff (G0 - ADC)' (g0hel.R.helicity-adchel.R.helicity) 10 -2 2
+
+# -----------------------
+# Spin And Helicity Flag
+# -----------------------
+
+FORMULA IsReftHelicity adchel.R.helicity==-1
+FORMULA IsRightHelicity adchel.R.helicity==1
+
+# -----------------------
+# Trigger Flag
+# -----------------------
+
+FORMULA InclusiveEvt ((D.evtypebits&(1<<1))==(1<<1))||((D.evtypebits&(1<<2))==(1<<2))
+
+# -----------------------
+# Particle Flag
+# -----------------------
+
+# Good Electron cut
+# add more you have better idea
+formula prl_E_P  (R.ps.e+R.sh.e)/(1000.*ExTgtCor_R.p)
+FORMULA GoodRTrack   abs(ExTgtCor_R.dp)<0.05&&R.tr.n>=1&&abs(ReactPt_R.z)<0.25
+FORMULA GoodElectron  R.cer.asum_c>300
+
+# -----------------------
+# Event Flag
+# -----------------------
+
+FORMULA InclCut GoodRTrack&&InclusiveEvt&&GoodElectron
+
+# ------------------------------------------------
+# physics variables
+# ------------------------------------------------
+
+
+# Kinematics Variables
+
+FORMULA InvMass sqrt(PriKineR.W2)
+FORMULA ScaAngle PriKineR.angle*180/3.1415927
+
+# -----------------------
+# Inclusive Events
+# -----------------------
+
+TH1F InclScatAngle 'Right HRS Scattering angle' ScaAngle 100 10 20 InclCut
+TH1F InclQ3m       'Magnitude of 3-momentum transfer' PriKineR.q3m 100 0 1 InclCut
+TH1F InclNu        'Energy Transfer' PriKineR.nu 100 0.0 0.5 InclCut
+
+TH1F InclQ2        'Q^2 (GeV)' PriKineR.Q2  100 0. 0.7  InclCut
+TH1F InclInvMass   'W (GeV)' InvMass  100 0.5 1.7  InclCut
+TH1F InclX         'Bjorken x' PriKineR.x_bj 100 0 3 InclCut
+
+TH2F InclXW        'Inclusive Phase Space : W vs x'   PriKineR.x_bj InvMass 50 0 3 50 0.5 1.7 InclCut
+TH2F InclXQ2       'Inclusive Phase Space : Q2 vs x'  PriKineR.x_bj PriKineR.Q2 50 0 3 50 0 0.7 InclCut
+TH2F InclXNu       'Inclusive Phase Space : Nu vs x'  PriKineR.x_bj PriKineR.nu 50 0 3 50 0.0 0.5 InclCut
+
+#----------------------------
+# Right Arm Target
+#----------------------------
+
+formula R.sv.x R.gold.x+0.8*R.gold.th
+formula R.sv.y R.gold.y+0.8*R.gold.ph
+
+TH1F Rytg  'R-arm ytg'     R.gold.y  250 -0.1 0.1         
+TH1F Rthtg  'R-arm thtg'     R.gold.th  250 -0.1 0.1    
+TH1F Rphtg  'R-arm phtg'     R.gold.ph  250 -0.05 0.05    
+TH1F Rdp  'R-arm dp'     R.gold.dp  250 -0.07 0.07        
+TH1F Rysieve  'R-arm ysieve'     R.sv.x  250 -0.3 0.3 
+TH1F Rxsieve  'R-arm xsieve'     R.sv.y  250 -0.3 0.3
+
+
+
+#----------------------------
+# Right Arm Target Spin signal
+#----------------------------
+TH1F RSpinValid  '1=Spin signal valid; 0=otherwise'     he3R.IsSpinValid 6 -.5 1.5
+TH1F RSpin  'Target Spin (check with TO)'     he3R.Spin 9 -1.5 1.5

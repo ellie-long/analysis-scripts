@@ -1,0 +1,11 @@
+<Request>
+	<Email email="ellie@jlab.org" request="false" job="true"/>
+	<Project name="e05102"/>
+	<Track name="analysis"/>
+	<Name name="hand_asym"/>
+	<Command><![CDATA[
+		./runanalyzer
+		]]></Command>
+	<Job>
+	</Job>
+</Request>

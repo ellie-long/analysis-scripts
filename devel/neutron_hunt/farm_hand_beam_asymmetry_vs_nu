@@ -1,0 +1,4 @@
+PROJECT: e05102
+TRACK: analysis
+JOBNAME: hand_asym
+COMMAND: runanalyzer

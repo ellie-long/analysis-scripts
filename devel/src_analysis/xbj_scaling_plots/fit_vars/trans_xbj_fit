@@ -1,0 +1,41 @@
+M MIGRAD    STATUS=CONVERGED     172 CALLS         173 TOTAL
+                     EDM=4.45707e-09    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  C Red p1     6.27015e+10   2.56712e+10   2.98984e+04  -8.94250e-14
+   2  C Red p2     1.14420e+01   2.70082e-01   5.67461e-06   8.23179e-03
+ FCN=2.84864 FROM MIGRAD    STATUS=CONVERGED     166 CALLS         167 TOTAL
+                     EDM=1.21185e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  C Green p1   1.36805e+09   3.72922e+08   6.52338e+02  -5.19780e-11
+   2  C Green p2   8.86746e+00   1.96025e-01   4.52153e-06   9.80566e-02
+ FCN=3.29558 FROM MIGRAD    STATUS=CONVERGED     173 CALLS         174 TOTAL
+                     EDM=1.56124e-10    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  C Blue p1    2.53524e+13   2.44556e+13   1.20890e+07   2.31012e-17
+   2  C Blue p2    1.51278e+01   5.79302e-01   1.64276e-05  -9.61297e-04
+Drawing x for 3He at Q2 of 1.0...
+Warning: wrong member access operator '.' t_src_fit.C:335:
+ FCN=8.44716 FROM MIGRAD    STATUS=CONVERGED    1098 CALLS        1099 TOTAL
+                     EDM=4.43846e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  He Blue p1   1.72786e+12   7.45437e+11   8.23909e+05   1.34727e-14
+   2  He Blue p2   1.24467e+01   2.58258e-01   1.11644e-05  -4.23437e-02
+ FCN=3.24583 FROM MIGRAD    STATUS=CONVERGED     891 CALLS         892 TOTAL
+                     EDM=4.13973e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  He Green p1   3.00322e+10   3.75815e+09   1.43205e+04  -9.86424e-12
+   2  He Green p2   9.78557e+00   9.00507e-02   4.66612e-06   4.09031e-01
+ FCN=8.64651 FROM MIGRAD    STATUS=CONVERGED    1025 CALLS        1026 TOTAL
+                     EDM=2.92675e-07    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  He Red p1    2.41983e+11   4.77470e+10   1.15387e+05  -3.78843e-14
+   2  He Red p2    1.12181e+01   1.30132e-01   5.34923e-06   8.02775e-03
+Drawing x for 3He at Q2 of 1.0 in log scale...
+
+

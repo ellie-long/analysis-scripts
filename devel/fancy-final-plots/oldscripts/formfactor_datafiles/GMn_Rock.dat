@@ -1,0 +1,8 @@
+#  GMn from elastic electron-neutron cross-section, assuming
+#  GEn=0. Data from S. Rock et al, Phys. Rev. D 46, 24-44 (1992)
+#  Q^2  GMn/Gd/mun   error
+  2.50   0.941281  0.0522934
+  4.00   0.891653  0.0571572
+  6.00   0.870786  0.0593718
+  8.00   0.631251  0.0860797
+ 10.00   0.58693   0.141673

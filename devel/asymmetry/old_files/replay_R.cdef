@@ -1,0 +1,19 @@
+
+
+Block: RawDecode
+
+#RawDecode_master  g.evtyp==1||g.evtyp==2||g.evtyp==8
+
+
+Block: Decode
+
+#Decode_master  true
+T1D  D.evtype==1
+T2D  D.evtype==2
+T8D  D.evtype==8
+
+
+Block: Physics
+SpinValid	he3R.IsSpinValid
+SpinUp	he3R.Spin==1
+SpinDown	he3R.Spin==-1

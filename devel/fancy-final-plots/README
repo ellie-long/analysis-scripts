@@ -1,0 +1,84 @@
+R. Feuerbach, March 2005
+Updated by:
+S. Riordan, January 2009
+Updated by:
+E. Long, June, 2012
+
+To create the figures, execute the figure scripts (eg: kees_gen.C) like so:
+(from the tcsh or bash prompt):
+
+> analyzer HallA_Style.cxx long_Ay.C+
+
+> root HallA_style.cxx kees_gen.C+
+
+You will see a canvas with the final figure plotted. Keep in mind that
+ROOT only has 4 line-types for display on the X-server, but that the postscript
+file can contain many more. The "HallA_style.cxx" file creates two "new"
+line-styles (short-dash and dash-dot-dot).
+
+The canvas can be editted further interactively, through the use of the
+toolbar on the canvas. After making the changes, please be sure to save the
+canvas as a .root file, so that future minor modifications is simple.
+
+A script (make_figures.csh) can be run that will create the 'default' figures.
+
+
+ADDING NEW DATASETS
+-------------------
+
+In the plots, each dataset is represented by a TGraph object (actually a
+TGraphAsymmErrors object). To create the TGraph simply and directly to be
+modified by hand, the OneGraph() function in halla_plotting.h can be used.
+
+From halla_plotting.h :
+
+TGraphAsymmErrors* OneGraph(const char* filename,
+                       int color=1, int style=0,
+                       const char* label="data",
+                       const char* xf="[0]", const char* yf="[1]",
+                       const char* eyl="[2]", const char* eyh=0,
+                       const char* exl="0", const char* exh=0) {
+  //  Creates and returns a TGraph with y-error-bars.
+  //
+  // Input:
+  //  filename       Name of the file with the data ordered by columns;
+  //                 the columns are separated by only whitespace.
+  //                 The format is described more completely below.
+  //
+  // Optional
+  //  color          Color for the datapoints/lines (see TAttMarker/TAttLine)
+  //  style          Style for the datapoints/lines (see TAttMarker/TAttLine)
+  //                  or the 'reference sheet'
+  //
+  //  label          a name to assign to this dataset.
+  //
+  //  xf,yf          expressions for the x,y, and negative/positive uncertainties
+  //  eyl,eyh        on y. These are made into formulas, where the columns of
+  //  exl,exh        a given row are read in as parameters.
+  //                 To make it easier for the symmetric case, if exh=0 or 
+  //                 eyh=0 and the corresponding 'low' limit (exl or eyl)
+  //                 is given, the same expression will be used.
+  //
+  // Output:
+  //   returns a pointer to a TGraphAsymmErrors.
+  //
+  // Simple example: first column is 'x', second column is 'y',
+  //                 third column is the error on y (symmetric):
+  //
+  //  TGraphAsymmErrors *gr = OneGraph("mydata.dat",kBlack,0,"datafile",
+  //                          "[0]","[1]","[2]");
+  //
+  // In the datafile 'filename', lines beginning with a '#' are skipped,
+  // as are blank lines. The columns are separated by white space only.
+  //
+
+
+Alternatively, the BuildGraphs() function can be used to construct a set of
+graphs, starting with a list of datafile_t objects. See the included macros
+(eg: kees_gen.C) for examples of how this is done.
+
+Updated:
+At the beginning of some files to place certain curves such as the Galster
+parameterization or pQCD scaling by Belitsky, I used the #define <name>
+rather than have a file in the data sets.  By commenting or uncommenting
+these you can control what is added.

@@ -1,0 +1,20 @@
+
+void build_spline_file(const char* filename) {
+  // read in the file, and build a spline interpolation of it,
+  // writing it out to <filename>.spl3
+  // write out points every .05 from 0. to 10.
+  
+  TGraph gr(filename);
+  TSpline3 spl("spline",gr);
+  Double_t dx=0.05;
+  TString outf(filename);
+  outf+=".spl3";
+  outf+="\0";
+  ofstream to(outf.Data());
+  for (Double_t x=0.; x<10.; x+=dx) {
+    to << x << "   " << spl.Eval(x) << endl;
+  }
+  to.close();
+}
+
+  

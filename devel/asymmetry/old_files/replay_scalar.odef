@@ -1,0 +1,378 @@
+# ----------------------------------------------------------------
+# Transversity Scalar Replay Output Configuration File
+# Author : Jin Huang <jinhuang@jlab.org> 
+# ----------------------------------------------------------------
+#
+#
+# Analyzer output definition file used by THaOutput class.
+# See  http://hallaweb.jlab.org/root/THaOutput.html
+# R. Michaels, June 2003
+# Comments start with '# '  (careful, need a space after #) 
+#
+# There are at present 3 places where output is defined
+# in the C++ analyzer, and this is one of them.
+# The other two are THaRun (run-dependent info) and
+# THaEvent (event-dependent info), which provide quantities 
+# like run number and event number that you always need.
+# In this place, the "outdef" file, one can define
+# global variables, formulas, and histograms, as well
+# as cuts on histograms.  The results of the formulas appear 
+# in the tree with the formula-name given.
+#
+# Syntax of file  -- by example:
+#
+# variable   L.vdc.u2.nclust
+# variable   R.s1.lt
+# formula    targetX  1.464*BB.bpm4b.x-0.464*BB.bpm4a.x
+# TH1F  rv1n  'R-arm vdc hits on V1'   R.vdc.v1.nhit 100 0 10
+# TH1F  rv1w  'R-arm vdc wiremap on V1'  R.vdc.v1.wire 100 0 500
+# TH1F  tgtx  'Target X position'  targetX 100 -2 2 
+# TH2F  t12  'Time stamps on roc1 vs roc2'  D.timeroc1  D.timeroc2
+#       100 0 1000 100 0 1000
+# TH1F  Rv1n 'R-arm VDC nhit (cut)' R.vdc.v1.nhit 100 0 10 R.vdc.v1.nhit>3
+# (note, the cut R.vdc.v1.nhit appears optionally at the end, also
+#  this variable cannot be a variable-sized array)
+#
+#
+# The lines are of the form
+#     keyword  rest-of-line
+#
+# where the keywords are as follows :
+# (the keywords are case-insensitive, the rest of the line is not)
+#
+#  VARIABLE  -- indicates that a global variable is to
+#              be added to the tree.  
+#              The next string is the name of the variable.  
+#              You can see a list of variables by typing 
+#              gHaVars->Print() at the analyzer's root shell prompt.
+#              A variable can also be an array, e.g. R.s1.lt  
+#              Then the values in the tree will be R.s1.lt.data[0], 
+#              R.s1.lt.data[1], etc, up to the array size which
+#              is Ndata.R.s1.lt
+# 
+#  BLOCK   --  An entire block of variables are written to the
+#              output.  E.g. "L.*" writes all Left HRS variables.
+#
+#  FORMULA -- indicates a THaFormula to add to the output.
+#             The next word will be the "name" of the formula result 
+#             in the tree. The 3rd string is the formula to evaluate.  
+#             Note, it cannot have spaces in it.
+#             Formulas can be vectors if the arrays are fixed size.
+#
+#  CUT --     Like a formula, but the data are 0 (false) or 1 (true)
+#
+#  TH1F, TH2F, TH1D, TH2D  -- defines histograms (1D or 2D).
+#              The next word is the name of the object.
+#              The following string (must be in single quotes) is  
+#              the title of the histogram.  Next, the variables
+#              or formulas names that are put into the histogram 
+#              are listed together with bin info: nbin, xlo, xhi and if 2D
+#              the same bin info for y.  Optional cuts can be specified 
+#              at the end of the line.  See examples below.  
+#
+# ------------------------------------
+
+# List of the variable blocks to be written out
+
+
+# block adchel.L.helicity
+# block adchel2.L.helicity
+# block g0hel.L.helicity
+
+ block adchel*
+ block D*
+ block *he3*
+
+# block he3.*
+
+# block urb.*
+# block rb.*
+
+# block DL.*
+# block DL1.t3.UpADC
+
+# ------------------------------------------------
+# Coincidence Time
+# ------------------------------------------------
+
+# DL1.t3.UpADC is a quick hack of DL.t3[0], which is not supported in .odef
+# FORMULA CoinTime DL1.t3.UpADC*.5
+# TH1F HCoinTime 'Coincident Time (ns) = DL.t3[0] + Trigger Cut + LHRS Edtpl Cut' CoinTime 100 400 600 !DL.edtpl&&(DL.evtypebits&(1<<5))==(1<<5)&&(DL.evtypebits&(1<<3))!=(1<<3)
+# TH1F HCoinTimeBBEdtpl 'Coincident Time (ns) = DL.t3[0] + Trigger Cut + Bigbite Edtpl Cut' CoinTime 100 400 600 !Ndata.DL.edtpbb&&(DL.evtypebits&(1<<5))==(1<<5)&&(DL.evtypebits&(1<<3))!=(1<<3)
+
+# ------------------------------------------------
+# Status Check
+# ------------------------------------------------
+
+# Trigger
+
+# TH1F HEvType  'Trigger type' DL.evtype  10 0.5 10.5
+
+
+# Helicity
+
+# TH1F adchel 'Helicity (ADC)' adchel.L.helicity 10 -2 2
+# TH1F g0hel 'Helicity (G0/TIR)' g0hel.L.helicity 10 -2 2
+# TH1F heldiff 'Helicity Diff (G0 - ADC)' (g0hel.L.helicity-adchel.L.helicity) 10 -2 2
+
+# Spin Signal Reading Check
+
+# TH1F he3SpinValid 'General Spin Signal Validity' he3.IsSpinValid 6 -.5 1.5
+# TH1F he3SpinLADC1Valid 'Spin Signal Validity on LHRS ADC1' he3.ladc1.IsSpinValid 6 -.5 1.5
+# TH1F he3SpinLADC2Valid 'Spin Signal Validity on LHRS ADC2' he3.ladc2.IsSpinValid 6 -.5 1.5
+# TH1F he3SpinBBBitValid 'Spin Signal Validity on Bigbite VME' he3.bbbit.IsSpinValid 6 -.5 1.5
+# TH1F he3SpinBBADCValid 'Spin Signal Validity on Bigbite ADC' he3.bbadc.IsSpinValid 6 -.5 1.5
+
+# Spin State Check
+
+# TH1F he3Spin  'Spin state of He3 target, Check with TO' he3.Spin 9 -1.5 1.5 he3.IsSpinValid
+# TH1F he3SpinLADC1 'Spin state reading on LHRS ADC1' he3.ladc1.Spin 9 -1.5 1.5 he3.ladc1.IsSpinValid
+# TH1F he3SpinLADC2 'Spin state reading on LHRS ADC2' he3.ladc2.Spin 9 -1.5 1.5 he3.ladc2.IsSpinValid
+# TH1F he3SpinBBBit 'Spin state reading on Bigbite VME' he3.bbbit.Spin 9 -1.5 1.5 he3.bbbit.IsSpinValid
+# TH1F he3SpinBBADC 'Spin state reading on Bigbite ADC' he3.bbadc.Spin 9 -1.5 1.5 he3.bbadc.IsSpinValid
+
+# ------------------------------------------------
+# Flags & Cuts
+# ------------------------------------------------
+# Flags used to cut plots
+
+# -----------------------
+# Spin And Helicity Flag
+# -----------------------
+
+# FORMULA IsLeftHelicity adchel.L.helicity==-1
+# FORMULA IsRightHelicity adchel.L.helicity==1
+
+# FORMULA IsSpinUp he3.Spin==1
+# FORMULA IsSpinDown he3.Spin==-1
+
+# -----------------------
+# Trigger Flag
+# -----------------------
+
+# FORMULA InclusiveEvt (DL.evtypebits&(1<<1))==(1<<1)
+# FORMULA CoinEvt (DL.evtypebits&(1<<5))==(1<<5)
+
+
+
+
+# ------------------------------------------------
+# Scalars
+# ------------------------------------------------
+
+
+# "evleft" = ROC11 data
+# Do not use "default" for transversity
+
+begin scalers evleft
+# counts in triggers, BCM, etc
+  t1c 1 22 counts
+  t2c 1 23 counts
+  t3c 1 2 counts
+  t4c 1 3 counts
+  clkc 1 7 counts
+  l1ac 1 12 counts
+  u1cnt 1 13 counts
+  u3cnt 1 16 counts
+  u10cnt 1 8 counts
+  d1cnt 1 15 counts
+  d3cnt 1 10 counts
+  d10cnt 1 11 counts
+  fclkc 1 28 counts
+  u1c 1 13 counts
+  u3c 1 16 counts
+  u10c 1 8 counts
+  d1c 1 15 counts
+  d3c 1 10 counts
+  d10c 1 11 counts
+# rates
+  t1r  1 22  
+  t2r  1 23  
+  t3r  1 2  
+  t4r  1 3  
+  clkr 1 7
+  u1r  1 13  
+  u3r  1 16  
+  u10r 1 8  
+  d1r  1 15  
+  d3r  1 10  
+  d10r 1 11  
+  l1ar 1 12 
+  fclk 1 28 
+# target and helicity combinations (other slots ...)
+  l1app 5 12 counts
+  l1apm 4 12 counts
+  l1amp 3 12 counts
+  l1amm 2 12 counts
+  
+  clkpp 5 7 counts
+  clkpm 4 7 counts
+  clkmp 3 7 counts
+  clkmm 2 7 counts
+
+  fclkpp 5 28 counts
+  fclkpm 4 28 counts
+  fclkmp 3 28 counts
+  fclkmm 2 28 counts
+  
+  u1pp 5 13 counts
+  u1pm 4 13 counts
+  u1mp 3 13 counts
+  u1mm 2 13 counts
+
+  u3pp 5 16 counts
+  u3pm 4 16 counts
+  u3mp 3 16 counts
+  u3mm 2 16 counts
+
+  u10pp 5 8 counts
+  u10pm 4 8 counts
+  u10mp 3 8 counts
+  u10mm 2 8 counts
+  
+  d1pp 5 15 counts
+  d1pm 4 15 counts
+  d1mp 3 15 counts
+  d1mm 2 15 counts
+  
+  d3pp 5 10 counts
+  d3pm 4 10 counts
+  d3mp 3 10 counts
+  d3mm 2 10 counts
+  
+  d10pp 5 11 counts
+  d10pm 4 11 counts
+  d10mp 3 11 counts
+  d10mm 2 11 counts
+  
+  
+  t1pp 5 22 counts
+  t1pm 4 22 counts
+  t1mp 3 22 counts
+  t1mm 2 22 counts
+  
+  t2pp 5 23 counts
+  t2pm 4 23 counts
+  t2mp 3 23 counts
+  t2mm 2 23 counts
+  
+  t3pp 5 2 counts
+  t3pm 4 2 counts
+  t3mp 3 2 counts
+  t3mm 2 2 counts
+  
+  t4pp 5 3 counts
+  t4pm 4 3 counts
+  t4mp 3 3 counts
+  t4mm 2 3 counts
+
+end scalers
+
+
+# "evright" = ROC10 data
+
+begin scalers evright
+#   default
+#   default_helicity
+# counts in triggers, BCM, etc
+  t1c 0 0 counts
+  t2c 0 1 counts
+  t3c 0 20 counts
+  t4c 0 25 counts
+  clkc 0 7 counts
+  l1ac 0 12 counts
+  u1cnt 0 13 counts
+  u3cnt 0 6 counts
+  u10cnt 0 14 counts
+  d1cnt 0 15 counts
+  d3cnt 0 9 counts
+  d10cnt 0 10 counts
+  fclkc 0 21 counts
+  u1c 0 13 counts
+  u3c 0 6 counts
+  u10c 0 14 counts
+  d1c 0 15 counts
+  d3c 0 9 counts
+  d10c 0 10 counts
+# rates
+  t1r  0 0  
+  t2r  0 1  
+  t3r  0 20  
+  t4r  0 25  
+  u1r  0 13  
+  u3r  0 6  
+  u10r 0 14  
+  d1r  0 15  
+  d3r  0 9  
+  d10r 0 10  
+  clkr 0 7
+  l1ar 0 12
+  fclkr 0 21
+  
+# target and helicity combinations (other slots ...)
+  l1app 3 12 counts
+  l1apm 4 12 counts
+  l1amp 1 12 counts
+  l1amm 2 12 counts
+  
+  clkpp 3 7 counts
+  clkpm 4 7 counts
+  clkmp 1 7 counts
+  clkmm 2 7 counts
+  
+  fclkpp 3 21 counts
+  fclkpm 4 21 counts
+  fclkmp 1 21 counts
+  fclkmm 2 21 counts
+  
+  u1pp 3 13 counts
+  u1pm 4 13 counts
+  u1mp 1 13 counts
+  u1mm 2 13 counts
+
+  u3pp 3 6 counts
+  u3pm 4 6 counts
+  u3mp 1 6 counts
+  u3mm 2 6 counts
+
+  u10pp 3 14 counts
+  u10pm 4 14 counts
+  u10mp 1 14 counts
+  u10mm 2 14 counts
+  
+  d1pp 3 15 counts
+  d1pm 4 15 counts
+  d1mp 1 15 counts
+  d1mm 2 15 counts
+  
+  d3pp 3 9 counts
+  d3pm 4 9 counts
+  d3mp 1 9 counts
+  d3mm 2 9 counts
+  
+  d10pp 3 10 counts
+  d10pm 4 10 counts
+  d10mp 1 10 counts
+  d10mm 2 10 counts
+    
+  t1pp 3 0 counts
+  t1pm 4 0 counts
+  t1mp 1 0 counts
+  t1mm 2 0 counts
+  
+  t2pp 3 1 counts
+  t2pm 4 1 counts
+  t2mp 1 1 counts
+  t2mm 2 1 counts
+
+  t3pp 3 20 counts
+  t3pm 4 20 counts
+  t3mp 1 20 counts
+  t3mm 2 20 counts
+  
+  t4pp 3 25 counts
+  t4pm 4 25 counts
+  t4mp 1 25 counts
+  t4mm 2 25 counts
+
+end scalers

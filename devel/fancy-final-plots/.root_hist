@@ -1,0 +1,181 @@
+.x kees_gepgmp.C+
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+.q
+TFile *_file0 = TFile::Open("arun_gepgmp.root")
+.ls
+cn->Draw()
+.q
+TFile *_file0 = TFile::Open("arun_gepgmp.root")
+cn->Draw()
+.q
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+.q
+TFile *_file0 = TFile::Open("arun_gepgmp.root")
+cn->Draw()
+.q
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+.q
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+TFile *_file0 = TFile::Open("arun_gepgmp.root")
+.ls
+cn->Draw()
+.q
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+.x HallA_style.cxx
+.x arun_gepgmp.C+
+TFile *_file0 = TFile::Open("arun_gepgmp.root")
+cn->Draw()
+line
+gPad
+gPad->FindObject("TLine")
+gPad->FindObject("TLine")->Inspect()
+((TLine*)gPad->FindObject("TLine"))->SetX2(6.02)
+gPad->Modified()
+g
+.q
+.q
+.q
+.q
+.x HallA_style.cxx
+.x kees_gen2.C
+.q
+.x HallA_style.cxx
+.x kees_gen2.C+
+.q
+.x HallA_style.cxx
+.x kees_gen2.C+
+.q
+.x HallA_style.cxx
+.x kees_gen2.C
+.q
+.x HallA_style.cxx
+.x kees_gen2.C+
+.q
+.x HallA_style.cxx
+.x kees_gen2.C+
+.q
+.x HallA_style.cxx
+.x kees_gen2.C+
+.q
+.x HallA_style.cxx
+.x kees_gmngd2.C+
+.q
+.x HallA_style.cxx
+.x kees_gmngd2.C+
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+genf
+genf->Eval(1.45)
+genf->GetParameter(0)
+genf->SetParameter(-6.32e-1*.0411/4.55697404700840386e-02)
+genf->SetParameter(0,-6.32e-1*.0411/4.55697404700840386e-02)
+genf->Eval(1.45)
+genf->SetParameter(0,genf->GetParameter(0)*.0411/genf->Eval(1.45))
+genf
+{
+genf->SetParameter(0,genf->GetParameter(0)*.0411/genf->Eval(1.45));
+}
+Double_t v1=genf->GetParameter(0);
+Double_t v2=genf->Eval(1.45);
+Double_t v3=0.0411/v2*v1;
+.p v3
+genf->SetParameter(0,v3)
+genf->Draw("same")
+genf->Print()
+.q
+.x HallA_style.cxx
+.x kees_gen3.C+
+.x HallA_style.cxx
+.x kees_gen3.C+
+.q
+.q
+.x HallA_style.cxx
+.x gen4.C+
+.q
+.x HallA_style.cxx
+.x gen4.C+
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+
+bt
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+g
+bt
+.q
+.x HallA_style.cxx
+.x gepgmp_Rosen.C+g
+.....q
+.q
+.x HallA_style.cxx
+.L gepgmp_Rosen.C++g
+gepgmp_Rosen()
+.q
+.x HallA_style.cxx
+.L gepgmp_Rosen.C+g
+gepgmp_Rosen()
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.L gen4.C+
+TF1* galster = new TF1("galster",
+galster->Print()
+galster->Draw()
+galster->Eval(1.8)
+galster->Eval(1.7)
+galster->Eval(1.67)
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+.x HallA_style.cxx
+.x gen5.C+
+.q
+TFile *_file0 = TFile::Open("gen5a.root")
+.ls
+cn->Draw()
+.q

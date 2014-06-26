@@ -1,0 +1,29 @@
+Number of Runs: 14
+Run #   # Unpolarized   # Spin Up       # Spin Down     Total C         C for up        C for down      Error
+20475   2.49221e+06     1.35533e+06     1.13396e+06     8.0692e+13      3.47045e+07     2.8981e+07      0.000175743
+20477   2.49675e+06     1.75018e+06     740362  8.10237e+13     4.4865e+07      1.89235e+07     0.000175542
+20479   2.49865e+06     670357  1.82235e+06     8.11209e+13     1.71942e+07     4.66056e+07     0.000175504
+20483   2.47333e+06     1.31359e+06     1.15675e+06     8.03871e+13     3.37106e+07     3.00363e+07     0.000175408
+20485   2.4906e+06      841161  1.64791e+06     8.08255e+13     2.15958e+07     4.23109e+07     0.000175541
+20486   2.2316e+06      747891  1.48079e+06     6.48684e+13     1.92056e+07     3.79768e+07     0.000185478
+20487   2.48073e+06     1.26868e+06     1.20968e+06     8.02964e+13     3.26105e+07     3.11345e+07     0.000175769
+20488   2.46894e+06     1.76913e+06     693819  7.98884e+13     4.57158e+07     1.78171e+07     0.000175798
+20489   2.4787e+06      1.62068e+06     854980  8.01156e+13     4.17062e+07     2.19366e+07     0.000175895
+0       0       0       0       0       0       0       0
+0       0       0       0       0       0       0       0
+0       0       0       0       0       0       0       0
+0       0       0       0       0       0       0       0
+0       0       0       0       0       0       0       0
+Run Number: 20475 , Asymmetry = -0.000948243 , Error = 0.000175743
+Run Number: 20477 , Asymmetry = -0.00146089 , Error = 0.000175542
+Run Number: 20479 , Asymmetry = -0.00146084 , Error = 0.000175504
+Run Number: 20483 , Asymmetry = 0.00587264 , Error = 0.000175408
+Run Number: 20485 , Asymmetry = 3.11815e-05 , Error = 0.000175541
+Run Number: 20486 , Asymmetry = -0.000652557 , Error = 0.000185478
+Run Number: 20487 , Asymmetry = 0.000650382 , Error = 0.000175769
+Run Number: 20488 , Asymmetry = -0.00312781 , Error = 0.000175798
+Run Number: 20489 , Asymmetry = -0.00148387 , Error = 0.000175895
+Error: operator '/' divided by zero right_v_target_asymmetry_3.C:288:
+Error: operator '/' divided by zero right_v_target_asymmetry_3.C:289:
+Error: operator '/' divided by zero right_v_target_asymmetry_3.C:290:
+

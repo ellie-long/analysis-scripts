@@ -1,0 +1,44 @@
+Hi Rob,
+
+Here is one more set of calculations. Please incorporate them into the 
+figures numbered 1 (including Iachello, Lomon, etc) using 
+"dash-doubledot-dash" and calling them Hammer.
+
+Thanks,
+
+Kees
+
+Begin forwarded message:
+
+> From: Hans-Werner Hammer <hammer@pooh.phys.washington.edu>
+> Date: Wed Apr 7, 2004  2:43:20 PM US/Eastern
+> To: kees@jlab.org
+> Cc: Ulf Meissner <meissner@itkp.uni-bonn.de>
+> Subject: EM form factors
+>
+>
+>  Dear Kees,
+>
+>  attached are the data files for our best fit (red solid line) in
+>  Fig. 1 of  hep-ph/0312081. The files include the following
+>  quantities:
+>
+>  genthf4.dat:  Q^2[GeV^2],  G_E^n
+>  gepthnf4.dat:  Q^2[GeV^2],  G_E^p/G_dipole
+>  gmnthnf4.dat:  Q^2[GeV^2],  G_M^n/G_dipole/mu_n
+>  gmpthnf4.dat:  Q^2[GeV^2],  G_M^p/G_dipole/mu_p
+>
+>  where G_dipole = 1/(1+Q^2/(0.71 GeV^2))^2
+>        mu_n = -1.913
+>        mu_p = 2.793
+>
+>     Best Regards,
+>       Hans
+>
+> -- 
+> Hans-Werner Hammer                  phone:  206-685-9776
+> Institute for Nuclear Theory          fax:    206-685-9829
+> University of Washington              email:  
+> hammer@phys.washington.edu
+> Box 351550
+> Seattle, WA 98195-1550, USA

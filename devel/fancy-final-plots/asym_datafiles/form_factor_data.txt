@@ -1,0 +1,1091 @@
+
+
+
+
+                         *********************************
+                         *   Nucleon E.M. Form Factors   *
+                         *    (GEp, GMp; GEn, GMn)       *
+                         *********************************
+
+This file includes almost all of the experimental data on nucleon
+electromagnetic form factors in the space-like region published in english
+language journals after 1970.  Some measurements without explicit data are
+not included here. For example, S.Platchkov measured neutron electric form
+factor(Nucl Phys A510, 740-758,1990), but unfortunately only a plot was
+given in the article with no data table.
+
+The data are sorted by form-factor and then by date (in reverse
+chronological order).  Each data set has the following fields:
+
+LAB at which the data were taken
+Reference to the paper
+notes about target/method
+data
+                                     
+Throughout this file: Gd   =  1/(1+Q2/.71)/(1+Q2/.71),                   
+                      mu_p =  2.79,                               
+                      mu_n = -1.91,                   
+
+and Q2=Q^2 is given in (GeV/c)^2 unless noted otherwise.  
+
+Most of these data were originally compiled by L. Zhu.
+
+If you have questions or updates, please contact Jason Seely at seely@mit.edu.                                
+
+**************************************************************
+                        mu_p*GEp/GMp
+**************************************************************
+
+JLAB
+O. Gayou et al., Phys. Rev. Lett. 88, 092301 (2002)
+Measured GEp/GMp by polarization transfer in p(e,e'p) (polarized beam).
+
+ Q2    error   mu*GEp/GMp   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+3.50    0.23     0.571         0.072        0.007 
+3.97    0.26     0.482         0.052        0.008 
+4.75    0.30     0.382         0.053        0.011 
+5.54    0.34     0.273         0.087        0.028 
+
+==========================================================================
+
+Mainz
+S. Dieterich et al., Phys. Lett. B 500, 47 (2001)
+Polarization transfer in He4(e,e'p)He3 (polarized beam).
+
+ Q2    error   mu*GEp/GMp   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+0.40             0.88          0.04          0.01
+
+==========================================================================
+
+JLAB
+O. Gayou et al., Phys. Rev. C 64, 038202 (2001)
+Measured GEp/GMp by polarization transfer in p(e,e'p) (polarized beam).
+(Thanks to J. Arrington for sending the ref. and data)
+
+ Q2    error   mu*GEp/GMp   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+0.32             0.930         0.067         0.007
+0.35             0.910         0.061         0.004
+0.39             0.961         0.033         0.005
+0.46             0.952         0.034         0.006
+0.57             0.959         0.039         0.007
+0.76             0.966         0.033         0.012
+0.86             0.865         0.029         0.015
+0.88             0.923         0.086         0.013
+1.02             0.900         0.038         0.022
+1.12             0.825         0.027         0.020
+1.18             0.851         0.050         0.023
+1.42             0.733         0.058         0.029
+1.76             0.816         0.115         0.069
+==========================================================================
+
+JLAB
+M.K. Jones et al., PRL vol. 84, 1398 (2000)
+Measured GEp/GMp by polarization transfer in p(e,e'p) (polarized beam).
+
+ Q2    error   mu*GEp/GMp   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+0.49    0.04     0.966         0.022         0.011
+0.79    0.02     0.950         0.015         0.017
+1.18    0.07     0.869         0.014         0.027
+1.48    0.11     0.798         0.033         0.035
+1.77    0.12     0.728         0.026         0.047
+1.88    0.13     0.720         0.031         0.060
+2.47    0.17     0.726         0.027         0.062
+2.97    0.20     0.612         0.032         0.056
+3.47    0.20     0.609         0.047         0.045
+
+==========================================================================
+
+MIT-Bates
+B.D. Milbrath et al., Phys. Rev. Lett. 80, 452 (1998)
+with an erratum:
+B.D. Milbrath et al., Phys. Rev. Lett. 82, 2221 (1999)
+(the data below were taken from the erratum.)
+Measured GEp/GMp by polarization transfer in p(e,e'p), and d(e,e'p)
+
+ Q2    error   mu*GEp/GMp   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+ep->ep:
+-------
+0.38             0.95          0.05          0.02
+0.50             1.02          0.05          0.02
+--------------------------------------------------
+ed->ep:
+-------
+0.38             1.00          0.10          0.02
+0.50             1.07          0.06          0.02
+
+==========================================================================
+
+SLAC
+L. Andivahis et al., Phys. Rev. D 50, 5491 (1994)++
+(First published as P. E. Bosted et al., Phys Rev Lett 68, 3841 (1992).)
+Numbers below are from 2nd publication (Andivahis et al.). 
+"The total error is quatdrature sum of the statistical plus the systematic 
+point-to-point error.  The overall normalization error of +-0.9% has not been 
+included.".
+
+ Q2    mu*GEp/GMp   error(stat+) error(stat-) error(total+) error(total-)
+--------------------------------------------------------------------------
+1.75     0.910         0.036        0.036        0.059        0.061
+2.50     0.824         0.024        0.024        0.068        0.072
+3.25     0.846         0.053        0.056        0.112        0.124
+4.00     0.891         0.068        0.073        0.123        0.138
+5.00     0.931         0.099        0.108        0.162        0.192
+6.00     0.965         0.144        0.164        0.200        0.241
+7.00     1.510         0.217        0.238        0.247        0.275
+8.83     0.949         0.542        0.948        0.566        0.948
+
+==========================================================================
+
+DESY
+W. Bartel et al    Nuclear Physics B58    429   (1973)
+GEp/Gd is derived from the ratio mu*gep/gmp and gmp.
+And the error for gep/gd is estimated from the their errors too:
+  err(gep/gd) = gep/gd*sqrt((rel_err(mu*gep/gmp)^2-rel_err(gmp)^2)) .
+
+ (Only Ge/Gd extracted from cross sections from this experiment are 
+ listed below. In the paper is a tabulation of Ge/Gd extracted by 
+ combining cross sections from other experiments with this experiment.)
+
+ Q2   mu*GEp/GMp   error(total)   GEp/Gd   error(total)
+--------------------------------------------------------------------------
+0.67     1.05        0.08          1.015     0.07
+1.00     1.04        0.10          1.06      0.10
+1.169    0.99        0.08          1.02      0.08
+1.50     1.00        0.14          1.03      0.14
+1.75     0.78        0.14          0.825     0.14
+2.00     0.81        0.14          0.85      0.14
+2.33     0.71        0.22          0.755     0.22
+3.00     0.63        0.33          0.67      0.33
+
+==========================================================================
+
+Bonn
+Ch. Berger et al., Phys Letters 35B, 87-89,(1971)
+"The shown errors are random errors only. In case of Ge and Gm, a 
+normalization error of 2% has to be added."  
+note that in paper Q2 is in (1/fm)^2
+
+ Q2   mu*GEp/GMp   error(stat)
+--------------------------------------------------------------------------
+0.389    0.95        0.026
+0.584    0.972       0.019
+0.779    0.957       0.030
+0.973    0.984       0.042
+1.168    0.909       0.061
+1.363    0.935       0.068
+1.557    0.872       0.084
+1.752    0.815       0.119
+1.947    1.003       0.174
+
+==========================================================================
+
+SLAC
+J. Litt et al., Phys. Lett. 31B, 40, (1970)
+Rosenbluth separation in p(e,e')p
+
+ Q2    error   mu*GEp/GMp   error(total)
+--------------------------------------------------------------------------
+0.99             0.97          0.05
+1.53             0.82          0.08
+1.98             1.06          0.17
+2.50             1.16          0.19
+3.74             1.41          0.31
+
+**************************************************************
+                            GEp/Gd
+**************************************************************
+
+SLAC
+L. Andivahis et al., Phys. Rev. D 50, 5491 (1994)
+(First published as P. E. Bosted et al., Phys Rev Lett 68, 3841 (1992).)
+Numbers below are from 2nd publication (Andivahis et al.). 
+"The total error is quatdrature sum of the statistical plus the systematic 
+point-to-point error.  The overall normalization error of +-0.9% has not been 
+included."
+
+ Q2     GEp/Gd     error(stat+) error(stat-) error(total+) error(total-)
+--------------------------------------------------------------------------
+1.75     0.956         0.032        0.033        0.053         0.056
+2.50     0.868         0.023        0.024        0.065         0.070
+3.25     0.884         0.051        0.055        0.108         0.123
+4.00     0.919         0.066        0.071        0.118         0.135
+5.00     0.942         0.094        0.104        0.155         0.188
+6.00     0.952         0.133        0.155        0.184         0.229
+7.00     1.448         0.184        0.211        0.209         0.244
+8.83     0.869         0.464        0.869        0.484         0.869
+
+==========================================================================
+
+SLAC
+First published as R. C. Walker et al., Phys Lett B 224, 353 (1989) with
+no table just graphs.
+Second publication as R. C. Walker et al., Phys Rev. D 49, 5671 (1994)
+
+Below are Ge/Gd extracted from data from this experiment.
+In the paper is a tabulation of muGe/Gm combining data from
+other experiements with this one.
+
+ Q2     GEp/Gd   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+1.000   1.001       0.072        0.039         0.013
+2.003   1.173       0.077        0.047         0.029
+2.497   1.101       0.103        0.065         0.031
+3.007   1.231       0.141        0.083         0.035
+
+==========================================================================
+
+Mainz
+G.G. Simon et al., Nucl. Phys. A, 381-391 (1979)
+unpolarized electron scattering. 
+extracts GEp from unpol. cross section assuming: GEp/GMp/mu_p = 1
+
+ Q2      GEp    GEp/Gd  error(stat)
+(fm^-2)                   (%)
+--------------------------------------------------------------------------
+0.14   0.9858   1.0010   0.22
+0.20   0.9767   0.9982   0.25
+0.25   0.9722   0.9990   0.22
+0.30   0.9619   0.9938   0.43
+0.35   0.9612   0.9984   0.22
+0.40   0.9511   0.9945   0.50
+0.45   0.9463   0.9936   0.16
+0.50   0.9428   0.9952   0.31
+0.55   0.9353   0.9925   0.16
+0.60   0.9320   0.9932   0.30
+0.65   0.9246   0.9930   0.18
+0.70   0.9165   0.9882   0.35
+0.80   0.9064   0.9877   0.27
+0.85   0.9043   0.9906   0.32
+0.90   0.9023   0.9935   0.37
+1.00   0.8839   0.9835   0.80
+1.20   0.8637   0.9799   0.60
+1.40   0.8466   0.9815   0.40
+
+==========================================================================
+Mainz
+F.Borkowski et al., Nucl Phys B93, 461-478,(1975)
+[Other references: Nucle Phys A222, 269-275,(1974) ]
+The errors quoted are due to the random errors in the cross section and have been
+calculated from the error matrix of the fitting routine. 
+"Taking into account the overall normalization error of the cross 
+sections would give rise to an additional uncertainty of 1.8% in 
+the form factors."
+
+ Q2     GEp/Gd   error(stat)    GEp    error(stat)
+--------------------------------------------------------------------------
+0.0136  0.986      0.008       0.949     0.008 
+0.021   0.986      0.008       0.930     0.008
+0.033   0.988      0.008       0.901     0.007
+0.040   0.975      0.009       0.874     0.008
+0.046   0.974      0.007       0.859     0.006
+0.055   0.974      0.005       0.840     0.004
+0.066   0.968      0.009       0.810     0.008
+0.084   0.965      0.007       0.772     0.006
+0.099   0.969      0.009       0.746     0.007
+0.123   0.954      0.018       0.693     0.013
+
+==========================================================================
+
+Saskatchewan linear accelerator in Univesity of Saskatchewan, saskatoon, canada
+J.J.Murphy et al., Phys Rev C9, 2125-2129 (1974)
+The errors attached to Ge include both statistical couting errors and the 
+uncertainties resulting from variations in d\sigma/d\omega_p as a function of the
+integration cutoff energy.
+(Q2 in (GeV/c)^2 and GEp/Gd (and errors) were not included in the paper, but were 
+ calculated for this database.)
+
+Q2(fm-2)  Q2(GeV^2)  GEp/Gd   error(total)  GEp   error(total)  
+--------------------------------------------------------------------------
+0.150      0.0058    0.997      0.005	   0.981     0.005      
+0.295      0.0115    1.001      0.005	   0.969     0.005      
+0.297      0.0116    0.998      0.003	   0.966     0.003      
+0.347      0.0135    0.998      0.003	   0.961     0.003      
+0.390      0.0152    1.004      0.003	   0.962     0.003      
+0.396      0.0154    0.997      0.003	   0.955     0.003      
+0.440      0.0171    0.997      0.003	   0.951     0.003      
+0.493      0.0192    0.994      0.004	   0.942     0.004      
+0.530      0.0206    0.994      0.010	   0.939     0.009      
+0.678      0.0264    0.992      0.004	   0.922     0.004      
+0.794      0.0309    0.995      0.004      0.914     0.004      
+
+==========================================================================
+
+DESY
+W. Bartel et al    Nuclear Physics B58    429   (1973)
+GEp/Gd is derived from the ratio mu*gep/gmp and gmp.
+And the error for gep/gd is estimated from the their errors too:
+  err(gep/gd) = gep/gd*sqrt((rel_err(mu*gep/gmp)^2-rel_err(gmp)^2)) .
+
+ (Only Ge/Gd extracted from cross sections from this experiment are 
+ listed below. In the paper is a tabulation of Ge/Gd extracted by 
+ combining cross sections from other experiments with this experiment.)
+
+ Q2   mu*GEp/GMp   error(total)   GEp/Gd   error(total)
+--------------------------------------------------------------------------
+0.67     1.05        0.08          1.015     0.07
+1.00     1.04        0.10          1.06      0.10
+1.169    0.99        0.08          1.02      0.08
+1.50     1.00        0.14          1.03      0.14
+1.75     0.78        0.14          0.825     0.14
+2.00     0.81        0.14          0.85      0.14
+2.33     0.71        0.22          0.755     0.22
+3.00     0.63        0.33          0.67      0.33
+
+==========================================================================
+
+Cambridge Electron Accelator
+K.M.Hanson(Harvard) et al., Phys Rev D8    753-778   (1973)
+From e-d scattering
+
+Q2(fm-2)  Q2(GeV^2)   GEp/Gd   error(total)   GEp    error(total,relative) 
+--------------------------------------------------------------------------
+ 7.0      0.272       0.958      0.013	     0.5004    1.4%    
+10.0      0.389       0.994      0.012	     0.4147    1.2%    
+15.0      0.584       0.972      0.014	     0.2926    1.4%    
+20.0      0.779       0.956      0.029	     0.2174    3.0%    
+30.0      1.168       0.914      0.033	     0.1307    3.6%    
+45.0      1.752       0.856      0.077       0.07123   9.0%    
+
+==========================================================================
+
+Cambridge Electron Accelerator(CEA)
+L.E.Price(Harvard University) et al., Phys Rev D4, 45-53,(1971)
+The error of gep/gd is estimated as the product of the ratio of gep/gd,gep^2 
+and half of the err of gep^2.
+From e-p scattering
+
+ Q2      GEp/Gd   error(total)   GEp^2   error(total)    
+--------------------------------------------------------------------------
+0.130     0.971      0.011        0.481     0.011  
+0.190     0.973      0.008        0.367     0.006  
+0.270     0.958      0.013        0.253     0.007  
+0.330     0.958      0.011        0.1994    0.0044 
+0.390     0.994      0.012        0.1716    0.0041 
+0.450     1.001      0.025        0.1405    0.0071 
+0.530     0.998      0.035        0.1070    0.0074 
+0.580     0.972      0.014        0.0867    0.0025 
+0.650     0.972      0.042        0.0702    0.0061 
+0.720     1.095      0.070        0.0729    0.0093 
+0.780     0.956      0.028        0.0471    0.0028 
+0.940     1.057      0.041        0.0383    0.0030 
+1.100     0.914      0.032        0.0198    0.0014 
+1.350     0.960      0.044        0.0130    0.0012 
+1.750     0.857      0.076        0.0051    0.0009 
+
+==========================================================================
+
+Bonn
+Ch. Berger et al., Phys Letters 35B, 87-89,(1971)
+"The shown errors are random errors only. In case of Ge and Gm, a normalization 
+error of 2% has to be added."  
+note that in paper Q2 is in (1/fm)^2, and
+GEp, GMp/mu, and mu*GEp/GMp are given (numbers below were calculated.)
+
+ Q2      GEp/Gd   error(stat)
+--------------------------------------------------------------------------
+0.389     0.95       0.026
+0.584     0.972      0.019
+0.779     0.957      0.030
+0.973     0.984      0.042
+1.168     0.909      0.061
+1.363     0.935      0.068
+1.557     0.872      0.084
+1.752     0.815      0.119
+1.947     1.003      0.174
+
+==========================================================================
+
+Cambridge (Harvard cyclotron) + others
+L.N. Hand et al., Rev. Mod. Phys., 35, 335-349 (1963)
+this paper gives data for several experiments, please see paper for
+details.
+
+ Q2      GEp/Gd   error(---)
+--------------------------------------------------------------------------
+0.0109    0.973      0.014
+0.0116    0.959      0.010
+0.0116    0.974      0.006
+0.0140    0.967      0.040
+0.019     0.933      0.009
+0.0221    0.915      0.037
+0.0233    0.940      0.007
+0.0241    0.922      0.010
+0.0307    0.920      0.037
+0.0361    0.848      0.034
+0.0388    0.881      0.009
+0.0408    0.884      0.009
+0.0505    0.867      0.025
+0.0536    0.873      0.036
+0.0621    0.849      0.004
+0.0776    0.810      0.024
+0.0776    0.825      0.022
+0.0776    0.784      0.013
+0.0854    0.790      0.006
+0.116     0.725      0.021
+0.155     0.650      0.034
+0.155     0.749      0.173
+0.233     0.557      0.122
+0.233     0.654      0.186
+0.310     0.400      0.109
+0.310     0.473      0.624
+0.388     0.419      0.033
+0.388     0.558      0.021
+0.388     0.417      0.020
+0.466     0.300      0.044
+0.466     0.466      0.032
+0.543     0.256      0.054
+0.582     0.416      0.022
+0.621     0.281      0.050
+0.699     0.350      0.024
+0.776     0.316      0.045
+0.854     0.295      0.046
+0.931     0.249      0.109
+0.931     0.204      0.545
+0.970     0.396      0.037
+1.164     0.000      0.200
+1.164     0.359      0.037
+1.358     0.258      0.044
+1.552     0.436      0.073
+1.746     0.000      0.250
+
+**************************************************************
+                        GMp/Gd/mu_p 
+**************************************************************
+
+SLAC
+First published as P. E. Bosted et al., Phys Rev Lett 68, 3841 (1992).
+Revised numbers and errors in L. Andivahis et al., Phys. Rev. D 50, 5491 (1994)++
+Below are from 2nd publication. The error here is the total error which is
+the statistical plus the systematic point-to-point. The overall normalization
+error of +-0.9% has NOT be added into the error.
+
+ Q2   GMp/Gd/mu_p   error(stat)   error(total)
+--------------------------------------------------------------------------
+1.75   1.050         0.006         0.010
+2.50   1.054         0.002	   0.007
+3.25   1.045         0.005	   0.009
+4.00   1.031         0.005	   0.009
+5.00   1.012         0.006         0.009
+6.00   0.987         0.008	   0.012
+7.00   0.959         0.014	   0.016
+8.83   0.916         0.022	   0.023
+
+==========================================================================
+
+SLAC
+First published as R. C. Walker et al., Phys Lett B 224, 353 (1989) with
+no table just graphs.
+Second publication as R.C. Walker et al., Phys Rev. D 49, 5671 (1994)++
+error is the combined statistical and point-to-point systematic added in
+quadrature.
+Below are GMp/Gd/mu extracted from data from this experiment (from 1994 paper).
+In the paper is a tabulation of GMp/Gd/mu combining data from
+other experiments with this one.
+
+ Q2   GMp/Gd/mu_p   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+1.000    1.017         0.027         0.015         0.010
+2.003    1.014         0.017         0.009         0.010
+2.497    1.030         0.016         0.010         0.010
+3.007    1.012         0.020         0.010         0.010
+
+==========================================================================
+
+SLAC
+P.E.Bosted,et al.,Phys Rev C42,38-64,(1990)
+
+ Q2   GMp/Gd/mu_p   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.49     0.978         0.006         0.016
+0.62     0.988         0.004         0.016
+0.83     0.998         0.002         0.015
+1.01     1.021         0.009         0.016
+1.08     1.028         0.006         0.015
+1.17     1.016         0.002         0.016
+1.23     1.017         0.014         0.016
+1.31     1.016         0.003         0.016
+1.45     1.028         0.004         0.015
+1.61     1.023         0.003         0.015
+1.74     1.015         0.004         0.015
+
+==========================================================================
+
+SLAC
+First published as Arnold et al. PRL 57, 174 (1986)
+Sill et al., PRD 48, 29-55(1993)
+Numbers below are from 2nd publication.
+Note that GMp/Gd/mu_p (and error(total)) were calculated from the numbers
+given in the paper (last three columns below).
+!!need to double check GMp/Gd/mu_p from 4.991-5.027
+!! last three columns are correct js 6.23.3
+Q2(GeV^2) GMp/Gd/mu_p  error(total)  Q^4GMp/mu_p  error(stat)  error(syst)
+--------------------------------------------------------------------------
+2.862       1.023        0.020         0.331        0.002        0.006
+3.621       1.025        0.023         0.361        0.004        0.007
+4.991       1.012        0.020         0.391        0.003        0.007
+5.017       1.000        0.020         0.387        0.003        0.007
+5.027       1.008        0.019         0.390        0.001        0.007
+7.300       0.948        0.027         0.397        0.004        0.007
+9.629       0.892        0.020         0.390        0.005        0.007
+11.99       0.872        0.020         0.392        0.005        0.007
+15.72       0.819        0.025         0.378        0.009        0.007
+19.47       0.731        0.029         0.343        0.012        0.006
+23.24       0.729        0.032         0.346        0.014        0.006
+26.99       0.708        0.044         0.339        0.020        0.006
+31.20       0.720        0.066         0.347        0.031        0.007
+
+==========================================================================
+
+Mainz
+F.Borkowski et al., Nucl Phys B93, 461-478,(1975)
+[Other references: Nucle Phys A222, 269-275,(1974) ]
+"The errors quoted are due to the random errors in the cross section and have been
+calculated from the error matrix of the fitting routine. Taking into account the
+overall normalization error of the cross sections would give rise to an 
+additional uncertainty of 1.8% in the form factors."
+(Note that in their notation: GMp(0)=1)
+
+ Q2   GMp/Gd/mu_p   error(stat)
+--------------------------------------------------------------------------
+0.021   0.982         0.060
+0.033   0.982         0.040
+0.040   1.002         0.020
+0.046   0.996         0.025
+0.055   0.987         0.015
+0.066   0.993         0.012
+0.084   0.985         0.010
+0.099   0.974         0.015
+0.123   0.986         0.020
+
+==========================================================================
+
+DESY
+W. Bartel et al., Nuclear Physics B58, 429,(1973)
+Only GMp/gd/mu extracted from cross sections from this
+experiment is listed below. The data is not explicitly listed.
+In the paper is a tabulation of muGe/Gm extract by combining
+cross sections from other experiments with this experiment.
+
+ Q2     GMp   rel. error(%)   GMp/Gd/mu_p   error(total)
+--------------------------------------------------------------------------
+0.670  0.714      3.1           0.967         0.030
+1.000  0.490      2.9           1.019         0.030
+1.169  0.410      2.1           1.029         0.022
+1.500  0.298      3.1           1.035         0.032
+1.750  0.246      2.1           1.058         0.022
+2.000  0.202      2.0           1.055         0.021
+2.330  0.162      2.2           1.064         0.023
+3.000  0.108      2.2           1.057         0.023
+
+==========================================================================
+
+Cambridge Electron Accelator
+K.M.Hanson(Harvard) et al., Phys Rev D, vol. 8, no. 3, 753-778,(1973)
+From e-d scattering
+
+ Q2(fm-2)  GMp   rel. error(%)  Q2(GeV/c)^2   GMp/Gd/mu_p   error(total)
+--------------------------------------------------------------------------
+  7.0     1.408      1.1         0.272          0.966          0.011
+ 10.0     1.1336     0.9         0.389          0.974          0.009
+ 15.0     0.8427     0.6         0.584          1.003          0.006
+ 20.0     0.6477     1.0         0.779          1.020          0.010
+ 30.0     0.4202     0.8         1.168          1.054          0.008
+ 45.0     0.2480     1.1         1.752          1.069          0.012
+
+==========================================================================
+
+Cambridge Electron Accelerator(CEA)
+L.E.Price(Harvard University) et al., Phys Rev D4, 45-53,(1971)
+From ep scattering
+
+ Q2  (GMp/Gd/mu)^2  error(total)   GMp/gd/mu_p   error(total)
+--------------------------------------------------------------------------
+0.130   0.947          0.080           0.973        0.016
+0.190   0.949          0.042           0.974        0.009
+0.270   0.934          0.045           0.966        0.012
+0.330   0.956          0.021           0.978        0.006
+0.390   0.949          0.022           0.974        0.007
+0.450   0.964          0.020           0.982        0.007
+0.530   0.972          0.026           0.986        0.011
+0.580   1.007          0.009           1.003        0.004
+0.650   1.017          0.013           1.008        0.006
+0.720   1.006          0.014           1.003        0.008
+0.780   1.041          0.008           1.020        0.005
+0.940   1.027          0.006           1.013        0.004
+1.100   1.110          0.0032          1.054        0.003
+1.350   1.130          0.0024          1.063        0.003
+1.750   1.142          0.0013          1.069        0.002
+
+==========================================================================
+
+Bonn
+Berger et al., Phys Letters 35B, 87-89, (1971)
+The shown errors are random errors only. In case of Ge and Gm, 
+a normalization error of 2% has to be added.
+
+ Q2   GMp/Gd/mu   error(stat)
+--------------------------------------------------------------------------
+0.389   0.978        0.020 
+0.584   0.983        0.009
+0.779   1.004        0.011
+0.973   1.010        0.013
+1.168   1.041        0.016
+1.363   1.025        0.016
+1.557   1.053        0.017
+1.752   1.061        0.021
+1.947   1.022        0.038
+
+**************************************************************
+                          GEn
+**************************************************************
+JLab
+G. Warren et al., nucl-ex/0308021
+d_vec(e_vec,e'n)p
+(polarized electrons on vector polarized deuterons)
+
+ Q2       GEn     error(stat)  error(syst)
+--------------------------------------------------------------------------
+0.5     0.0526     0.0033       0.0026
+1.0     0.0454     0.0054       0.0037
+
+==========================================================================
+
+JLab
+R. Madey et al., (accepted by PRL)
+polarized e on Deuterium (polarization transfer)
+
+ Q2       GEn     error(stat)  error(syst)
+--------------------------------------------------------------------------
+0.447   0.0550     0.0060       0.0016
+1.132   0.0394     0.0029       0.0012
+1.450   0.0411     0.0035       0.0013
+
+==========================================================================
+
+Mainz
+J. Bermuth et al., (nucl-ex/0303015)
+polarized e on polarized 3He
+note: The published result (below) is a combination of the measurement made 
+by Bermuth et al. (given in the paper), and the result from Rohe et al. 
+(1999, below).  Bermuth et al. conducted the experiment at the same Q^2 as 
+Rohe et al. so that they could combine the results in order to reduce the 
+statistical uncertainty in the result.
+
+ Q2       GEn    error(total)
+--------------------------------------------------------------------------
+0.67    0.0484     0.0071
+==========================================================================
+
+R. Schiavilla and I. Sick, Phys. Rev. C, 64, 041002-1 (Sep 11, 2001)
+Extracted GEn from the deuteron quadrupole form factor
+
+ Q2       GEn    error(total)
+--------------------------------------------------------------------------
+0.0097  0.00008    0.00512
+0.0389  0.02059    0.01436
+0.0875  0.04304    0.02378
+0.156   0.06132    0.02842
+0.243   0.06051    0.02453
+0.350   0.05916    0.01559
+0.477   0.05312    0.00916
+0.623   0.04794    0.00762
+0.788   0.04834    0.00849
+0.973   0.05032    0.00877
+1.177   0.04391    0.00958
+1.401   0.03265    0.01147
+1.644   0.03036    0.01247
+==========================================================================
+
+JLab
+Zhu et al., Phys Rev. Lett, Volume 87, Number 8 (Aug 20, 2001)
+asymmetry from polarized electrons off polarized (solid) target
+
+ Q2       GEn    error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.495   0.04632    0.00616       0.00341
+
+==========================================================================
+
+Mainz
+J. Golak et. al., Phys. Rev. C 63, 034006
+From 3He(e,e') (polarized beam and target).  This is a re-analysis of the 
+experiment of J. Becker et. al. in 1999 (see directly below).  They
+give various values for GEn, but the ones listed here are there 'best' 
+values from a full treatment of the final state interactions.
+
+ Q2       GEn    error(total) 
+--------------------------------------------------------------------------
+0.30    0.0536     0.0039
+0.35    0.0550     0.0044
+0.40    0.0561     0.0050
+mean: (weighted by errors)
+0.35    0.0547     0.0025
+
+==========================================================================
+
+Mainz
+J. Becker et al., Eur. Phys J A6, 329-344(1999)
+From 3He(e,e'n)
+
+ Q2       GEn    error(stat)   error(syst) 
+--------------------------------------------------------------------------
+0.35    0.0334     0.0033        0.0028
+
+==========================================================================
+
+Mainz
+C. Herberg et al.,Eur. Phys. J A5,131-135 (1999)
+From D(e,e'n)
+
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.15    0.0481    0.0065        0.0053
+
+==========================================================================
+
+Mainz
+M. Ostrick et al., Phys. Rev. Let. 83,276-279 (1999)
+From 2H(e,e'n)p
+
+ Q2       GEn   error(stat)   error(+syst)   error(-syst)
+--------------------------------------------------------------------------
+0.34    0.0611    0.0069        0.0069         0.0055
+
+==========================================================================
+
+NIKHEF(Amsterdam)
+I. Passchier et al., Phys. Rev. Let. 82, 4988-4991 (1999)
+From 2H(e,e'n)p
+
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.21    0.066     0.015         0.004 
+
+==========================================================================
+
+Mainz
+D. Rohe et al.,Phys. Rev. Let. 83, 4257-4260 (1999)
+From 3He(e,e'n)
+
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.67    0.052     0.011         0.005 
+
+==========================================================================
+
+Bates
+T. Eden et al., Phys. Rev. C 50, R1749-R1753 (1994)
+From 2H(e,e'n)1H
+
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.255   0.066     0.036         0.009
+
+==========================================================================
+
+Mainz
+M. Meyerhoff et al., Phys. Let. B 327, 201-207,(1994)
+From polarized 3He
+
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.31    0.035     0.012         0.005
+
+==========================================================================
+
+SLAC
+A. Lung et al., Phys. Rev. Let., 70, 718-721,(1993)
+From Quasielastic e-d scattering
+error(stat) is poin-to-point
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+1.75   -0.008     0.074         0.117
+2.50   -0.050     0.074         0.142
+3.25    0.164     0.154         0.252
+4.00    0.235     0.269         0.356
+
+==========================================================================
+
+MIT-Bates
+C.E. Jones-Woodward et al.,Phys. Rev. C 44, R571-R574,(1991)
+from polarized 3He
+error(stat) are point-to-point 
+ Q2       GEn   error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.16    0.070     0.100         0.035
+
+==========================================================================
+
+Cambridge Electron Accelator
+K.M.Hanson(Harvard) et al., Phys. Rev. D 8, 753-778,(1973)
+From e-d scattering
+
+ Q2(fm^-2)  GEn^2  error(total)  Q2(GeV^2)  GEn  error(total)
+--------------------------------------------------------------------------
+  7.0       0.0132   0.0090       0.272    0.220   0.075
+ 10.0       0.0010   0.0045       0.389    0.076   0.171
+ 15.0       0.0028   0.0072       0.584    0.176   0.226
+ 20.0       0.0212   0.0046       0.779    0.640   0.069
+ 30.0       0.0052   0.0028       1.168    0.504   0.136
+ 45.0       0.0017   0.0024       1.752    0.496   0.350
+
+==========================================================================
+
+DESY
+W. Bartel et al., Phys. Let. B 39, 407-410 (1972)
+From quasielastic electron-deuteron scattering
+
+ Q2      GEn^2  error(total)   GEn  error(total)
+--------------------------------------------------------------------------
+1.00    0.0045    0.0045      0.389   0.19
+1.53    0.0021    0.0025      0.456   0.27
+
+W. Bartel et al., Phys. Let. B 30, 285-288 (1969) 
+From quasielastic electron-deuteron scattering
+
+ Q2      GEn^2  error(total)   GEn  error(total)
+--------------------------------------------------------------------------
+0.39    -0.004    0.009      -0.152   0.17
+0.565   -0.005    0.006      -0.228   0.14
+
+==========================================================================
+
+JLAB
+Grossetete et al., Physical Review 141, no. 4
+
+ Q2(fm^-2)  Q2(GeV^2)  GEn(GK)  error(total)  GEn(Hamada)  error(total)
+--------------------------------------------------------------------------
+0.882        0.0343     0.033     0.013        0.029         0.013
+1.000        0.0389     0.020     0.008        0.017         0.008
+1.351        0.0526     0.027     0.009        0.024         0.009
+
+**************************************************************
+                       GMn/Gd/mu_n
+**************************************************************
+JLAB
+W. Xu et. al., accepted by PRC rapid communications, 
+(unpublished as of 12/11/2)
+He3(e,e') Polarized beam and target
+
+ Q2   GMn/Gd/mu_n  error(stat)  error(syst)   error(theo+)   error(theo-)
+--------------------------------------------------------------------------
+0.3     0.972        0.014        0.016         0.026          0.054
+0.4     0.984        0.011        0.028         0.028          0.025
+0.5     0.984        0.009        0.024         0.028          0.013
+0.6     1.010        0.013        0.027         0.013          0.014
+==========================================================================
+
+DESY
+Kubon et al., nucl-ex0107016, 26 Jul, 2001
+
+ Q2   GMn/Gd/mu_n  error(total)
+--------------------------------------------------------------------------
+0.071   0.990        0.013
+0.125   0.967        0.013
+0.359   0.989        0.014
+0.894   1.062        0.017
+
+==========================================================================
+
+JLAB
+W. Xu et. al., Phys. Rev. Lett. 85, 2900 (2000)
+He3(e,e) Polarized beam and target
+
+ Q2   GMn/Gd/mu_n  error(stat)   error(syst)
+--------------------------------------------------------------------------
+0.1     0.962        0.014          0.010
+0.2     0.959        0.013          0.010
+
+==========================================================================
+
+Mainz
+H. Anklin,et al., Phys Lett B 428, 248-253(1998)
+From D(e,e'p) and D(e,e'n)
+
+ Q2   GMn/Gd/mu_n  error()
+--------------------------------------------------------------------------
+0.235   0.962        0.009
+0.504   1.032        0.012
+0.652   1.037        0.012
+0.784   1.043        0.012
+
+==========================================================================
+
+ELSA at Physics Institute at Bonn
+E.E.W.Bruins,et al., Phys Rev Lett 75,21-24(1995)
+Refer to Comment on "Measurement of the Neutron Magnetic Form factor"
+J. Jourdan et al., Phys ReV Lett 79,5186(1997)
+and the reply on the next page.
+From D(e,e'p) and D(e,e'n)
+
+ Q2   GMn/Gd/mu_n  error(stat)  error(syst)
+--------------------------------------------------------------------------
+0.125   1.020        0.018        0.015
+0.255   1.076        0.019        0.013
+0.417   1.135        0.033        0.017
+0.605   1.104        0.014        0.032
+
+==========================================================================
+
+Mainz
+H. Anklin,et al., Phys Lett B336, 313-318(1994)
+From D(e,e'p) and D(e,e'n)
+
+ q(fm^-1)   Q2(GeV^2) GMn/Gd/mu_n  error()
+--------------------------------------------------------------------------
+1.69         0.111      0.957        0.016
+
+==========================================================================
+
+MIT-Bates
+H.Gao et al., Phys. Rev. C50, R546-R549,(1994)
+From 3He
+
+ Q2   GMn/Gd/mu_n   error(stat)   error(syst)   error(model)
+--------------------------------------------------------------------------
+0.19    0.998         0.117         0.059         0.030
+
+==========================================================================
+
+SLAC
+A.Lung et al., Phys Rev lett 70,718-721,(1993)
+From Quasielastic e-d scattering
+
+ Q2   GMn/Gd/mu_n   error(stat)   error(syst)
+--------------------------------------------------------------------------
+1.75    1.052         0.026         0.045
+2.50    1.014         0.017         0.041
+3.25    0.967         0.031         0.052
+4.00    0.923         0.048         0.065
+
+==========================================================================
+
+MIT-Bates
+P.Markowitz et al., Phys Rev C48,R5-R9,(1993)
+From 2H(e,e'n)1H
+
+ Q2   GMn/Gd/mu_n   error(stat)   error(syst)   error(theo)
+--------------------------------------------------------------------------
+0.109   1.136         0.022         0.025         0.014
+0.176   1.039         0.010         0.026         0.015
+0.255   1.028         0.025         0.021         0.021
+
+==========================================================================
+
+SLAC
+R.G.Arnold et al., Phys Rev Lett 61,806-809,(1988)
+Fig.4 shows a lot of points of GMn of Q2 from 0.75 to 2.57 (Gev/c), 
+but no table is given.
+From tranverse quasi-elastic electron scattering from the deuteron
+
+ Q2   GMn/Gd/mu_n   error()
+--------------------------------------------------------------------------
+1.00    0.943         0.086
+1.31    0.990         0.100
+1.58    0.900         0.143
+1.74    1.050         0.076
+
+==========================================================================
+
+Khar'kov electron linear accelerator
+A.S.Esaulov et al., Sov J Nucl Phys v45,258-262,(1987)
+also see: Yad. Fiz. 45, 410-417,(1987)
+There are six values for each Q2. The neutron magnetic factors are sensitive to
+the form of the deuteron wave function and to the parametrization of the neutron 
+electric from factor. The three choices of the forms of the wave function of 
+deuteron are: Reid potential, Paris potential and Buch-Gross deuteron wave 
+function. The two choices of the neutron electric form factor are  -\mu\taoGd and
+zero.
+Here only the set of results for Paris potential and GEn=-\mu\taoGd are listed.
+From d(e,e')np
+
+ Q2(GeV^2)   GMn/Gd/mu_n   error(stat)
+--------------------------------------------------------------------------
+0.482          0.941         0.048
+0.545          1.037         0.043
+0.608          1.285         0.035
+0.646          1.156         0.035
+0.692          1.121         0.038
+0.832          1.079         0.044
+
+==========================================================================
+
+Cambridge Electron Accelator
+K.M.Hanson et al., Phys Rev D8, 753-778,(1973)
+From e-d scattering
+
+ Q2(fm-2)   GMn/GMp/mu_n*mu_p  error()   Q2(GeV^2)  GMn/Gd/mu_n   error()
+--------------------------------------------------------------------------
+ 7.0          0.9048           0.0594     0.272       0.874        0.057
+10.0          1.0155           0.0275     0.389       0.989        0.025
+15.0          0.9367           0.0579     0.584       0.940        0.058
+20.0          0.7709           0.0569     0.779       0.787        0.058
+30.0          0.9053           0.0414     1.168       0.954        0.043
+45.0          0.9353           0.0708     1.752       0.999        0.075
+
+==========================================================================
+
+DESY
+W. Bartel et al., Phys Lett B39, 407-410(1972)
+From quasielastic electron-deuteron scattering
+
+ Q2   GMn/Gd/mu_n   error()
+--------------------------------------------------------------------------
+1.00    0.975         0.055
+1.53    1.055         0.055
+
+==========================================================================
+
+DESY
+W. Bartel et al., Phys Lett B30, 285-288(1969) 
+From quasielastic electron-deuteron scattering
+
+ Q2   GMn^2   error()   GMn/Gd/mu_n   error() 
+--------------------------------------------------------------------------
+0.390 0.620     0.060      0.990        0.10      
+0.565 0.365     0.030      1.020        0.08
+
+==========================================================================
+
+DESY
+P. Stein et al. PRL Vol. 16 Num. 13, 592 (1966)
+From quasielastic electron-deuteron scattering
+
+ Q2(fm^-2)  Q2(GeV^2)    GMn   error(stat)   GMn/Gd/mu   error(stat)
+--------------------------------------------------------------------------
+10.0         0.389     -0.825    0.064         1.03       0.080
+14.5         0.564     -0.638    0.042         1.08       0.071
+
+==========================================================================
+
+DESY
+Hughes et al., Physical Rev., Vol. 139, Num. 2B (26 July, 1965)
+
+ Q2(fm^-2)  Q2(GeV^2)  GMn/mu  error(stat) error(tot)  GMn/Gd/mu_n  error(stat)
+--------------------------------------------------------------------------
+ 1.0        0.039      1.360     0.290        0.355     1.51          0.323   
+ 1.5        0.058      0.931     0.049        0.112     1.09          0.057
+ 2.5        0.097      0.948     0.028        0.084     1.22          0.036
+ 4.6        0.180      0.701     0.024        0.070     1.10          0.038
+ 7.5        0.290      0.496     0.013        0.051     0.984         0.026
+10.0        0.389      0.432     0.011        0.042     1.04          0.026
+12.5        0.486      0.382     0.016        0.042     1.08          0.045
+15.0        0.584      0.331     0.015        0.038     1.10          0.050
+20.0        0.778      0.249     0.031        0.049     1.09          0.140
+25.0        0.973      0.224     0.026        0.040     1.26          0.105
+30.0        1.170      0.156     0.028        0.041     1.09          0.200
+
+==========================================================================
+
+
+
+
+
+
+
+

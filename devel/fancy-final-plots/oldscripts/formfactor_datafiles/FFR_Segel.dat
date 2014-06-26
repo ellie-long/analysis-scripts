@@ -1,0 +1,12 @@
+# Preliminary From John Arrington ( Tue May 18, 2004  12:23:14 PM US/Eastern )
+# to Kees de Jager
+#  Please do not include these results in the version you put on the
+#  preprint server.
+#
+#	 2.64    0.929   tat+
+#                 random  total
+# Q^2     Ratio   error   error
+ 2.64    0.929   0.040   0.053
+ 3.20    0.985   0.058   0.070
+ 4.10    1.068   0.090   0.101
+

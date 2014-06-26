@@ -1,0 +1,73 @@
+
+Double_t dipole(Double_t Q2) {
+  Double_t f = 1./(1.+Q2/.71);
+  return f*f;
+}
+
+void build_GEp() {
+  const char* infileGM = "GMp_GD.dat";
+  const char* infileQF2F1 = "QF2_kF1.dat";
+  
+  ifstream inGM(infileGM);
+  ifstream inF2F1(infileQF2F1);
+  ofstream outFRR("mup_GEp_GMp.dat");
+  
+  Double_t kappa=1.79;
+  Double_t mup = kappa+1;
+  Double_t Q2, Gm_Gd, Qf2f1;
+  Double_t Gm, F1, F2;
+  Double_t Ge, mupGe_Gm;
+  Double_t Q2f, Q, tau, massP=0.938272;
+  while ( inGM.good() && inF2F1.good() ) {
+    inGM >> Q2 >> Gm_Gd;
+    inF2F1 >> Q2f >> Qf2f1;
+    if ( !inGM.good() || !inF2F1.good() ) break;
+    if (TMath::Abs(Q2f-Q2)>1.e-5) {
+      cerr << "Different Q2 points: " << Q2 << "  " << Q2f << endl;
+    }
+    if (Q2<=0.) Q2=1.e-6;
+    Q = TMath::Sqrt(Q2);
+    Gm = Gm_Gd*dipole*mup;
+    F2 = Gm/(kappa+Q/Qf2f1);
+    F1 = Gm/(1.+kappa*Qf2f1/Q);
+    tau = Q2/(4*massP*massP);
+    Ge = F1 - kappa*tau*F2;
+
+    outFFR.form("%6.3g   %6g\n",x,mup*Ge/Gm);
+  }
+  outFFR.close();
+}
+
+void build_GEp_spl() {
+  const char* infileGM = "GMp_GD.dat.spl";
+  const char* infileQF2F1 = "QF2_kF1.dat.spl";
+  
+  ifstream inGM(infileGM);
+  ifstream inF2F1(infileQF2F1);
+  ofstream outFRR("mup_GEp_GMp.dat.spl");
+  
+  Double_t kappa=1.79;
+  Double_t mup = kappa+1;
+  Double_t Q2, Gm_Gd, Qf2f1;
+  Double_t Gm, F1, F2;
+  Double_t Ge, mupGe_Gm;
+  Double_t Q2f, Q, tau, massP=0.938272;
+  while ( inGM.good() && inF2F1.good() ) {
+    inGM >> Q2 >> Gm_Gd;
+    inF2F1 >> Q2f >> Qf2f1;
+    if ( !inGM.good() || !inF2F1.good() ) break;
+    if (TMath::Abs(Q2f-Q2)>1.e-5) {
+      cerr << "Different Q2 points: " << Q2 << "  " << Q2f << endl;
+    }
+    if (Q2<=0.) Q2=1.e-6;
+    Q = TMath::Sqrt(Q2);
+    Gm = Gm_Gd*dipole*mup;
+    F2 = Gm/(kappa+Q/Qf2f1);
+    F1 = Gm/(1.+kappa*Qf2f1/Q);
+    tau = Q2/(4*massP*massP);
+    Ge = F1 - kappa*tau*F2;
+
+    outFFR.form("%6.3g   %6g\n",x,mup*Ge/Gm);
+  }
+  outFFR.close();
+}

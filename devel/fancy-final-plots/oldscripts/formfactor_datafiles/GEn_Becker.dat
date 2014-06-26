@@ -1,0 +1,4 @@
+# value from the paper (Golak)
+#0.35 0.0547 0.0025
+# Scaler error-bar to be consistent with the original dataset (~13%)
+0.35 0.0547 0.0071 

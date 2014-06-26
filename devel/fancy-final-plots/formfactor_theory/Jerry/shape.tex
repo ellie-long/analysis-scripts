@@ -1,0 +1,649 @@
+%\documentclass[12pt,aps]{revtex}
+\newcommand{\boldsigma}{\mbox{\boldmath $\sigma$}}
+\newcommand {\boldgamma}{\mbox{\boldmath$\gamma$}}
+\newcommand{\boldtau}{\mbox{\boldmath $\tau$}}
+\newcommand{\bftau}{\mbox{\boldmath $\tau$}}
+\newcommand{\bfx}{{\bf x}}
+\newcommand{\bfy}{{\bf y}}
+\newcommand{\bfP}{{\bf P}}
+\def\poinc{Poincar\'{e} }
+\def\bfq {{\bf q}}
+\def\bfs {{\bf s}}
+\def\bfn {{\bf n}}
+\def\bfqp {{\bf q}_\perp}
+\def\bfK{{\bf K}}
+\def\bfKp{{\bf K}_\perp}
+\def\bfL{{\bf L}}
+\def\bfk{{\bf k}}
+\def\bfp{{\bf p}}  
+\newcommand{\bfkap}{\mbox{\boldmath $\kappa$}} 
+\def\bfr{{\bf r}} 
+\def\bfy{{\bf y}} 
+\def\bfx{{\bf x}} 
+\def\be{\begin{equation}}
+ \def \ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+  \def\eea{\end{eqnarray}}
+\newcommand{\eqn} {Eq.~(\ref )}
+% braket related commands
+% bra-ket = b-k = <>
+\newcommand{\bb}{\langle}
+\newcommand{\kk}{\rangle}
+\newcommand{\bk}[4]{\bb #1\,#2 \!\mid\! #3\,#4 \kk}
+\newcommand{\kb}[4]{\mid\!#1\,#2 \!\mid}
+
+\def\notp{{\not\! p}}
+\def\notk{{\not\! k}}
+\def\up{{\uparrow}}
+\def\down{{\downarrow}}
+\def\bfb{{\bf b}}
+\documentstyle[12pt,aps]{revtex}
+\tighten
+\setlength{\textheight}{8.60in}
+\setlength{\textwidth}{6.6in}
+\setlength{\topmargin}{-.40in}
+\setlength{\oddsidemargin}{-.125in}
+\tolerance=1000
+\baselineskip=14pt plus 1pt minus 1pt
+
+\def\poinc{Poincar\'{e} }
+\def\bfq {{\bf q}}
+\def\bfK{{\bf K}}
+\def\bfL{{\bf L}}
+\def\bfk{{\bf k}}
+\def\bfp{{\bf p}}  
+\def\be{\begin{equation}}
+ \def \ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+  \def\eea{\end{eqnarray}}
+\def\eqn {Eq.~(\ref )}
+% braket related commands
+% bra-ket = b-k = <>
+
+
+
+
+\newcommand{\kx}[2]{\mid\! #1\,#2 \kk}
+\def\notp{{\not\! p}}
+\def\notk{{\not\! k}}
+\def\up{{\uparrow}}
+\def\down{{\downarrow}}
+\def\bfb{{\bf b}}
+
+
+\title{\begin{flushright}{\normalsize NT@UW-03-07}\end{flushright}
+Shapes of the Proton}
+\author{Gerald A. Miller
+\\ University of Washington
+  Seattle, WA 98195-1560}
+
+\sloppy
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+A model proton wave function, constructed using \poinc invariance, and
+constrained by recent electromagnetic form factor data, is used to study
+the shape of the proton. Spin-dependent quark densities are defined as
+matrix elements of density operators in 
+proton states of definite spin-polarization, and shown to have 
+an infinite 
+variety of non-spherical shapes. For high momentum quarks with spin parallel
+to that of the proton, the shape resembles that of a peanut,
+but  for quarks with anti-parallel spin the shape is that of a bagel.
+\end{abstract}
+
+\vskip0.5cm
+
+Recent data \cite {Jones:1999rz,Gayou:2001qd} 
+showing that  the ratio of the proton's electric and magnetic form
+factor $G_E/G_M$, falls with increasing momentum transfer $Q^2$ for 
+1$<Q^2<6 $ GeV$^2$
+have created considerable attention. This behavior  or the equivalent    
+statement 
+ that  the ratio of Pauli
+to Dirac form factors, $QF_2(Q^2)/F_1(Q^2)$ is a approximately constant,
+indicates that quarks in the proton carry non-zero orbital angular momentum
+\cite{ralston,Braun:2001tj,Miller:2002qb,Ji}.
+
+This note is concerned with 
+the shape of the proton. 
+Several   subtleties and difficulties enter in determining the shape.
+ As a particle of spin
+1/2, the proton can have no quadrupole moment, 
+according to the Wigner-Eckhart theorem.  Thus any non-spherical 
+manifestation must reside in fluctuating components of the quantum wave
+function. Another difficulty occurs in using experiments
+in which momentum is transferred to the proton. The proton's final state  
+ carries different total momentum than that of the initial
+state, and the effects of boosts cause the initial and final state
+wave functions to differ. For example, one often thinks  of a particle
+in relativistic motion having a pancake shape because of the effects
+of Lorentz contraction. Such an effect is caused by external influence
+and is therefore not a manifestation of the intrinsic shape
+of the proton. Another possible problem occurs through the use of 
+light cone coordinates, which
+  involve a separation of coordinates into
+longitudinal and transverse, and  complicates   a simple interpretation. Our
+technique is to use   model of the 
+proton wave 
+function\cite{Frank:1995pv},\cite{Miller:2002qb},\cite{Miller:2002ig}, 
+constructed using \poinc invariance and  parameters
+constrained by data, to compute
+specific matrix elements using only the proton's rest  frame wave function 
+using ordinary coordinates.
+
+
+The basic  experimental observables  concerning us  are the
+independent form factors: 
+\begin{eqnarray}
+F_1(Q^2) ={1 \over 2P^+}\langle N,\uparrow\left| J^+\right| N,
+\uparrow\rangle, \quad
+Q\kappa  F_2(Q^2) ={-2M_N \over 2P^+}\langle N,\uparrow\left|
+J^+\right| N,\downarrow\rangle.\label{defs}
+\end{eqnarray}
+The form factor $F_1$ is obtained from the non-spin flip matrix element, while
+$F_2$ is obtained from the spin-flip term. In evaluating the right-hand-side of
+Eq.~(\ref{defs}) we take $J^+$ to be that of
+free quarks\cite{cloud}, $\gamma^+$ times the quark charge. 
+We use a frame in which 
+$q^\nu=(p'-p)^\nu,\quad Q^2=-q^2,\quad q^+=0,\quad \bfq=Q{\bf e}_x=-2\bfp$
+
+
+Our three-quark wave function is constructed using 
+symmetries\cite{bere76,chun91}. It is
+antisymmetric,  expressed in terms of relative
+momentum variables, an eigenstate of the spin-operator defined
+by the Pauli Lubanski vector, is rotationally invariant and 
+ reduces to non-relativistic SU(6) wave function in the limit that the
+quark mass goes to infinity.
+ The wave function is given by 
+ \bea
+\Psi(p_i)=\Phi(M_0^2)
+u(p_1) u(p_2) u(p_3)\psi(p_1,p_2,p_3),\quad p_i=\bfp_i  s_i,\tau_i
+\label{wave}\eea
+where $\psi$ is a spin-isospin color amplitude factor\cite{chun91},
+the $\bfp_i$ are expressed in terms of relative coordinates
+(with  $-{\bf p}_{3\perp}={\bf K}$),  the
+$u(p_i)$ are
+  Dirac spinors and $\Phi$ is a spatial wave function. 
+The arguments of the spatial wave function are
+taken as the mass-squared operator for a non-interacting 
+system\cite{Schlumpf:ce}:
+\bea M_3\equiv 2(\bfk^2+m^2)^{1/2},\;
+M_0=(\bfK^2+M_3^2)^{1/2}+ (\bfK^2+m^2)^{1/2},
+\eea
+where $\bfk$ is the relative momentum between quarks labeled 1 and 2
+and $-\bfK$ is the momentum of the third quark\cite{explain}.
+
+
+The spatial wave function is of the Schlumpf\cite{Schlumpf:ce} form: \bea
+%\Phi(M_0)=N\exp\left[-{M_0^2\over 2\beta_G^2}\right] \qquad\hbox{or}\qquad
+\Phi(M_0)={N\over (M^2_0+\beta^2)^{\gamma}}\;,  
+\beta =0.607\;{\rm GeV}, \; \gamma=3.5,\; m = 0.267\; {\rm GeV}.
+\label{params}\eea
+ The value
+of 
+$\gamma$ is chosen that $ Q^4G_M(Q^2) $   is approximately  constant for
+$Q^2>4\; {\rm GeV}^2$ in accord with experimental data. The parameter 
+$\beta$  governs the magnitudes  of the momenta allowed by the
+wave function $\Phi$. The values of $\beta$ and $m$ are determined by 
+the    charge radius
+and  magnetic moment of the proton. 
+Slightly
+ different values of $\beta,\gamma$ and $m$ 
+are used when the effects of the pion cloud are incorporated\cite{Miller:2002ig}.
+But using these values would 
+ cause very small differences here. 
+
+
+The calculation of electromagnetic form factor  is
+completely defined once 
+ this  wave function and operator   $J^+$  are specified. Although the 
+evaluation  was  presented 
+long ago\cite{Frank:1995pv} and explained recently\cite{Miller:2002qb},
+ it is worthwhile to briefly explain how the constant nature  of the
+ratio $QF_2/ F_1$ emerges from the relativistic nature of the calculation.
+ The wave function 
+Eq.~(\ref{wave}) is completely anti-symmetric, so that 
+we may take $J^+$ to act only on the third quark 
+which absorbs the momentum of the virtual photon. The average charge of
+the third quark in 
+the mixed-symmetric component of \ref{wave} vanishes, so that 
+the only component of the
+wave function that enters in the calculation of electromagnetic form factors
+is the one in which the first two quarks are a state of total angular momentum
+0 and isospin 0 (mixed anti-symmetric component).
+ Then the matrix element of $J^+$ is governed only by the third quark.
+The relevant Dirac spinor is given by:
+\bea
+ u(p_3=\bfK,s)={1\over \sqrt{E(K)+m}}\left(\begin{array}{c}
+(E(K)+m)\vert s\kk \\%chi_{s} \\
+\boldsigma\cdot\bfK\vert s \kk %chi_{s}
+\end{array}
+\right),\label{spinor}\eea
+with $E(K)=(K^2+m^2)^{1/2}$.
+The total angular momentum of the proton is denoted by $s$ and
+the lower component contains a term  $\boldsigma\cdot\bfK$ that allows the
+quark to have a spin opposite to that of the proton's total angular momentum.
+The  vector  $\bfK$ reveals the presence of the quark orbital angular momentum:
+it is possible that  $s=1/2= s_{qz}+L_{qz}=-1/2+1$. Thus the struck quark
+may carry a spin that is opposite to that of the proton. Consequently  
+helicity is not conserved\cite{ralston,Braun:2001tj,flip}.
+
+Suppose $Q$ is very large compared to $\beta$ and
+the third quark 
+ changes its momentum from $\bfK$  to $\bfK'$ . Then  
+the 
+form factor depends on the matrix element of $\bar{u}(K',s')\gamma^+u(K,s)$.
+If we keep only the largest terms, those proportional
+ to $Q$, we find
+\bea
+\bar{u}(K',s')
+\gamma^+u(K,s)\sim\bb s'\vert Q +{K^+\over M_0}Qi\sigma_y \vert s\kk.\label{big}\eea
+The spin-flip term proportional to $i\sigma_y$ arises from the lower component
+of the spinor of Eq.~(\ref{spinor}), and this term has the same large factor $Q$
+as the non-spin-flip term. Thus Eq.~(\ref{defs}) tells
+ us that $QF_2$ and $F_1$ have 
+the same dependence on $Q$, causing a constant ratio.
+The construction of an eigenstate of spin, mandates the use of Dirac spinors.
+The lower components of these spinors carry the quark orbital angular 
+momentum responsible for the constant nature of $QF_2/F_1$.
+
+ We next 
+interpret these features in terms of the shapes of the 
+proton.  Our technique of defining  spin-dependent density operators 
+is  introduced by presenting
+ two simple examples. Consider a non-relativistic nuclear wave function
+consisting of a proton outside a $0^+$ inert 
+core. The proton is bound by a combination of a central and 
+spin-orbit potential, so that the single
+particle wave function is an eigenfunction of total angular momentum.
+Consider the case $(l,js)=(1,1/2s)$, with one unit of orbital angular momentum.
+ Then the proton wave function is
+a two-component Pauli spinor:
+$\bb\bfr_p \vert\psi_{1,1/2s}\kk=R(r_p)\boldsigma\cdot\hat{\bfr}_p\vert s\kk,$
+where $\bfr_p$ is the proton's position, and $\vert s \kk$ is
+a  Pauli spinor. The charge density of this  system is the 
+expectation value of the density operator $\delta(\bfr-\bfr_p)$:
+with $
+\rho(r)=\bb\psi_{1,1/2s}\vert\delta(\bfr-\bfr_p)\vert \psi_{1,1/2s}\kk=R^2(r),$
+and is spherically symmetric. Thus the presence of orbital angular momentum
+does {\bf not} mandate a non-spherical shape.
+However, consider instead the case that we ask for  the probability that 
+the proton at a position $\bfr$ also 
+have a spin in a certain direction defined by a unit vector ${\bfn}$.
+ Then we define a spin-dependent  density:
+\bea \rho(\bfr,{\bfn})=\bb
+&&\psi_{1,1/2s}\vert\delta(\bfr-\bfr_p){(1+\boldsigma\cdot{\bfn})\over2}\vert \psi_{1,1/2s}\kk\nonumber\\
+&&={R^2(r)\over 2}\bb  s\vert1+2\boldsigma\cdot \hat{\bfr}\;{\bfn} \cdot \hat{\bfr} -\boldsigma\cdot
+{\bfn}\vert s\kk.\eea
+An interesting special case is to take $\hat{\bfn}$
+ parallel or anti-parallel to
+the direction of the proton angular momentum 
+$\bfs$. The direction of this vector defines an axis (the ``z-axis''), and
+ the direction of vectors can be represented in terms of this axis:
+$\hat{\bfs}\cdot\hat{\bfr}=\cos\theta$. With this notation
+$ \rho(\bfr,{\bfn}=\hat{\bfs})={R^2(r)}\cos^2\theta,\;
+ \rho(\bfr,{\bfn}=-\hat{\bfs}  )={R^2(r)}\sin^2\theta$ and
+ the non-spherical shape is exhibited clearly. 
+Note that the average of these
+two cases  would give 
+a spherical shape (as would an average over the direction of the total 
+angular momentum),
+ but the ability to
+define a spin-dependent density allows 
+the presence of the orbital angular momentum to be revealed in
+ the shape of the computed density.
+
+Another useful example is that of the 
+Dirac electron wave function of the Hydrogen
+atom. This wave function is a four-component spinor 
+given by $\vert\psi_e\kk$ with
+\bea \bb\bfr_e\vert\psi_e\kk=N\;r_e^{\gamma}\exp(-m_e\alpha\;r_e)\left(\begin{array}{c}
+1\vert s\kk \\%chi_{s} \\
+i\alpha/2\boldsigma\cdot\hat{\bfr}_e\vert s \kk %chi_{s}
+\end{array}\right),\eea
+where $\alpha$ is the fine structure constant and $\gamma=\sqrt{1-\alpha^2}$.
+We may again compute
+the expectation value of the 
+spin-dependent density operator, this time in terms of Dirac matrices:
+$\delta(\bfr-\bfr_e))(1+\gamma_5\boldgamma\cdot{\bfn})/2$, so that
+for example (with $\bfn=\hat{\bfs}), \;\rho(\bfr,\hat{\bfn}=\hat{\bfs})=
+r^{-2\gamma}\exp{-(2m_e\alpha r_e)}\left[1+\alpha^2/4\cos^2\theta\right].$
+We see that the Hydrogen atom is deformed! Here the angular dependence is
+$\sim1+10^{-5}\cos^2\theta$ so  that the shape is almost spherical. But the
+principle is clear: relativity as manifest by lower components of a Dirac
+wave function  implies a deformed shape,
+ if the matrix element of the spin-dependent 
+density operator is computed in a state of fixed total angular momentum.
+For $\bfn=-\hat{\bfs},\;\rho(\bfr,\hat{\bfn}=-\hat{\bfs})=
+\alpha^2\sin^2\theta$/4.
+\begin{figure}
+%\begin{Large}
+\unitlength1cm %1cm
+%first one\begin{picture}(11,9)(0,-10.5)
+%\begin{picture}(11,9)(0,-10.5)
+\begin{picture}(10,8)(0,-9)
+  \special{psfile=rhok.ps angle=270 hscale=44 vscale=44}
+\end{picture}
+%\end{Large}
+\label{fig:1}
+\caption{Momentum probability $K^2\rho(K)$ in  dimensionless
+units arbitrarily normalized.}% so that $\gamma(K)$ can be shown.} 
+\end{figure}
+With these examples in 
+hand we turn to the proton. Its  wave function
+ is specified in momentum space,  so  we define 
+a momentum-space, spin-dependent,
+  charge-density operator  acting on the  quarks:
+\bea\hat{\rho}(\bfK,{\bfn})
+\equiv\sum_{i=1,3} (Q_i/e)\delta (\bfK -\bfK_i)(1+(\gamma_5\boldgamma)_i\cdot{\bfn})/2
+.\label{rhohk}\eea We may compute probabilities for a quark to have
+a momentum
+$\bfK\equiv (K,\theta,\phi)$ and spin direction $\bfn$, for a spin-polarized
+proton polarized in the $\hat{\bfs}$ direction. We find
+\bea
+\rho(\bfK,\bfn)=\bb\Psi_s\vert \hat{\rho}(\bfK,\hat{\bfn})\vert\Psi_{s}\kk
+=\rho(K){1\over2}(1+\bfn\cdot\hat{\bfs}+{\gamma(K)}
+(1-\bfn\cdot\hat{\bfs}+2\hat{\bfK}\cdot\bfn\hat{\bfK}\cdot\hat{\bfs}))
+\label{shapek} \eea 
+with \bea \rho(K)\equiv\int\;d^3k \Phi^2(k,K)(E(K)+m),\;\gamma(K)\equiv
+{E(K)+m\over E(K)-m}.\label{rhodef}\eea
+Some special cases of this equation are interesting.
+Suppose the  quark spin is parallel to the proton spin so that $\bfn =
+\hat{\bfs}$,
+then
+$\hat{\rho}(K,\bfn =\hat{\bfs})=\rho(K)
+\left(1+\gamma(K) \cos^2\theta\right)$. 
+For small $K$ the shape is nearly spherical,
+ but for large $K$ the $\cos^2\theta$ term becomes prominent. On the other
+hand, the quark spin could be anti-parallel to the proton spin such that 
+ $\bfn =-\hat{\bfs}$. Then we find:
+$\hat{\rho}(K,\bfn =-\hat{\bfs})=\rho(K)\gamma(K)
+ \sin^2\theta,$ 
+and the shape is that of a torus
+for all values of $K$. We may also take the
+ quark spin perpendicular to the proton spin 
+$\bfn\cdot\bfs=0$, so that
+$
+\rho(\bfK,\bfn\cdot\bfs=0)=\rho  (K) (1+\gamma(K))/2 +\gamma(K)
+\sin\theta\cos\theta (\cos\phi n_x+\sin\phi n_y),$
+to display the dependence on the azimuthal angle.
+In each case, the non-spherical nature arises from the term proportional 
+to $\gamma(K)$, the caused by the lower components of the 
+Dirac spinor(\ref{spinor}).
+
+We turn to the numerical evaluation and display of these shapes. 
+The shape for a given value of $K$ is determined by the ratio
+$\gamma(K)$ which reaches a value of 0.6 for $K=1$ GeV/c.
+This implies considerable non-sphericity. 
+The probability that a given value of $K$ is reached 
+ is determined by the function
+$K^2\rho(K)$, displayed in Fig.~1. The most likely value of $K$ corresponds
+to $\gamma(K)=0.16$, and $\gamma(K)\le1$.
+\vskip4.2cm
+\begin{figure}
+%\begin{Large}
+\unitlength1cm
+\begin{picture}(10,8)(0,1)
+\special{psfile= disco.eps  angle=0 hscale=60 vscale=60}
+\end{picture}
+%\end{Large}
+\label{fig:shapes}
+\caption{Shapes of the proton. $\bfs$ is in the vertical direction $\bf\hat z$.
+Left column quark spin parallel to nucleon
+spin $\bfn=\hat\bfs$. Right column : quark spin anti-parallel to nucleon
+spin $\bfn=-\bfs$. The value of $K$ increases from 0 to 1 to 4 GeV/c.  }
+\end{figure}
+
+\vskip4.2cm
+%\newpage
+The shapes for the cases of quark spin parallel and anti-parallel to
+the polarization direction of the  proton $\bfs$ are displayed in Fig.~2.
+As the value of $K$ increases from 0 to 4 GeV/c the shape varies from
+that of a sphere to that of a peanut, if $\bfn\parallel\bfs$. 
+The torus or bagel shape is obtained if  $-\bfn\parallel\bfs$.
+Taking $\bfn\perp\bfs$ leads to some very unusual shapes shown in Fig.~3.
+\smallskip
+
+\begin{figure}
+\unitlength1cm
+\begin{picture}(5,5)(-0,0)
+\special{psfile=smallside.eps  }%  angle=0 hscale=75 vscale=75}
+\end{picture}
+\caption{\label{fig:side}$\bfn\cdot \bfs=0$. 
+Left column, $\bfn=\hat{\bfx}$(out of page),
+central: $\bfn=\hat{\bfy}$,right $\bfn=(\hat{\bfx}+\hat{\bfy})/\sqrt{2}  $.
+ The momentum $K$ increases from
+ 1 to 4 GeV/c. }
+\end{figure}
+%\vskip10.2cm
+%\newpage
+
+
+
+It is worthwhile to obtain a coordinate space look at the shape of the
+proton. One can determine the probability for the separation of a quark 
+from the center of mass to be 
+$\bfr $  because  $\bfr$ is
+canonically conjugate to $\bfK$.
+We define 
+a coordinate-space, spin-dependent,
+  charge-density operator  that acts on the  quarks:
+\bea\hat{\rho}(\bfr,{\bfn})
+\equiv\sum_{i=1,3}
+ (Q_i/e)\delta (\bfr -\bfr_i)(1+(\gamma_5\boldgamma)_i\cdot{\bfn})/2
+\label{rhor}\eea so that we may compute probabilities for a quark to have
+a position
+$\bfr\equiv (r,\theta,\phi)$ and spin direction $\bfn$.
+ We find
+\bea
+\rho(\bfr,\bfn)=\bb\Psi_s\vert \hat{\rho}(\bfr,\hat{\bfn})\vert\Psi_{s}\kk
+%=\rho(K){1\over2}(E(K)+m)) u^\dagger (K,s)
+%(1+(\gamma_5\boldgamma)_3\cdot{\bfn})u(K,s)\\
+%\bb\Psi_s\vert \hat{\rho}(\bfK,\hat{\bfn})\vert\Psi_{s}\kk
+%\int\;d^3k \Phi^2(k,K) (E(K)+m)) u^\dagger (K,s)
+%1+(\gamma_5\boldgamma)_3\cdot{\bfn})/2u(K,s)\\
+%\int\;d^3k{1\over2} \Phi^2(k,K)
+=\int\;d^3k\chi^\dagger(k,\bfr){1\over2}(1+\gamma_5\boldgamma\cdot{\bfn})\chi(k,\bfr),
+%(1+\bfn\cdot\bfs)K^2\left(1-\bfn\cdot\bfs)+2\bfK\cdot \bfn\bfK\cdot\bfs\right)\right]
+ \eea
+ with
+\bea &&\chi(k,\bfr)=\left(\begin{array}{c}
+F_k(r)\vert s\kk \\
+-i\boldsigma\cdot\hat{\bfr}G_k(r)\vert s \kk %chi_{s}
+\end{array}\right),\\
+&&F_k(r)=\int d^3K\Phi(k,K)(E(K)+M)^{1/2}e^{i\bfK\cdot\bfr},
+G_k(r)={\partial \over \partial r}\;\int d^3K\Phi(k,K){
+e^{i\bfK\cdot\bfr}\over(E(K)+M)^{1/2}}.
+\eea
+Defining
+\bea 
+\rho_U(r)\equiv\int\;d^3kF_k^2(r),\; \rho_L(r)\equiv\int\;d^3kG_k^2(r),\eea
+we find
+\bea
+\rho(\bfr,\bfn)=\rho_U(r){1\over2}\left(1+\bfn\cdot\hat{\bfs}\right)
++\rho_L(r){1\over2}\left(1+2\hat{\bfr}
+\cdot\hat{\bfs}\bfn\cdot\hat{\bfr}-\bfn\cdot\hat{\bfs}\right).
+\label{shaper}\eea
+The pattern is similar to the one in momentum space, with
+\bea
+&&\rho(\bfr,{\bfn}=\hat{\bfs})=\rho_U(r)+\rho_L(r)\cos^2\theta,\;\;
+ \rho(\bfr,{\bfn}=-\hat{\bfs}  )=\rho_L(r)\sin^2\theta,\\
+&& \rho(\bfr,\bfn={\hat\bfx+\hat{\bfy}\over\sqrt{2}} )={1\over2}\rho_U(r)+
+{1\over2}\rho_L(r)\left(1+{2\over\sqrt{2}}\cos\theta\sin\theta(\cos\phi+\sin\phi)\right).
+\label{rel}\eea
+
+
+\begin{figure}
+%\begin{Large}
+\unitlength1cm
+\begin{picture}(10,8)(0,-8.5)
+\special{psfile=psi.ps angle=270 hscale=45 vscale=45}
+\end{picture}
+%\end{Large}
+\label{fig:coord}
+\caption{Coordinate space densities
+}
+\end{figure}
+
+
+
+\noindent
+
+We see that the ratio $\rho_L/\rho_U$ controls the relativistic effects.
+This can be much larger (see Fig.~4) than the factor 
+$\gamma(K)$ (limited by unity) controlling the momentum-space shapes, so
+more extreme shapes are possible. The most likely value of $\rho_L/\rho_U$
+is about 0.25, but there is no limit. 
+The case with  $\rho_L/\rho_U$=3 is shown in 
+in Fig.~5. A pretzel form is obtained if $\bfn$ is out of the page.
+
+
+
+
+
+
+
+\begin{figure}
+%\begin{Large}
+\unitlength1cm
+\begin{picture}(3,3)(-1.0,1.)  %(10,8)(-1.0,.5)
+\special{psfile=newcoord.eps}% angle=0 hscale=85 vscale=85}
+\end{picture}
+%\end{Large}
+\label{fig:cshape}
+\caption{Shape of the proton coordinate space. Left: $\bfn=\bfs$, right:$\bfn$ points out of the page}
+\end{figure}
+
+The shape of the proton may be defined in terms of matrix elements of
+spin-dependent density operators Eqs.~(\ref{rhohk},\ref{rhor})
+ taken for protons in any fixed polarization
+state. Relativity mandates the use of Dirac spinors to describe the 
+quarks. These components, embodied in Eq.~(\ref{big}), lead to a constant ratio of
+ $QF_2/F_1$ in accord with observation, and also to 
+ shapes  of
+  an infinite variety,
+Eqs.~(\ref{shapek},\ref{shaper}), Figs.~2,3,5. 
+
+
+
+
+
+
+
+
+\section*{Acknowledgments}
+I thank the USDOE for partial support of this work. I thank M. Burkardt 
+for useful discussions, and 
+C. Glasshauser
+and J. Ralston for emphasizing
+ the importance of understanding the shape of the proton.
+
+
+
+\begin{thebibliography}{9}
+\bibitem{Jones:1999rz}
+M.~K.~Jones {\it et al.}  [Jefferson Lab Hall A Collaboration],
+%``G(E(p))/G(M(p)) ratio by polarization transfer in  e(pol.) p $\to$ e p(pol.),''
+Phys.\ Rev.\ Lett.\  {\bf 84}, 1398 (2000)
+%%CITATION = NUCL-EX 9910005;%%
+\bibitem{Gayou:2001qd}
+O.~Gayou, E.~J.~Brash, M.~K.~Jones, C.~F.~Perdrisat and V.~Punjabi,
+%``Measurement of G(E(p))/G(M(p)) in e(pol.) p $\to$ e p(pol.) to Q**2 =  5.6-GeV**2,''
+Phys.\ Rev.\ Lett.\  {\bf 88}, 092301 (2002)
+%%CITATION = NUCL-EX 0111010;%% 
+\bibitem{ralston} 
+P.~Jain, B.~Pire and J.~P.~Ralston,
+%``Quantum Color Transparency and Nuclear Filtering,''
+Phys.\ Rept.\  {\bf 271}, 67 (1996)
+;
+%%CITATION = HEP-PH 9511333;%%
+T.~Gousset, B.~Pire and J.~P.~Ralston,
+%``Hadron helicity violation in exclusive processes: Quantitative calculations in leading order QCD,''
+Phys.\ Rev.\ D {\bf 53}, 1202 (1996)
+%[arXiv:hep-ph/9504281].
+%%CITATION = HEP-PH 9504281;%%
+\bibitem{Braun:2001tj}
+V.~M.~Braun, A.~Lenz, N.~Mahnke and E.~Stein,
+%``Light-cone sum rules for the nucleon form factors,''
+Phys.\ Rev.\ D {\bf 65}, 074011 (2002).
+%%CITATION = HEP-PH 0112085;%%
+
+
+%\cite{Miller:2002qb}
+\bibitem{Miller:2002qb}
+G.~A.~Miller and M.~R.~Frank,
+%``Q**2 independence of QF(2)/F(1), Poincare invariance and the  non-conservation of helicity,'' 
+Phys.\ Rev.\ C {\bf 65}, 065205 (2002)
+%%CITATION = NUCL-TH 0201021;%%
+
+\bibitem{Ji}A.~V.~Belitsky, X-d.~Ji and F.~Yuan,
+%``A perturbative QCD analysis of the nucleon's Pauli form factor  F2(Q**2),''
+arXiv:hep-ph/0212351.
+%%CITATION = HEP-PH 0212351;%% 
+\bibitem{Frank:1995pv}
+M.R.~Frank, B.K.~Jennings and G.A.~Miller,
+%``The Role of Color Neutrality in Nuclear Physics--Modifications of Nucleonic Wave Functions,''
+Phys.\ Rev.\ C {\bf 54}, 920 (1996).
+%%CITATION = NUCL-TH 9509030;%%
+
+%\cite{Miller:2002ig}
+\bibitem{Miller:2002ig}
+G.~A.~Miller,
+%``Light front cloudy bag model: Nucleon electromagnetic form factors,''
+Phys.\ Rev.\ C {\bf 66}, 032201 (2002)
+[arXiv:nucl-th/0207007].
+%%CITATION = NUCL-TH 0207007;%%
+\bibitem{cloud} When the effects of the pion cloud \cite{cbm}
+are included as in
+Ref.~\cite{Miller:2002ig}, $J^+$ also includes the current of free pions.
+The present note focuses on quark effects.
+\bibitem{cbm} S.\ Th\'eberge, A.\ W.\ Thomas and G.\ A.\ Miller,
+Phys. Rev. {\bf D22} (1980) 2838;  (1981) 2106;
+%%CITATION = PHRVA,D22,2838;%%
+ A.\ W.\ Thomas,
+S.\ Th\'eberge, and G.\ A.\ Miller, Phys. Rev. {\bf D24} (1981) 216; % (1981);
+%%CITATION = PHRVA,D24,216;%%
+S.~Th\'eberge, G.~A.~Miller and A.~W.~Thomas,
+                                %``The Cloudy Bag Model. 4. Higher Order Corrections To The Nucleon Properties,''
+Can.\ J.\ Phys.\  {\bf 60}, 59 (1982).
+%%CITATION = CJPHA,60,59;%%
+G.~A.~Miller, A.~W.~Thomas and S.~Th\'eberge,
+%``Pion - Nucleon Scattering In The Cloudy Bag Model,''
+Phys.\ Lett.\ B {\bf 91}, 192 (1980).
+%%CITATION = PHLTA,B91,192;%% 
+\bibitem{bere76}
+V.~B. Berestetskii and M.~V. Terent'ev.
+%\newblock Sov. J. Nucl. Phys. {\bf 24}, 547 (1976);
+\newblock Sov. J. Nucl. Phys. {\bf 25}, 347 (1977).
+\bibitem{chun91}
+P.~L. Chung and F.~Coester.
+\newblock {\em Phys. Rev. D {\bf 44}},  229, (1991);
+F.~Coester, Prog. in Part. and Nucl. Phys. {\bf 29}, 1 (1992).
+%%CITATION = PPNPD,29,1;%%
+
+\bibitem{Schlumpf:ce}
+F.~Schlumpf,
+%``Relativistic Constituent Quark Model For Baryons,''
+U. Zurich Ph. D. Thesis, hep-ph/9211255.
+%%CITATION = HEP-PH 9211255;%%
+\bibitem{explain} The calculations of the form factors, which involve the
+effects of momentum transfer,
+require the use of light front dynamics to include the effects of
+the boost. For our model the difference between the light front and
+instant forms is contained in a coordinate transformation, which can be
+made or not depending on the application.
+ Here there is no momentum transfer, so we  use the instant form.
+
+\bibitem{flip} The ratio of $QF_2/F_1$ is a ratio of a 
+ helicity-non-conserving  to a helicity conserving matrix element, if the 
+reference frame of Eq.~(\ref{defs}) is used.
+\end{thebibliography}
+
+\end{document}
+
+%%new coord.eps and smallside.eps on side.nb on guiness
+%%disco.eps is in testhome.nb on miller
