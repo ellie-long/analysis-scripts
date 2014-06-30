@@ -1,0 +1,4 @@
+Dataset:      Vertical 3He, Q2=0.1
+Runs:   20487-20511
+Run #	TotalUp	TotalDown	Bin1Up	Bin1Down	Bin2Up	Bin2Down	Bin3Up	Bin3Down	Bin4Up	Bin4Down
+
