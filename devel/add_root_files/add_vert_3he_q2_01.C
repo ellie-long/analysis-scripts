@@ -61,110 +61,110 @@ void add_vert_3he_q2_01() {
 
 
 
-	if(includeVetos) {Target = TFile::Open( "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01.root", "RECREATE" );}
-	if(!includeVetos) {Target = TFile::Open( "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01.root", "RECREATE" );}
+	if(includeVetos) {Target = TFile::Open( "../neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01.root", "RECREATE" );}
+	if(!includeVetos) {Target = TFile::Open( "../neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01.root", "RECREATE" );}
 
 	FileList = new TList();
 	if (includeVetos && dataTypeStr=="n")
 	{
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20487.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20488.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20489.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20490.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20491.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20492.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20493.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20494.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20498.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20499.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20500.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20501.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20502.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20503.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20504.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20505.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20506.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20507.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20508.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20509.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20510.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20511.root") );
-/*		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20533.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20534.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20535.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20536.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20537.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20538.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20539.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20540.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20487.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20488.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20489.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20490.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20491.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20492.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20493.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20494.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20498.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20499.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20500.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20501.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20502.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20503.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20504.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20505.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20506.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20507.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20508.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20509.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20510.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20511.root") );
+/*		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20533.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20534.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20535.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20536.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20537.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20538.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20539.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/neutron_cuts-hand_target_asym_vs_nu_for_run_20540.root") );
 */	}
 	if (includeVetos && dataTypeStr=="p")
 	{
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20487.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20488.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20489.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20490.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20491.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20492.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20493.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20494.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20498.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20499.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20500.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20501.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20502.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20503.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20504.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20505.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20506.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20507.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20508.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20509.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20510.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20511.root") );
-/*		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20533.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20534.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20535.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20536.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20537.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20538.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20539.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20540.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20487.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20488.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20489.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20490.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20491.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20492.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20493.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20494.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20498.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20499.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20500.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20501.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20502.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20503.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20504.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20505.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20506.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20507.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20508.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20509.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20510.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20511.root") );
+/*		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20533.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20534.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20535.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20536.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20537.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20538.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20539.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/proton_cuts-hand_target_asym_vs_nu_for_run_20540.root") );
 */	}
 
 
 	if (!includeVetos)
 	{
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20487.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20488.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20489.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20490.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20491.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20492.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20493.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20494.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20498.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20499.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20500.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20501.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20502.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20503.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20504.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20505.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20506.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20507.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20508.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20509.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20510.root") );
-//		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20511.root") );
-/*		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20533.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20534.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20535.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20536.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20537.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20538.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20539.root") );
-		FileList->Add( TFile::Open("/home/ellie/physics/e05-102/results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20540.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20487.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20488.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20489.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20490.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20491.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20492.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20493.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20494.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20498.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20499.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20500.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20501.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20502.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20503.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20504.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20505.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20506.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20507.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20508.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20509.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20510.root") );
+//		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20511.root") );
+/*		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20533.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20534.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20535.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20536.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20537.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20538.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20539.root") );
+		FileList->Add( TFile::Open("../../../results/q2_01_vert_3he/no_vetos-hand_target_asym_vs_nu_for_run_20540.root") );
 */
 	}
 

@@ -137,7 +137,7 @@ void add_class_targ_asymmetry_vs_nu(){
 		double nuMax = 0.13;
 	}
 	
-	TString outputPlotsHere = "/home/ellie/physics/e05-102/images/plots_for_hand/add_class_targ_asymmetry_vs_nu/";
+	TString outputPlotsHere = "../../../plots_for_hand/add_class_targ_asymmetry_vs_nu/";
 
 	const int nuBins = 10;
 
@@ -145,7 +145,7 @@ void add_class_targ_asymmetry_vs_nu(){
 	TString filenameHe;
 	TString outFileName;
 
-	filenameHe = "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
+	filenameHe = "../neutron_hunt/results/targ_ssa/";
 	if (veto == "w") {filenameHe += "with_vetos/";}			
 	if (veto == "wo") {filenameHe += "without_vetos/";}			
 	if (targ == "v") {filenameHe += "vert_3he_";}
@@ -297,13 +297,17 @@ void add_class_targ_asymmetry_vs_nu(){
 	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere, asymOutFileText);
 
 	TString exitst;
-	cout << "Are you ready to finish?" << endl;
-	cin >> exitst;
+//	cout << "Are you ready to finish?" << endl;
+//	cin >> exitst;
 
 	cout << "The output root file is located at " << filenameHe << endl;
 	cout << "The output txt file is located at " << asymOutFileName << endl;
 
 	cout << "All done!" << endl;
+
+	gROOT->ProcessLine(".q");
+	return;
+	cout << "Uh-oh? I shouldn't be here..." << endl;
 
 }
 

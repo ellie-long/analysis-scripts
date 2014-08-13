@@ -1,3 +1,0 @@
-Dataset:	Vertical 3He, Q2=0.5
-Runs:	20890-21005
-Run #	Asymmetry	Stat. Error	# HePos Events	HePos Charge	PosHe LT	# Neg Events	HeNeg Charge	NegHe LT
