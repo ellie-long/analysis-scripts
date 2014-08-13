@@ -12,20 +12,28 @@
 #
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-# Copy recent batch results to the main results folder
-ls ../../../batch/results
+# Set folder definitions
+home="."
+bresults="$home/../../../results/q2_01_vert_3he"
+chlt="$home/ch-lt/q2_01_vert"
+
+# Copy recent batch results to the main results folder after backing up recent results
+ls $home/../../../batch/results
 read -rep $'\nWhich folder are the farmed result in?\n> ' farmDate
-farmFolder="../../../batch/results/$farmDate"
-#echo "$farmFolder"
+farmFolder="$home/../../../batch/results/$farmDate"
 date=`date +"%Y-%m-%d-%T"`
-newFolder="../../../results/q2_01_vert_3he/$date"
+newFolder="$bresults/$date"
 mkdir "$newFolder"
-mv ../../../results/q2_01_vert_3he/*.log "$newFolder/."
-mv ../../../results/q2_01_vert_3he/*.out "$newFolder/."
-mv ../../../results/q2_01_vert_3he/*.txt "$newFolder/."
-mv ../../../results/q2_01_vert_3he/*.root "$newFolder/."
-cp -v $farmFolder/* ../../../results/q2_01_vert_3he/.
+mv $bresults/*.log  $newFolder/.
+mv $bresults/*.out  $newFolder/.
+mv $bresults/*.txt  $newFolder/.
+mv $bresults/*.root $newFolder/.
+cp -v $farmFolder/* $bresults/.
+
+# Copy charge/livetime information and output in correct format
+cp -v $bresults/charge-lt_for_run_* $chlt/.
+$chlt/get_q2_01_chlt.sh
 
 # Add root files and analyze combined results
 analyzer ../add_root_files/add_vert_3he_q2_01.C
-
+analyzer ../add_results/add_class_targ_asymmetry_vs_nu.C
