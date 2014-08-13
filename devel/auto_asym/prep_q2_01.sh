@@ -34,6 +34,16 @@ cp -v $farmFolder/* $bresults/.
 cp -v $bresults/charge-lt_for_run_* $chlt/.
 $chlt/get_q2_01_chlt.sh
 
-# Add root files and analyze combined results
-analyzer ../add_root_files/add_vert_3he_q2_01.C
-analyzer ../add_results/add_class_targ_asymmetry_vs_nu.C
+# Add root files and analyze combined root file
+analyzer $home/../add_root_files/add_vert_3he_q2_01.C
+analyzer $home/../add_results/add_class_targ_asymmetry_vs_nu.C
+
+# Run final analysis script and get results
+$home/q2_01_vert/get_ay0.sh
+
+
+
+
+
+
+

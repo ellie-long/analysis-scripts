@@ -13,8 +13,8 @@
 
 #sort -t ' ' -k1 vert_3he_q2_01_eeprime_asym_v_runnum_for_runs_20487-20511.txt > temp_eeprime.txt
 #sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
-cp '/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt' .
-cp '/home/ellie/physics/e05-102/results/q2_01_vert_3he/q2_01_ch-lt.txt' .
+cp '../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt' .
+cp '../ch-lt/q2_01_vert/q2_01_ch-lt.txt' .
 sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #sort -t ' ' -k1 q2_01_ch-lt.txt > temp_charge.txt
 sort -t ' ' -k1 q2_01_ch-lt.txt > temp_charge.txt
