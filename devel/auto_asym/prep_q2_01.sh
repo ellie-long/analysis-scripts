@@ -31,8 +31,13 @@ mv $bresults/*.root $newFolder/.
 cp -v $farmFolder/* $bresults/.
 
 # Copy charge/livetime information and output in correct format
-cp -v $bresults/charge-lt_for_run_* $chlt/.
-$chlt/get_q2_01_chlt.sh
+cp -v $bresults/charge_lt_for_run_* $chlt/.
+rm $chlt/q2_01_ch-lt.txt
+cat $chlt/charge_lt_for_run_* > $chlt/q2_01_ch-lt.txt
+sed -i.bak "s/Run\ //g" $chlt/q2_01_ch-lt.txt
+sed -i.bak ':a;N;$!ba;s/\n/\ /g' $chlt/q2_01_ch-lt.txt
+sed -i.bak 's/\ \ /&\
+/g' $chlt/q2_01_ch-lt.txt
 
 # Add root files and analyze combined root file
 analyzer $home/../add_root_files/add_vert_3he_q2_01.C

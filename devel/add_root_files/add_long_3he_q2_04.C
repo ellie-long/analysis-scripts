@@ -885,4 +885,8 @@ void MergeRootfile( TDirectory *target, TList *sourcelist ) {
    // save modifications to target file
    target->SaveSelf(kTRUE);
    TH1::AddDirectory(status);
+
+   cout << "All done!" << endl;
+   gROOT->ProcessLine(".q");
+
 }
