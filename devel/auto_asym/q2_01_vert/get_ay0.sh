@@ -15,7 +15,8 @@ ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_01_ve
 
 #sort -t ' ' -k1 vert_3he_q2_01_eeprime_asym_v_runnum_for_runs_20487-20511.txt > temp_eeprime.txt
 #sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
-cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
+#cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
+cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
 cp $ayhome/../ch-lt/q2_01_vert/q2_01_ch-lt.txt $ayhome
 sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #sort -t ' ' -k1 q2_01_ch-lt.txt > temp_charge.txt

@@ -117,7 +117,7 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 		out << i;
 		HeRunNumberString = "Run ";
 		HeRunNumberString += out.str();
-		cout << "Looking for charge and livetime for " << HeRunNumberString << "..." << endl;
+		cout << "Looking for charge and livetime for " << HeRunNumberString << " in file " << fileName <<"..." << endl;
 		isFound = false;
 		while(!inFile.eof() && !isFound)
 		{

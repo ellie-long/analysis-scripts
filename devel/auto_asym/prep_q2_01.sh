@@ -32,6 +32,7 @@ cp -v $farmFolder/* $bresults/.
 
 # Copy charge/livetime information and output in correct format
 cp -v $bresults/charge_lt_for_run_* $chlt/.
+cat $bresults/charge_lt_for_run_* > $bresults/q2_01_vert_3he_run_info.txt
 rm $chlt/q2_01_ch-lt.txt
 cat $chlt/charge_lt_for_run_* > $chlt/q2_01_ch-lt.txt
 sed -i.bak "s/Run\ //g" $chlt/q2_01_ch-lt.txt
