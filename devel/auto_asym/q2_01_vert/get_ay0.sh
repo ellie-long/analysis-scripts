@@ -11,13 +11,18 @@
 # 7/2/2013
 # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+echo "get_ay0.sh for Q2=0.1 GeV^2"
+
 ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_01_vert"
 
 #sort -t ' ' -k1 vert_3he_q2_01_eeprime_asym_v_runnum_for_runs_20487-20511.txt > temp_eeprime.txt
 #sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
-cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
-cp $ayhome/../ch-lt/q2_01_vert/q2_01_ch-lt.txt $ayhome
+#cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
+cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
+cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
+#cp $ayhome/../ch-lt/q2_01_vert/q2_01_ch-lt.txt $ayhome
+cp $ayhome/../../../../results/q2_01_vert_3he/q2_01_vert_3he_run_info.txt $ayhome/q2_01_ch-lt.txt
 sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #sort -t ' ' -k1 q2_01_ch-lt.txt > temp_charge.txt
 sort -t ' ' -k1 $ayhome/q2_01_ch-lt.txt > $ayhome/temp_charge.txt
@@ -30,14 +35,14 @@ join -t ' ' $ayhome/temp_q2_01_near_final.txt $ayhome/temp_prescales.txt > $ayho
 #file0="./q2_01_final4.txt"
 file0="$ayhome/temp_q2_01_final.txt"
 awk '$1>20000 && $1<30000 && $29>0 && $31>0 && ($6+$8)>0 && $12>0 {print $1,$2,$3,$32*1.5577E-10,$34*1.5577E-10,$17*$38/$29,$20*$38/$31,sqrt((sqrt($4)^2)+((1/(sqrt($6+$8)))*($10/$12))^2),sqrt((sqrt($5)^2)+((1/(sqrt($7+$9)))*($11/$12))^2),$38,$17,$20,$29,$31 }' $file0 > $ayhome/temp_q2_01_evt_ch_lt.txt
-#							Run #	EvtUp	EvtDwn	ChUp	ChDwn	LtUp	LtDwn	dSup	dSdown	ps		T2+		T2-		t1+		t1-
-#							$1		$2		$3		$4		$5		$6		$7		$8		$9		$10		$11		$12		$13		$14
+# Run #	EvtUp	EvtDwn	ChUp	ChDwn	LtUp	LtDwn	dSup	dSdown	ps	T2+	T2-	t1+	t1-
+# $1	$2	$3	$4	$5	$6	$7	$8	$9	$10	$11	$12	$13	$14
 
 
 file1="$ayhome/./temp_q2_01_evt_ch_lt.txt"
 #awk '$1>20000 && $1<30000 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$8/($4*$6),$9/($5*$7)}' $file1 > temp_q2_01_yields.txt
 #awk '$1>20000 && $1<30000 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$8*$8*$10/($4*$6)*sqrt(1/$11-1/$13+1/($8*$8)),$9*$9*$10/($5*$7)*sqrt(1/$12-1/$13+1/($9*$9))}' $file1 > temp_q2_01_yields.txt
-awk '$1>20000 && $1<30000 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$2*$10/($4*$6)*sqrt(1/$11-1/$13+1/($2)),$3*$10/($5*$7)*sqrt(1/$12-1/$13+1/($3))}' $file1 > $ayhome/temp_q2_01_yields.txt
+awk '$1>20000 && $1<30000 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 && $11>0 && $13>0 && $2>0 && $3>0{print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$2*$10/($4*$6)*sqrt(1/$11-1/$13+1/($2)),$3*$10/($5*$7)*sqrt(1/$12-1/$13+1/($3))}' $file1 > $ayhome/temp_q2_01_yields.txt
 #							Run #	YieldUp		YieldDwn	1/sqrt(N)	dYup	dYdown
 #							$1		$2			$3			$4			$5		$6
 
@@ -155,14 +160,18 @@ file5="$ayhome/./temp_q2_01_nu_yields.txt"
 #awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,($2-$3)/($2+$3),(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > temp_final_q2_01_nu_asym.txt
 #							Run #	Ay0		dAy0
 #							$1		$2		$3
-awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/(0.514*0.9468*0.9304)),(1/(0.514*0.9468*0.9304))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > $ayhome/final_q2_01_nu_asym_stat.txt
+#awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/(0.514*0.9468*0.9304)),(1/(0.514*0.9468*0.9304))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > $ayhome/final_q2_01_nu_asym_stat.txt
+#S=1
+echo "S = " $S
+awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/(0.514*0.9468*0.9304)),'$S'*(1/(0.514*0.9468*0.9304))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > $ayhome/final_q2_01_nu_asym_stat.txt
 
 file10="$ayhome/./final_q2_01_nu_asym_stat.txt"
 awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt(($2*0.007/0.9468)^2 + ($2*0.0019/0.9304)^2 + ($2*0.024/0.514)^2)}' $file10 > $ayhome/temp_q2_01_nu_asym_all.txt
 
 file11="$ayhome/./temp_q2_01_nu_asym_all.txt"
 echo "nu                  Ay0      e_s       e_N         e_p         e_t       e_n" > $ayhome/final_q2_01_nu_asym_all_errs.txt
-awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*0.007/0.9468,$2*0.0019/0.9304,$2*0.024/0.514,sqrt(('$S'^2-1)*($2*0.007/0.9468)^2 + ($2*0.0019/0.9304)^2 + ($2*0.024/0.514)^2 + $3^2)}' $file11 >> $ayhome/final_q2_01_nu_asym_all_errs.txt
+#awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*0.007/0.9468,$2*0.0019/0.9304,$2*0.024/0.514,sqrt( ('$S'^2-1)*($2*0.007/0.9468)^2 + ($2*0.0019/0.9304)^2 + ($2*0.024/0.514)^2 + $3^2)}' $file11 >> $ayhome/final_q2_01_nu_asym_all_errs.txt
+awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*0.007/0.9468,$2*0.0019/0.9304,$2*0.024/0.514,0}' $file11 >> $ayhome/final_q2_01_nu_asym_all_errs.txt
 
 file12="$ayhome/./final_q2_01_nu_asym_all_errs.txt"
 awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt($4^2 + $5^2 + $6^2 + $7^2)}' $file12 > $ayhome/final_q2_01_nu_asym_stat_sys.txt

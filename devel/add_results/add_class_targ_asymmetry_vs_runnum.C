@@ -152,7 +152,7 @@ void add_class_targ_asymmetry_vs_runnum(){
 		double nuMax = 0.13;
 	}
 	
-	TString outputPlotsHere = "/home/ellie/physics/e05-102/images/plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
+	TString outputPlotsHere = "../../../plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
 	const int nuBins = 10;
 
@@ -160,7 +160,7 @@ void add_class_targ_asymmetry_vs_runnum(){
 	TString filenameHe;
 	TString outFileName;
 
-	filenameHe = "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
+	filenameHe = "../neutron_hunt/results/targ_ssa/";
 	if (veto == "w") {filenameHe += "with_vetos/";}			
 	if (veto == "wo") {filenameHe += "without_vetos/";}			
 	if (targ == "v") {filenameHe += "vert_3he_";}
@@ -213,10 +213,10 @@ void add_class_targ_asymmetry_vs_runnum(){
                 totesDownEvents = 0;
                 HeRunNumber = k;
                 endHeRunNumber = k;
-                outputPlotsHere = "/home/ellie/physics/e05-102/images/plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
+                outputPlotsHere = "../../../plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
-//                filenameHe = "/work/halla/e05102/disk1/ellie/results/";
-                filenameHe = "/home/ellie/physics/e05-102/results/";
+                filenameHe = "/work/halla/e05102/disk1/ellie/results/";
+//                filenameHe = "/home/ellie/physics/e05-102/results/";
                 if (kine == "1.0") {filenameHe += "q2_1_";}
                 if (kine == "0.5") {filenameHe += "q2_05_";}
                 if (kine == "0.1") {filenameHe += "q2_01_";}
@@ -328,7 +328,11 @@ void add_class_targ_asymmetry_vs_runnum(){
 
 
 	asymOutFile.close();
-	cout << "All done!" << endl;
+//	cout << "All done!" << endl;
+        cout << "All done with add_class_targ_asymmetry_vs_runnum.C!" << endl;
+        gROOT->ProcessLine(".q");
+        return;
+        cout << "Uh-oh? I shouldn't be here..." << endl;
 
 }
 

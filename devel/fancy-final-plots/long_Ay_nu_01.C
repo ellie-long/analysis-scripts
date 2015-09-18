@@ -86,7 +86,7 @@ void long_Ay_nu_01() {
   cn->UseCurrentStyle();
   TH1F *frm = new TH1F("frm","",100,0.,10.);
   frm->GetXaxis()->SetTitle("#nu (GeV)");
-  frm->GetYaxis()->SetTitle("Ay for Q2=0.127 (GeV/c)2");
+  frm->GetYaxis()->SetTitle("Ay for Q2=0.13 (GeV/c)2");
   frm->SetMinimum(-0.5);
 //  frm->SetMinimum(0);
 //  frm->SetMaximum(1.0);

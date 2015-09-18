@@ -102,7 +102,7 @@ g0 fixedpoint format general general
 g0 fixedpoint prec 6, 6
 with g0
 #    world 20482, -0.006, 20516, 0.01
-    world 0.3, 0, 0.7, 0.015
+    world 0.3, -0.02, 0.7, 0.02
     stack world 0, 0, 0, 0
     znorm 1
 #    view 0.120000, 0.100000, 0.990000, 0.776273

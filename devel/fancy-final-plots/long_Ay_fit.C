@@ -90,11 +90,12 @@ void long_Ay_fit() {
   cn->Draw();
   cn->UseCurrentStyle();
   TH1F *frm = new TH1F("frm","",100,0.003,10.);
-  gPad->SetLogy();
+//  gPad->SetLogy();
   frm->GetXaxis()->SetTitle("Q^{2}  (GeV/c)^{2}");
   frm->GetYaxis()->SetTitle("A_{y}^{0}");
-  frm->SetMinimum(0.003);
+//  frm->SetMinimum(0.003);
 //  frm->SetMinimum(0);
+  frm->SetMinimum(-0.02);
   frm->SetMaximum(1.0);
 //  frm->SetMaximum(0.04);
   frm->UseCurrentStyle();
