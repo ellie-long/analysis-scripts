@@ -48,7 +48,7 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 	cout << "targ: " << targ << ", kine: " << kine << endl;
 	if (kine == "1.0")
 	{
-		if (targ == "v") {fileName = "../../../results/q2_1_vert_3he/q2_1_vert_3he_run_info.txt";}
+		if (targ == "v") {fileName = "../../../results/q2_1_vert_3he/q2_1_vert_3he_run_scaling_factors.txt";}
 		if (targ == "l") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_long_3he_run_info.txt";}
 		if (targ == "t") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_trans_3he_run_info.txt";}
 		if (targ == "c") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_carbon_run_info.txt";}
@@ -62,7 +62,7 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 	}
 	if (kine == "0.5")
 	{
-		if (targ == "v") {fileName = "../../../results/q2_05_vert_3he/q2_05_vert_3he_run_info.txt";}
+		if (targ == "v") {fileName = "../../../results/q2_05_vert_3he/q2_05_vert_3he_run_scaling_factors.txt";}
 		if (targ == "h") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_05_hydrogen_run_info.txt";}
 	}
 	if (kine == "0.4")
@@ -72,7 +72,7 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 	}
 	if (kine == "0.1")
 	{
-		if (targ == "v") {fileName = "../../../results/q2_01_vert_3he/q2_01_vert_3he_run_info.txt";}
+		if (targ == "v") {fileName = "../../../results/q2_01_vert_3he/q2_01_vert_3he_run_scaling_factors.txt";}
 		if (targ == "h") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_01_hydrogen_run_info.txt";}
 	}
 
@@ -112,17 +112,20 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 	for (int i = HeRunNumber; i < (endHeRunNumber + 1); i++)
 	{
 		out.str("");
-//		inFile.open(fileName);
 		ifstream inFile (fileName);
+//		ifstream inFile;
+//		inFile.open();
 		out << i;
 		HeRunNumberString = "Run ";
 		HeRunNumberString += out.str();
 		cout << "Looking for charge and livetime for " << HeRunNumberString << " in file " << fileName <<"..." << endl;
 		isFound = false;
-		while(!inFile.eof() && !isFound)
+		while(!inFile.eof() && !isFound && lineCounter<1080)
+//		while(getline(inFile,line) && lineCounter<1080)
 		{
 //			cout << "In while loop at line " << lineCounter << endl;
 			getline(inFile, line);
+//			cout << lineCounter << "	" << line << "	" << inFile.good() << endl;
 			lineCounter++;
 			if ((offset = line.find(HeRunNumberString, 0)) != string::npos)
 			{

@@ -28,8 +28,8 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 
 	TString fitTypeHolder;
 
-	bool forceBG = true;
-//	bool forceBG = false;
+//	bool forceBG = true;
+	bool forceBG = false;
 
 	bool twoSig = true;
 	bool fiveSig = false;
@@ -465,6 +465,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 
 	TString fitTypeStr = "Background Fit Type: ";
 	fitTypeStr += fitType;
+	cout << fitTypeStr << endl;
 
 	TFile fileHe(filenameHe);
 	TString Q2=kine;
@@ -570,7 +571,9 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 
 // Nu Bin Selection
 //	for (int i=0; i<1; i++)
-	for (int i=0; i<11; i++)
+//	for (int i=0; i<11; i++)
+//	for (int i=0; i<4; i++)
+	for (int i=0; i<5; i++)
 	{
 		nuBinCutMin = (i-1)*nuBinSize + nuMin;
 		nuBinCutMax = i*nuBinSize + nuMin;
@@ -1097,7 +1100,9 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			tofQEpeakTitle += ".pdf";
 			tofpad2->Print(tofQEpeakTitle);
 		}
-*/		tofpad3->cd();
+*/		
+		cout << "Fit type: " << fitType << endl;
+		tofpad3->cd();
 		sigBGUpPlot = "sigBGUp_bin_";
 		sigBGUpPlot += i;
 		sigBGUpTitle = "ToF Spin UP Signal Events for nu bin ";
@@ -2966,8 +2971,12 @@ cout << "4" << endl;
 	}
 
 	cout << "NuBin  TotalUp TotalDown   Bin1Up  Bin1Down	Bin2Up  Bin2Down	Bin3Up  Bin3Down	Bin4Up  Bin4Down" << endl;
-	asymOutFile << "NuBin TotalUp TotalDown Bin1Up Bin1Down Bin2Up Bin2Down Bin3Up Bin3Down Bin4Up Bin4Down" << endl;
-	for (Int_t i=0; i<11; i++)
+//	asymOutFile << "NuBin TotalUp TotalDown Bin1Up Bin1Down Bin2Up Bin2Down Bin3Up Bin3Down Bin4Up Bin4Down" << endl;
+	asymOutFile << "NuBin GoodUp GoodDown TUp TDown BGLUp BGLDown BGRUp BGRDown RSUp RSDown" << endl;
+	cout << fixed;
+	asymOutFile << fixed;
+//	for (Int_t i=0; i<11; i++)
+	for (Int_t i=0; i<4; i++)
 	{
 		asymOutFileText = "";
 //		asymOutFileText += i;
@@ -2995,9 +3004,9 @@ cout << "4" << endl;
 		asymOutFileText += RSdown[i];
 		asymOutFileText += " ";
 		asymOutFileText += RBG[i];
-		cout << asymOutFileText << endl;
+		cout << setprecision(3) << asymOutFileText << endl;
 
-		asymOutFile << asymOutFileText << endl;
+		asymOutFile << setprecision(3) << asymOutFileText << endl;
 	}
 	asymOutFile.close();
 	cout << "^^^^^^^^^^^^^^^^^^^^^^^ hand_class_draw_tof_nu.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;

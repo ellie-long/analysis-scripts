@@ -400,8 +400,10 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			cout << "Q2=0.1, Vertical 3He" << endl;
 //			sigUpMin = 600;
 //			sigUpMax = 740;
-			sigUpMin = 605.778;
-			sigUpMax = 719.684;
+//			sigUpMin = 605.778;
+//			sigUpMax = 719.684;
+			sigUpMin = 687.005;
+			sigUpMax = 734.407;
 //			if (includeVetos)
 //			{
 //				sigUpMin = 625;
@@ -410,8 +412,10 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgUpMin = 200;
 //			bgUpMin = 400;
 			bgUpMax = 1300;
-			sigDownMin = 600;
-			sigDownMax = 740;
+//			sigDownMin = 600;
+//			sigDownMax = 740;
+			sigDownMin = 687.005;
+			sigDownMax = 734.407;
 //			bgDownMin = 200;
 			bgDownMin = 400;
 			bgDownMax = 1300;
@@ -937,11 +941,13 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 //					lowerSigBound = 639.95;
 //					upperSigBound = 685.512;
 
+					lowerSigBound = 687.005;
+					upperSigBound = 734.407;
 					// New center is at 675
 	
 					// 1 sigma
-					lowerSigBound = 652.2188;
-					upperSigBound = 697.7812;
+//					lowerSigBound = 652.2188;
+//					upperSigBound = 697.7812;
 
 //					// Center 3 bins
 //					lowerSigBound = 662;
@@ -955,8 +961,10 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 				}
 // 				5 Sigma
 				if(fiveSig){
-					lowerSigBound = 605.778;
-					upperSigBound = 719.684;
+//					lowerSigBound = 605.778;
+//					upperSigBound = 719.684;
+					lowerSigBound = 651.139;
+					upperSigBound = 769.959;
 				}
 			}
 			if ((targ=="v") && (kine=="0.5"))

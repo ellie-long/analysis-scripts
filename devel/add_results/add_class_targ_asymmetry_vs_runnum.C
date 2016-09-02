@@ -32,6 +32,7 @@
 #include "hand_class_veto_cuts.h"
 #include "hand_class_draw_bar_by_bar_cuts.h"
 #include "hand_class_draw_tof_nu_run_by_run.h"
+#include "hand_class_draw_tof_nu.h"
 
 using namespace std;
 
@@ -155,6 +156,7 @@ void add_class_targ_asymmetry_vs_runnum(){
 	TString outputPlotsHere = "../../../plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
 	const int nuBins = 10;
+//	const int nuBins = 4;
 
 	TChain* chainHe = new TChain("T");
 	TString filenameHe;
@@ -313,7 +315,8 @@ void add_class_targ_asymmetry_vs_runnum(){
 		}
 	}
 
-	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileText, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere);
+	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere, asymOutFileText);
+//	hand_class_draw_tof(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileText, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere);
         asymOutFile << asymOutFileText << endl;
 	} 
 
