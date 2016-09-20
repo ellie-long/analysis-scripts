@@ -1,0 +1,4 @@
+Dataset:      Vertical 3He, Q2=0.1
+Runs:   20487-20511
+Run # TotUp   TotDwn B1Up B1Dn Bin2Up Bin2Dn Bin3Up Bin3Dn B4Up   B4Dn   TotCh       TotT2   TrgUp   TgtChUp     T2Up    TrgUp   TgtChDwn    T2Dwn   TrgDwn  BmChUp      BmT2Up  BmTrgUp BmChDwn     BmT2Dwn BmTrgDn t1_scalar
+
