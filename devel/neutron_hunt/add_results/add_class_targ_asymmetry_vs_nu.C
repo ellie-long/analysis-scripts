@@ -112,8 +112,8 @@ void add_class_targ_asymmetry_vs_nu(){
 	}
 	if (kine == "0.5")
 	{
-//		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 21006;}
-		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 20940;}
+		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 21006;}
+//		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 20940;}
 		if (targ == "h") {HeRunNumber = 21383; endHeRunNumber = 21387;}
 		double nuMax = 0.35;
 		double nuMin = 0.1;
@@ -175,6 +175,23 @@ void add_class_targ_asymmetry_vs_nu(){
 	asymOutFileName += ".txt";
 //	ofstream asymOutFile;
 //	asymOutFile.open(asymOutFileName);
+	cout << "The output root file is located at " << filenameHe << endl;
+	cout << "The output txt file is located at " << asymOutFileName << endl;
+
+/*		if ((targ == "v") || (targ == "l") || (targ == "t") || (targ == "c") || (targ == "h")) { check = true;}
+		if (targ == "v") {asymOutFile << "Dataset:	  Vertical 3He, Q2=" << kine << endl; cout << "Dataset:   Vertical 3He, Q2=" << kine << endl;}
+		if (targ == "l") {asymOutFile << "Dataset:	  Longitudinal 3He, Q2=" << kine << endl; cout << "Dataset:	   Longitudinal 3He, Q2=" << kine << endl;}
+		if (targ == "t") {asymOutFile << "Dataset:	  Transverse 3He, Q2=" << kine << endl; cout << "Dataset: Transverse 3He, Q2=" << kine << endl;}
+		if (targ == "c") {asymOutFile << "Dataset:	  Carbon, Q2=" << kine << endl; cout << "Dataset: Carbon, Q2=" << kine << endl;}
+		if (targ == "h") {asymOutFile << "Dataset:	  Hydrogen, Q2=" << kine << endl; cout << "Dataset:	   Hydrogen, Q2=" << kine << endl;}
+//		asymOutFile << "Runs:   " << HeStartRunNumber << "-" << endHeStartRunNumber << endl;
+//		asymOutFile << "Run #   Asymmetry	   Stat. Error	 # HePos Events  HePos Charge	PosHe LT		# Neg Events	HeNeg Charge	NegHe LT" << endl;
+//		asymOutFile << "Run # Raw Asym	Stat Err	# Pos Event HePos   Charge  PosHe LT	# Neg Events	HeNeg   Charge	NegHe LT" << endl;
+//	  asymOutFile << "Run #   TotalUp TotalDown   Bin1Up  Bin1Down	Bin2Up  Bin2Down	Bin3Up  Bin3Down	Bin4Up  Bin4Down" << endl;
+		asymOutFile << "NuBin	Bin3Up	Bin3Down	Tup	Tdn	BGLup	BGLdn	BGRup	BGRdn	RSup	RSdn	RBG" << endl;
+*/		TString asymOutFileText;
+
+
 /*
 	ifstream ifileHe(filenameHe);
 	if (ifileHe)
@@ -277,11 +294,14 @@ void add_class_targ_asymmetry_vs_nu(){
 		}
 	}
 
-	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere);
+	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere, asymOutFileText);
 
 	TString exitst;
 	cout << "Are you ready to finish?" << endl;
 	cin >> exitst;
+
+	cout << "The input root file is located at " << filenameHe << endl;
+	cout << "The output txt file is located at " << asymOutFileName << endl;
 
 	cout << "All done!" << endl;
 

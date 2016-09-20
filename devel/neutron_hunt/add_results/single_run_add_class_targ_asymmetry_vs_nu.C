@@ -164,8 +164,8 @@ void single_run_add_class_targ_asymmetry_vs_nu(){
 			endHeRunNumber = k;
 
 	
-	//		filenameHe = "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
-			filenameHe = "/work/halla/e05102/disk1/ellie/results/";
+			filenameHe = "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
+//			filenameHe = "/work/halla/e05102/disk1/ellie/results/";
 			if (veto == "w") {filenameHe += "with_vetos/";}			
 			if (veto == "wo") {filenameHe += "without_vetos/";}			
 			if (kine == "1.0") {filenameHe += "q2_1_";}

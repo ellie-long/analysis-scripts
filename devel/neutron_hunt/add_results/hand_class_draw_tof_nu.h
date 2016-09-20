@@ -1,7 +1,3 @@
-
-
-
-
 Bool_t reject;
 double sigMin;
 double sigMax;
@@ -24,15 +20,19 @@ Double_t fline(Double_t *x, Double_t *par)
 
 
 
-void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString asymOutFileName, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere)
+//void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString asymOutFileName, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere)
+void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString asymOutFileName, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere, TString& asymOutFileText)
 {
 
 	cout << "vvvvvvvvvvvvvvvvvvvvvvv hand_class_draw_tof_nu.h vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << endl;
 
 	TString fitTypeHolder;
 
-	bool forceBG = true;
-//	bool forceBG = false;
+//	bool forceBG = true;
+	bool forceBG = false;
+
+	bool forceSignal = true;
+//	bool forceSignal = false;
 
 	bool twoSig = true;
 	bool fiveSig = false;
@@ -361,20 +361,26 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgNearSigUpperBound = 800;
 			bgCountInterval = 68;
 		}
-		if (targ=="h")
+		if (targ=="h" || targ=="vh")
 		{
 			cout << "Q2=0.5, Hydrogen" << endl;
-			sigUpMin = 300;
-			sigUpMax = 400;
+			sigUpMin = 275;
+			sigUpMax = 325;
+//			sigUpMin = 300;
+//			sigUpMax = 400;
 			if (includeVetos)
 			{
-				sigUpMin = 300;
-				sigUpMax = 400;
+				sigUpMin = 275;
+				sigUpMax = 325;
+//				sigUpMin = 300;
+//				sigUpMax = 400;
 			}
 			bgUpMin = 200;
 			bgUpMax = 690;
-			sigDownMin = 300;
-			sigDownMax = 400;
+			sigDownMin = 275;
+			sigDownMax = 325;
+//			sigDownMin = 300;
+//			sigDownMax = 400;
 			bgDownMin = 200;
 			bgDownMax = 690;
 //			upMinimum = 80000;
@@ -402,6 +408,8 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 //			sigUpMax = 740;
 			sigUpMin = 605.778;
 			sigUpMax = 719.684;
+//			sigUpMin = 600;
+//			sigUpMax = 740;
 //			if (includeVetos)
 //			{
 //				sigUpMin = 625;
@@ -410,8 +418,10 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgUpMin = 200;
 //			bgUpMin = 400;
 			bgUpMax = 1300;
-			sigDownMin = 600;
-			sigDownMax = 740;
+//			sigDownMin = 600;
+//			sigDownMax = 740;
+			sigDownMin = 650;
+			sigDownMax = 750;
 //			bgDownMin = 200;
 			bgDownMin = 400;
 			bgDownMax = 1300;
@@ -422,8 +432,8 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			downMinimum = 90000;
 //			downMaximum = 110000;
 //                      downMaximum = 10000;
-			fitType = "exp";
-//			fitType = "lin";
+//			fitType = "exp";
+			fitType = "lin";
 //                      fitType = "quad";
 //			if (includeVetos) {fitType = "lin";}
 //			if (includeVetos) {fitType = "exp";}
@@ -431,7 +441,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgNearSigUpperBound = 720;
 			bgCountInterval = 114;
 		}
-		if (targ=="h")
+		if (targ=="h" || targ=="vh")
 		{
 			cout << "Q2=0.1, Hydrogen" << endl;
 			sigUpMin = 600;
@@ -464,6 +474,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 
 	TString fitTypeStr = "Background Fit Type: ";
 	fitTypeStr += fitType;
+	cout << fitTypeStr << endl;
 
 	TFile fileHe(filenameHe);
 	TString Q2=kine;
@@ -526,16 +537,34 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 	TString goodEventsUpTitle; TString goodEventsUpPlot; TString goodEventStr;
 	TString goodEventsDownTitle; TString goodEventsDownPlot;
 	nuAllCutsTotal->SetTitle(titlenuAllCuts);
-	int goodUpEvents[11]; int goodDownEvents[11];
-	double bgUpErr[11]; double bgDownErr[11];
-	double ToFupSigBGEvents; double ToFdownSigBGEvents;
-	double ToFupBGLEvents; double ToFdownBGLEvents;
-	double ToFupBGREvents; double ToFdownBGREvents;
-	TString ToFupSigBGStr; TString ToFdownSigBGStr;
-	TString ToFupBGLStr; TString ToFdownBGLStr;
-	TString ToFupBGRStr; TString ToFdownBGRStr;
-	double bgBinCountUp = 0; double bgBinCountDown = 0;
-	TString bgBinCountUpStr; TString bgBinCountDownStr;
+	int goodUpEvents[11];		int goodDownEvents[11];
+	double bgUpErr[11]; 		double bgDownErr[11];
+	double ToFupSigBGEvents; 	double ToFdownSigBGEvents;
+	double Tup[11];				double Tdown[11];
+	double ToFupBGLEvents;		double ToFdownBGLEvents;
+	double BGLup[11];			double BGLdown[11];
+	double ToFupBGREvents; 		double ToFdownBGREvents;
+	double BGRup[11];			double BGRdown[11];
+	double RSup[11];			double RSdown[11];
+	double RBG[11];
+	TString ToFupSigBGStr; 		TString ToFdownSigBGStr;
+	TString ToFupBGLStr; 		TString ToFdownBGLStr;
+	TString ToFupBGRStr; 		TString ToFdownBGRStr;
+	double bgBinCountUp = 0; 	double bgBinCountDown = 0;
+	TString bgBinCountUpStr; 	TString bgBinCountDownStr;
+
+	for (int i=0; i<11; i++)
+	{
+		Tup[i]=0;		Tdown[i]=0;
+		BGLup[i]=0;		BGLdown[i]=0;
+		BGRup[i]=0;		BGRdown[i]=0;
+		RSup[i]=0;		RSdown[i]=0;
+		RBG[i]=0;
+	}
+
+
+
+
 
 	double allBgMin = bgUpMin;
 //	double allBgMin = sigUpMax;
@@ -546,14 +575,19 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 	double nuBinSize = (nuMax - nuMin)/10;
 	double nuBinCutMin;
 	double nuBinCutMax;
-	double nuBinArr[12];
+//	double nuBinArr[12];
+	Double_t nuBinArr[12];
 
-	for (int i=0; i<11; i++)
+// Nu Bin Selection
+//	for (int i=0; i<1; i++)
+//	for (int i=0; i<11; i++)
+//	for (int i=0; i<4; i++)
+	for (int i=0; i<5; i++)
 	{
-                nuBinCutMin = (i-1)*nuBinSize + nuMin;
-                nuBinCutMax = i*nuBinSize + nuMin;
+		nuBinCutMin = (i-1)*nuBinSize + nuMin;
+		nuBinCutMax = i*nuBinSize + nuMin;
 
-                // ********* The bit below sets the nu bins to be the same as Yawei's cuts *********************
+// ********* The bit below sets the nu bins to be the same as Yawei's cuts *********************
 		if (i==1 && HeRunNumber<20541)
 		{
 			nuBinCutMin = 0;
@@ -916,138 +950,140 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 				double upperSigBound = fitMeanTotal + 5*sqrt(fitSigmaTotal*fitSigmaTotal);
 			}
 			cout << "lowerSigBound = " << lowerSigBound << ", upperSigBound = " << upperSigBound << endl;
-			if ((targ=="v") && (kine=="0.1"))
+			if (forceSignal)
 			{
-//				2 Sigma
-				if (twoSig){
-//					lowerSigBound = 639.95;
-//					upperSigBound = 685.512;
-
-					// New center is at 675
+				if ((targ=="v") && (kine=="0.1"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 687.005;
+						upperSigBound = 734.407;
 	
-					// 1 sigma
-					lowerSigBound = 652.2188;
-					upperSigBound = 697.7812;
+						// New center is at 675
+			
+						// 1 sigma
+//						lowerSigBound = 652.2188;
+//						upperSigBound = 697.7812;
 
-//					// Center 3 bins
-//					lowerSigBound = 662;
-//					upperSigBound = 694;
+//						// Center 3 bins
+//						lowerSigBound = 662;
+//						upperSigBound = 694;
 
 
-					// 4.5 sigma
-//					lowerSigBound = 623.742;
-//					upperSigBound = 726.258;
+						// 4.5 sigma
+//						lowerSigBound = 623.742;
+//						upperSigBound = 726.258;
 
-				}
-// 				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 605.778;
-					upperSigBound = 719.684;
-				}
-			}
-			if ((targ=="v") && (kine=="0.5"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 651.139;
-					upperSigBound = 678.495;
 					}
 // 				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 630.622;
-					upperSigBound = 699.012;
+					if(fiveSig){
+						lowerSigBound = 651.453;
+						upperSigBound = 769.959;
+					}
+				}
+				if ((targ=="v") && (kine=="0.5"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 651.139;
+						upperSigBound = 678.495;
+						}
+// 				5 Sigma
+					if(fiveSig){
+						lowerSigBound = 630.622;
+						upperSigBound = 699.012;
+					}
+				}
+
+				if ((targ=="h") && (kine=="0.1"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 647.307;
+						upperSigBound = 673.249;
+					}
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 627.851;
+						upperSigBound = 692.705;
+					}
+				}
+				if ((targ=="h") && (kine=="0.5"))
+				{
+//					2 Sigma
+					if (twoSig){
+//						lowerSigBound = 323.574;
+//						upperSigBound = 358.518;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+//						lowerSigBound = 297.366;
+//						upperSigBound = 384.726;
+					}
+
+				}
+				if ((targ=="vh") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 655.905;
+						upperSigBound = 673.695;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 642.562;
+						upperSigBound = 687.037;
+					}
+
+				}
+				if ((targ=="v") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 655.803;
+						upperSigBound = 674.456;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 641.813;
+						upperSigBound = 688.445;
+					}
+
+				}
+				if ((targ=="t") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 340;
+						upperSigBound = 356.806;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 324.463;
+						upperSigBound = 366.477;
+					}
+
+				}
+				if ((targ=="l") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 340;
+						upperSigBound = 356.696;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 324.58;
+						upperSigBound = 366.32;
+					}
+
 				}
 			}
-
-			if ((targ=="h") && (kine=="0.1"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 647.307;
-					upperSigBound = 673.249;
-				}
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 627.851;
-					upperSigBound = 692.705;
-				}
-			}
-			if ((targ=="h") && (kine=="0.5"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 323.574;
-					upperSigBound = 358.518;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 297.366;
-					upperSigBound = 384.726;
-				}
-
-			}
-			if ((targ=="vh") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 655.905;
-					upperSigBound = 673.695;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 642.562;
-					upperSigBound = 687.037;
-				}
-
-			}
-			if ((targ=="v") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 655.803;
-					upperSigBound = 674.456;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 641.813;
-					upperSigBound = 688.445;
-				}
-
-			}
-			if ((targ=="t") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 340;
-					upperSigBound = 356.806;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 324.463;
-					upperSigBound = 366.477;
-				}
-
-			}
-			if ((targ=="l") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 340;
-					upperSigBound = 356.696;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 324.58;
-					upperSigBound = 366.32;
-				}
-
-			}
-
 
 
 
@@ -1075,7 +1111,9 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			tofQEpeakTitle += ".pdf";
 			tofpad2->Print(tofQEpeakTitle);
 		}
-*/		tofpad3->cd();
+*/		
+		cout << "Fit type: " << fitType << endl;
+		tofpad3->cd();
 		sigBGUpPlot = "sigBGUp_bin_";
 		sigBGUpPlot += i;
 		sigBGUpTitle = "ToF Spin UP Signal Events for nu bin ";
@@ -1339,6 +1377,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 */
 		ToFupSigBGStr = "# of Up Events Under Peak (S+BG): ";
 		ToFupSigBGStr += ToFupSigBGEvents;
+		Tup[i] = ToFupSigBGEvents;
 //		testingOneMoreThing[i] = ToFupSigBGEvents;
 		if (i==0) {TString ToFupSigBGStrForOutput = ToFupSigBGStr;}
 		Up8 = fitResultsUp->AddText(ToFupSigBGStr);
@@ -1355,6 +1394,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		}
 		ToFupBGLStr = "# of Up BG-L Events (Red): ";
 		ToFupBGLStr += ToFupBGLEvents;
+		BGLup[i] = ToFupBGLEvents;
 		testingOneMoreThing[i] = ToFupBGLEvents;
 		if (i==0) {TString ToFupBGLStrForOutput = ToFupBGLStr;}
 		Up9 = fitResultsUp->AddText(ToFupBGLStr);
@@ -1369,6 +1409,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		}
 		ToFupBGRStr = "# of Up BG-R Events (Orange): ";
 		ToFupBGRStr += ToFupBGREvents;
+		BGRup[i] = ToFupBGREvents;
 		if (i==0) {TString ToFupBGRStrForOutput = ToFupBGRStr;}
 		Up10 = fitResultsUp->AddText(ToFupBGRStr);
 
@@ -1380,12 +1421,14 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		leftrightstring += ((bgrMinBin*binSize)+tofMin);
 		leftrightstring += "-";
 		leftrightstring += ((bgrMaxBin*binSize)+tofMin);
+		RBG[i] = (bglMaxBin - bglMinBin + bgrMaxBin - bgrMinBin)*binSize;
 
 //		Up11 = fitResultsUp->AddText("BG-L: 250-600, BG-R: 750-1100");
 		Up11 = fitResultsUp->AddText(leftrightstring);
 
 		TString numberOfSigBinsUpStr = "# of Up Signal Bins: ";
 		numberOfSigBinsUpStr += (sigUpMax - sigUpMin);
+		RSup[i] = (sigUpMax - sigUpMin);
 		Up12 = fitResultsUp->AddText(numberOfSigBinsUpStr);
 
 		cout << "i: " << i << endl;
@@ -1871,6 +1914,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		}
 		ToFdownSigBGStr = "# of Down Events Under Peak (S+BG): ";
 		ToFdownSigBGStr += ToFdownSigBGEvents;
+		Tdown[i] = ToFdownSigBGEvents;
 		if (i==0) {TString ToFdownSigBGStrForOutput = ToFdownSigBGStr;}
 		Down8 = fitResultsDown->AddText(ToFdownSigBGStr);
 
@@ -1884,6 +1928,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		}
 		ToFdownBGLStr = "# of Down BG-L Events (Red): ";
 		ToFdownBGLStr += ToFdownBGLEvents;
+		BGLdown[i] = ToFdownBGLEvents;
 		if (i==0) {TString ToFdownBGLStrForOutput = ToFdownBGLStr;}
 		Down9 = fitResultsDown->AddText(ToFdownBGLStr);
 
@@ -1897,6 +1942,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 		}
 		ToFdownBGRStr = "# of Down BG-R Events (Orange): ";
 		ToFdownBGRStr += ToFdownBGREvents;
+		BGRdown[i] = ToFdownBGREvents;
 		if (i==0) {TString ToFdownBGRStrForOutput = ToFdownBGRStr;}
 		Down10 = fitResultsDown->AddText(ToFdownBGRStr);
 
@@ -1906,6 +1952,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 
 		TString numberOfSigBinsDownStr = "# of Down Signal Bins: ";
 		numberOfSigBinsDownStr += (sigDownMax - sigDownMin);
+		RSdown[i] = (sigDownMax - sigDownMin);
 		Down12 = fitResultsDown->AddText(numberOfSigBinsDownStr);
 
 
@@ -2783,7 +2830,7 @@ cout << "4" << endl;
 	asymOutFile << "Runs:	" << HeRunNumber << "-" << endHeRunNumber << endl;
 	asymOut2File << "Runs:	" << HeRunNumber << "-" << endHeRunNumber << endl;
 	cout << "Runs:	" << HeRunNumber << "-" << endHeRunNumber << endl;
-	asymOutFile << "Omega	Raw Asym	Stat. Error	# HePos Events	HePos Charge	PosHe LT	 # Neg Events	HeNeg Charge	NegHe LT" << endl;
+//	asymOutFile << "Omega	Raw Asym	Stat. Error	# HePos Events	HePos Charge	PosHe LT	 # Neg Events	HeNeg Charge	NegHe LT" << endl;
 	asymOut2File << "Omega	Raw Asym	Stat. Error	He+Evts	He+ Charge	He+ LT	He-Evts	He- Charge	He- LT	PhysAsym	NewErr";
 	if (includeTgtPol) {asymOut2File << "	TgtPolDil";}
 	if (includeBeamPol) {asymOut2File << "	BeamPolDil";}
@@ -2833,7 +2880,7 @@ cout << "4" << endl;
 
 		errorx[i] = ((nuMax - nuMin)/nuBins)/2;
 		errorxbasic[i] = 0;
-		asymOutFile << x[i] << "	 " << ybasic[i] << "	" << errorybasic[i] << "	" << UpEvents << "	" << HeChargeScaleUp << "	" << HelivetimeUp << "	" << DownEvents << "	" << HeChargeScaleDown << "	" << HelivetimeDown << endl;
+//		asymOutFile << x[i] << "	 " << ybasic[i] << "	" << errorybasic[i] << "	" << UpEvents << "	" << HeChargeScaleUp << "	" << HelivetimeUp << "	" << DownEvents << "	" << HeChargeScaleDown << "	" << HelivetimeDown << endl;
 		asymOut2File << x[i] << "	 " << ybasic[i] << "	" << errorybasic[i] << "	" << UpEvents << "	" << HeChargeScaleUp << "	" << HelivetimeUp << "	" << DownEvents << "	" << HeChargeScaleDown << "	" << HelivetimeDown << "	" << y[i] << "	" << errory[i];
 		if (includeTgtPol) {asymOut2File << "	" << tgtPolDil;}
 		if (includeBeamPol) {asymOut2File << "	" << beamPolDil;}	
@@ -2880,7 +2927,7 @@ cout << "4" << endl;
 	asymGraph->Fit("fitAsymGraph","R");
 	asymCanvas->Update();
 
-	asymOutFile.close();
+//	asymOutFile.close();
 	asymOut2File.close();
 
 	TString asymOutTitle = outputPlotsHere;
@@ -2933,5 +2980,45 @@ cout << "4" << endl;
 		}
 //		cout << "j: " << j << ",	Up S+BG: " << testAdds << endl;
 	}
+
+	cout << "NuBin  TotalUp TotalDown   Bin1Up  Bin1Down	Bin2Up  Bin2Down	Bin3Up  Bin3Down	Bin4Up  Bin4Down" << endl;
+//	asymOutFile << "NuBin TotalUp TotalDown Bin1Up Bin1Down Bin2Up Bin2Down Bin3Up Bin3Down Bin4Up Bin4Down" << endl;
+	asymOutFile << "NuBin GoodUp GoodDown TUp TDown BGLUp BGLDown BGRUp BGRDown RSUp RSDown" << endl;
+	cout << fixed;
+	asymOutFile << fixed;
+//	for (Int_t i=0; i<11; i++)
+	for (Int_t i=0; i<4; i++)
+	{
+		asymOutFileText = "";
+//		asymOutFileText += i;
+//		asymOutFileText += " ";
+		asymOutFileText += nuBinArr[i];
+		asymOutFileText += " ";
+		asymOutFileText += goodUpEvents[i];
+		asymOutFileText += " ";
+		asymOutFileText += goodDownEvents[i];
+		asymOutFileText += " ";
+		asymOutFileText += Tup[i];
+		asymOutFileText += " ";
+		asymOutFileText += Tdown[i];
+		asymOutFileText += " ";
+		asymOutFileText += BGLup[i];
+		asymOutFileText += " ";
+		asymOutFileText += BGLdown[i];
+		asymOutFileText += " ";
+		asymOutFileText += BGRup[i];
+		asymOutFileText += " ";
+		asymOutFileText += BGRdown[i];
+		asymOutFileText += " ";
+		asymOutFileText += RSup[i];
+		asymOutFileText += " ";
+		asymOutFileText += RSdown[i];
+		asymOutFileText += " ";
+		asymOutFileText += RBG[i];
+		cout << setprecision(3) << asymOutFileText << endl;
+
+		asymOutFile << setprecision(3) << asymOutFileText << endl;
+	}
+	asymOutFile.close();
 	cout << "^^^^^^^^^^^^^^^^^^^^^^^ hand_class_draw_tof_nu.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
 }
