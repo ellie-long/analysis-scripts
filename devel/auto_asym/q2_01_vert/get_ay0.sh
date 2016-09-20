@@ -13,7 +13,7 @@
 
 echo "get_ay0.sh for Q2=0.1 GeV^2"
 
-ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_01_vert"
+ayhome="/lustre/expphy/work/halla/e05102/ellie/analysis-scripts/devel/auto_asym/q2_01_vert"
 
 #sort -t ' ' -k1 vert_3he_q2_01_eeprime_asym_v_runnum_for_runs_20487-20511.txt > temp_eeprime.txt
 #sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt

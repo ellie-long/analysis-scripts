@@ -115,6 +115,7 @@ void add_class_targ_asymmetry_vs_nu(){
 		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 21006;}
 //		if (targ == "v") {HeRunNumber = 20890; endHeRunNumber = 20940;}
 		if (targ == "h") {HeRunNumber = 21383; endHeRunNumber = 21387;}
+		if (targ == "vh"){HeRunNumber = 21383; endHeRunNumber = 21387;}
 		double nuMax = 0.35;
 		double nuMin = 0.1;
 	}
@@ -132,6 +133,7 @@ void add_class_targ_asymmetry_vs_nu(){
 //		if (targ == "v") {HeRunNumber = 20498; endHeRunNumber = 20511;}
 //		if (targ == "v") {HeRunNumber = 20533; endHeRunNumber = 20538;}
 		if (targ == "h") {HeRunNumber = 20404; endHeRunNumber = 20407;}
+		if (targ == "vh") {HeRunNumber = 20404; endHeRunNumber = 20407;}
 //		if (targ == "v") {HeRunNumber = 20487; endHeRunNumber = 20538;}
 		double nuMin = 0.01;
 		double nuMax = 0.13;
@@ -155,7 +157,7 @@ void add_class_targ_asymmetry_vs_nu(){
 	if (targ == "vc") {filenameHe += "v_carbon_";}
 	if (targ == "ltc") {filenameHe += "lt_carbon_";}
 	if (targ == "h") {filenameHe += "hydrogen_";}
-	if (targ == "vh") {filenameHe += "v_hydrogen_";}
+	if (targ == "vh") {filenameHe += "vert_1h_";}
 	if (targ == "lth") {filenameHe += "lt_hydrogen_";}
 	if (targ == "n") {filenameHe += "nitrogen_";}
 	if (targ == "ltn") {filenameHe += "lt_nitrogen_";}

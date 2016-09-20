@@ -13,7 +13,7 @@
 
 echo "get_ay0.sh for Q2=0.5 GeV^2"
 
-ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_05_vert"
+ayhome="/lustre/expphy/work/halla/e05102/ellie/analysis-scripts/devel/auto_asym/q2_05_vert"
 
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_ssa_target_asymmetry_runs_20890-21006.txt $ayhome
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_asym_v_runnum_for_runs_20890-21006.txt $ayhome

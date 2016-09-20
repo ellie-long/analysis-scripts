@@ -31,6 +31,9 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 //	bool forceBG = true;
 	bool forceBG = false;
 
+//	bool forceSignal = true;
+	bool forceSignal = false;
+
 	bool twoSig = true;
 	bool fiveSig = false;
 
@@ -358,20 +361,26 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgNearSigUpperBound = 800;
 			bgCountInterval = 68;
 		}
-		if (targ=="h")
+		if (targ=="h" || targ=="vh")
 		{
 			cout << "Q2=0.5, Hydrogen" << endl;
-			sigUpMin = 300;
-			sigUpMax = 400;
+			sigUpMin = 275;
+			sigUpMax = 325;
+//			sigUpMin = 300;
+//			sigUpMax = 400;
 			if (includeVetos)
 			{
-				sigUpMin = 300;
-				sigUpMax = 400;
+				sigUpMin = 275;
+				sigUpMax = 325;
+//				sigUpMin = 300;
+//				sigUpMax = 400;
 			}
 			bgUpMin = 200;
 			bgUpMax = 690;
-			sigDownMin = 300;
-			sigDownMax = 400;
+			sigDownMin = 275;
+			sigDownMax = 325;
+//			sigDownMin = 300;
+//			sigDownMax = 400;
 			bgDownMin = 200;
 			bgDownMax = 690;
 //			upMinimum = 80000;
@@ -432,7 +441,7 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 			bgNearSigUpperBound = 720;
 			bgCountInterval = 114;
 		}
-		if (targ=="h")
+		if (targ=="h" || targ=="vh")
 		{
 			cout << "Q2=0.1, Hydrogen" << endl;
 			sigUpMin = 600;
@@ -941,138 +950,140 @@ void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenam
 				double upperSigBound = fitMeanTotal + 5*sqrt(fitSigmaTotal*fitSigmaTotal);
 			}
 			cout << "lowerSigBound = " << lowerSigBound << ", upperSigBound = " << upperSigBound << endl;
-			if ((targ=="v") && (kine=="0.1"))
+			if (forceSignal)
 			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 687.005;
-					upperSigBound = 734.407;
-
-					// New center is at 675
+				if ((targ=="v") && (kine=="0.1"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 687.005;
+						upperSigBound = 734.407;
 	
-					// 1 sigma
-//					lowerSigBound = 652.2188;
-//					upperSigBound = 697.7812;
+						// New center is at 675
+			
+						// 1 sigma
+//						lowerSigBound = 652.2188;
+//						upperSigBound = 697.7812;
 
-//					// Center 3 bins
-//					lowerSigBound = 662;
-//					upperSigBound = 694;
+//						// Center 3 bins
+//						lowerSigBound = 662;
+//						upperSigBound = 694;
 
 
-					// 4.5 sigma
-//					lowerSigBound = 623.742;
-//					upperSigBound = 726.258;
+						// 4.5 sigma
+//						lowerSigBound = 623.742;
+//						upperSigBound = 726.258;
 
-				}
-// 				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 651.453;
-					upperSigBound = 769.959;
-				}
-			}
-		if ((targ=="v") && (kine=="0.5"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 651.139;
-					upperSigBound = 678.495;
 					}
 // 				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 630.622;
-					upperSigBound = 699.012;
+					if(fiveSig){
+						lowerSigBound = 651.453;
+						upperSigBound = 769.959;
+					}
+				}
+				if ((targ=="v") && (kine=="0.5"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 651.139;
+						upperSigBound = 678.495;
+						}
+// 				5 Sigma
+					if(fiveSig){
+						lowerSigBound = 630.622;
+						upperSigBound = 699.012;
+					}
+				}
+
+				if ((targ=="h") && (kine=="0.1"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 647.307;
+						upperSigBound = 673.249;
+					}
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 627.851;
+						upperSigBound = 692.705;
+					}
+				}
+				if ((targ=="h") && (kine=="0.5"))
+				{
+//					2 Sigma
+					if (twoSig){
+//						lowerSigBound = 323.574;
+//						upperSigBound = 358.518;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+//						lowerSigBound = 297.366;
+//						upperSigBound = 384.726;
+					}
+
+				}
+				if ((targ=="vh") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 655.905;
+						upperSigBound = 673.695;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 642.562;
+						upperSigBound = 687.037;
+					}
+
+				}
+				if ((targ=="v") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 655.803;
+						upperSigBound = 674.456;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 641.813;
+						upperSigBound = 688.445;
+					}
+
+				}
+				if ((targ=="t") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 340;
+						upperSigBound = 356.806;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 324.463;
+						upperSigBound = 366.477;
+					}
+
+				}
+				if ((targ=="l") && (kine=="1.0"))
+				{
+//					2 Sigma
+					if (twoSig){
+						lowerSigBound = 340;
+						upperSigBound = 356.696;
+					}
+
+//					5 Sigma
+					if(fiveSig){
+						lowerSigBound = 324.58;
+						upperSigBound = 366.32;
+					}
+
 				}
 			}
-
-			if ((targ=="h") && (kine=="0.1"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 647.307;
-					upperSigBound = 673.249;
-				}
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 627.851;
-					upperSigBound = 692.705;
-				}
-			}
-			if ((targ=="h") && (kine=="0.5"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 323.574;
-					upperSigBound = 358.518;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 297.366;
-					upperSigBound = 384.726;
-				}
-
-			}
-			if ((targ=="vh") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 655.905;
-					upperSigBound = 673.695;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 642.562;
-					upperSigBound = 687.037;
-				}
-
-			}
-			if ((targ=="v") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 655.803;
-					upperSigBound = 674.456;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 641.813;
-					upperSigBound = 688.445;
-				}
-
-			}
-			if ((targ=="t") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 340;
-					upperSigBound = 356.806;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 324.463;
-					upperSigBound = 366.477;
-				}
-
-			}
-			if ((targ=="l") && (kine=="1.0"))
-			{
-//				2 Sigma
-				if (twoSig){
-					lowerSigBound = 340;
-					upperSigBound = 356.696;
-				}
-
-//				5 Sigma
-				if(fiveSig){
-					lowerSigBound = 324.58;
-					upperSigBound = 366.32;
-				}
-
-			}
-
 
 
 

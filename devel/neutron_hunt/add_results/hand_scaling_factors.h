@@ -44,36 +44,38 @@ void hand_scaling_factors(int HeRunNumber, int endHeRunNumber, double& HeChargeS
 //	TString fileName = "/home/ellie/physics/e05-102/images/run_information/charge_and_livetime_R2.txt";
 //	TString fileName = "/home/ellie/physics/e05-102/images/run_information/run_info_R.txt";
 //	TString fileName = "/home/ellie/physics/e05-102/images/run_information/temp_q2_1_vert_3he_run_info.txt";
-	TString fileName = "";
+
+//	TString fileName = "/home/ellie/physics/e05-102/images/";
+	TString fileName = "/u/home/ellie/";
 	cout << "targ: " << targ << ", kine: " << kine << endl;
 	if (kine == "1.0")
 	{
-		if (targ == "v") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_vert_3he_run_info.txt";}
-		if (targ == "l") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_long_3he_run_info.txt";}
-		if (targ == "t") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_trans_3he_run_info.txt";}
-		if (targ == "c") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_carbon_run_info.txt";}
-		if (targ == "vc") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_v_carbon_run_info.txt";}
-		if (targ == "ltc") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_lt_carbon_run_info.txt";}
-		if (targ == "h") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_hydrogen_run_info.txt";}
-		if (targ == "vh") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_v_hydrogen_run_info.txt";}
-		if (targ == "lth") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_lt_hydrogen_run_info.txt";}
-		if (targ == "n") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_nitrogen_run_info.txt";}
-		if (targ == "ltn") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_1_lt_nitrogen_run_info.txt";}
+		if (targ == "v") {fileName += "run_information/q2_1_vert_3he_run_info.txt";}
+		if (targ == "l") {fileName += "run_information/q2_1_long_3he_run_info.txt";}
+		if (targ == "t") {fileName += "run_information/q2_1_trans_3he_run_info.txt";}
+		if (targ == "c") {fileName += "run_information/q2_1_carbon_run_info.txt";}
+		if (targ == "vc") {fileName += "run_information/q2_1_v_carbon_run_info.txt";}
+		if (targ == "ltc") {fileName += "run_information/q2_1_lt_carbon_run_info.txt";}
+		if (targ == "h") {fileName += "run_information/q2_1_hydrogen_run_info.txt";}
+		if (targ == "vh") {fileName += "run_information/q2_1_v_hydrogen_run_info.txt";}
+		if (targ == "lth") {fileName += "run_information/q2_1_lt_hydrogen_run_info.txt";}
+		if (targ == "n") {fileName += "run_information/q2_1_nitrogen_run_info.txt";}
+		if (targ == "ltn") {fileName += "run_information/q2_1_lt_nitrogen_run_info.txt";}
 	}
 	if (kine == "0.5")
 	{
-		if (targ == "v") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_05_vert_3he_run_info.txt";}
-		if (targ == "h") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_05_hydrogen_run_info.txt";}
+		if (targ == "v") {fileName += "run_information/q2_05_vert_3he_run_info.txt";}
+		if (targ == "h") {fileName += "run_information/q2_05_hydrogen_run_info.txt";}
 	}
 	if (kine == "0.4")
 	{
-		if (targ == "l") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_04_long_3he_run_info.txt";}
-		if (targ == "t") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_04_trans_3he_run_info.txt";}
+		if (targ == "l") {fileName += "run_information/q2_04_long_3he_run_info.txt";}
+		if (targ == "t") {fileName += "run_information/q2_04_trans_3he_run_info.txt";}
 	}
 	if (kine == "0.1")
 	{
-		if (targ == "v") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_01_vert_3he_run_info.txt";}
-		if (targ == "h") {fileName = "/home/ellie/physics/e05-102/images/run_information/q2_01_hydrogen_run_info.txt";}
+		if (targ == "v") {fileName += "run_information/q2_01_vert_3he_run_info.txt";}
+		if (targ == "h") {fileName += "run_information/q2_01_hydrogen_run_info.txt";}
 	}
 
 
