@@ -25,14 +25,14 @@ void bar_theta_phi(){
 	bool includeVetos;
 // 	If includeVetos = false, then only good bars will be displayed. If 
 //	includeVetos = true, then veto bars will be shown along with the good bars.
-	includeVetos = true;
-//	includeVetos = false;
+//	includeVetos = true;
+	includeVetos = false;
 
 	bool includeAntiVetos;
 // 	If includeAntiVetos = false, then only good bars will be displayed. If 
 //	includeAntiVetos = true, then antiveto bars will be shown along with the good bars.
-//	includeAntiVetos = true;
-	includeAntiVetos = false;
+	includeAntiVetos = true;
+//	includeAntiVetos = false;
 
 	bool antivetosAsVetos;
 //	If antivetosAsVetos = false, then the antivetos will not be included in the veto cut
@@ -44,19 +44,38 @@ void bar_theta_phi(){
 
 	gROOT->ProcessLine(".L hand_draw.C");
 
-	TString Q2 = "1.0";
+	TString Q2; int HeRunNumber; int endHeRunNumber; double vetoTDCcutmin; double vetoTDCcutmax;
 
-	int HeRunNumber = 20404;
-	int endHeRunNumber = 20407;
+	Q2 = "0.5";
 
-//	int HeRunNumber = 21383;
-//	int endHeRunNumber = 21387;
+	if (Q2=="0.1")
+	{
+		HeRunNumber = 20404;
+		endHeRunNumber = 20407;
+		vetoTDCcutmin = 1390;
+		vetoTDCcutmax = 1440;
+	}
+	else if (Q2=="0.5")
+	{
+//		HeRunNumber = 21383;
+//		endHeRunNumber = 21387;
+//		vetoTDCcutmin = 720;
+//		vetoTDCcutmax = 780;
 
-//	int HeRunNumber = 20791;
-//	int endHeRunNumber = 20792;
+		HeRunNumber = 20915;
+		endHeRunNumber = 20915;
+		vetoTDCcutmin = 1250;
+		vetoTDCcutmax = 1500;
+	}
+	else if (Q2=="1.0")
+	{
+		HeRunNumber = 20791;
+		endHeRunNumber = 20792;
+		vetoTDCcutmin = 1385;
+		vetoTDCcutmax = 1415;
+	}
+	else {cout << "Oh no, something went wrong..." << endl; return;}
 
-	double vetoTDCcutmin = 1385;
-	double vetoTDCcutmax = 1415;
 	int HANDbins = 60;
 	double HANDmin = -30;
 	double HANDmax = 30;
@@ -79,8 +98,12 @@ void bar_theta_phi(){
 	TCut kinematics = "PriKineR.Q2<10 && GoodElectron==1 && PriKineR.nu<10";
 //	TCut eventtype = "(D.evtypebits&2)==2";
 	TCut eventtype = "";
-	TCut dp = "ExTgtCor_R.dp>-0.04 && ExTgtCor_R.dp<0.053";
-	TCut target = "ReactPt_R.z>-0.15 && ReactPt_R.z<0.17";
+	TCut dp = "ExTgtCor_R.dp>-0.04 && ExTgtCor_R.dp<0.06";
+/*	if (Q2=="0.5")
+	{
+		dp = "ExTgtCor_R.dp>-0.1 && ExTgtCor_R.dp<0.75";
+	}
+*/	TCut target = "ReactPt_R.z>-0.15 && ReactPt_R.z<0.17";
 	TCut thph = "abs(ExTgtCor_R.ph)<0.03 && abs(ExTgtCor_R.th)<0.07";
 	TCut tracks = "R.tr.n==1 && R.vdc.u1.nhit>3 && R.vdc.u1.nhit<7 && R.vdc.u2.nhit>3 && R.vdc.u2.nhit<7 && R.vdc.v1.nhit>3 && R.vdc.v1.nhit<7 && R.vdc.v2.nhit>3 && R.vdc.v2.nhit<7";
 	TCut basic = kinematics && eventtype && tracks;
@@ -260,30 +283,33 @@ void bar_theta_phi(){
 	TString definethevetos;
 	TString vetoTDCslSt;
 	TString vetoTDCsrSt;
-	TCut vetoTDCsl;
-	TCut vetoTDCsr;
-	TCut vetoTDCs;
     TString antivetosTDCslSt;
     TString antivetosTDCsrSt;
 	int maxbars;
 	TString allAntivetos = "";
+	TCut vetoTDCsl;
+	TCut vetoTDCsr;
+	TCut vetoTDCs;
+	TString goodPlane;
+	TString goodPMT;
+	TString StrVeto;
 
 // The section below plots the HAND data
 // **********************************************************************************************
-//	for (int nplane=2; nplane<5; nplane++)
-	for (int nplane=2; nplane<3; nplane++)
+//	for (int nplane=0; nplane<5; nplane++)
+	for (int nplane=1; nplane<2; nplane++)
 	{
 		if (nplane==0) maxbars=32;
 		if (nplane==1) maxbars=30;
 		if (nplane==2) maxbars=24;
 		if (nplane==3) maxbars=22;
 		if (nplane==4) maxbars=12;
-//		for (int thisbar=0; thisbar<maxbars; thisbar++)
-		for (int thisbar=10; thisbar<11; thisbar++)
+		for (int thisbar=0; thisbar<maxbars; thisbar++)
+//		for (int thisbar=0; thisbar<2; thisbar++)
 		{
 
-			TString goodPlane = nplane;
-			TString goodPMT = thisbar;
+			goodPlane = nplane;
+			goodPMT = thisbar;
 
 			hand_define_vetos(includeVetos, includeAntiVetos, antivetosAsVetos, nplane, thisbar, veto1plane, veto2plane, veto3plane, veto4plane, veto5plane, veto6plane, veto1bar, veto2bar, veto3bar, veto4bar, veto5bar, veto6bar, antiveto1plane, antiveto2plane, antiveto3plane, antiveto1bar, antiveto2bar, antiveto3bar, allVetos, allAntivetos, vetoTDCslSt, vetoTDCsrSt, vetoTDCsl, vetoTDCsr, vetoTDCs, vetoTDCcutmin, vetoTDCcutmax, antivetosTDCslSt, antivetosTDCsrSt);
 //			hand_define_vetos(includeVetos, false, false, nplane, thisbar, veto1plane, veto2plane, veto3plane, veto4plane, veto5plane, veto6plane, veto1bar, veto2bar, veto3bar, veto4bar, veto5bar, veto6bar, antiveto1plane, antiveto2plane, antiveto3plane, antiveto1bar, antiveto2bar, antiveto3bar, allVetos, allAntivetos, vetoTDCslSt, vetoTDCsrSt, vetoTDCsl, vetoTDCsr, vetoTDCs, vetoTDCcutmin, vetoTDCcutmax, antivetosTDCslSt, antivetosTDCsrSt);
@@ -350,22 +376,74 @@ void bar_theta_phi(){
 			goodTDCcutstring += goodTDCposition;
 			goodTDCcutstring += "<";
 			goodTDCcutstring += TDCcutmax;
-			cout << "goodTDCcutstring: " << goodTDCcutstring << endl;
+
+			goodTDCcutstring = goodTDCl;
+			goodTDCcutstring += ">";
+			goodTDCcutstring += vetoTDCcutmin;
+			goodTDCcutstring += " && ";
+			goodTDCcutstring += goodTDCl;
+			goodTDCcutstring += "<";
+			goodTDCcutstring += vetoTDCcutmax;
+			goodTDCcutstring += " && ";
+			goodTDCcutstring += goodTDCr;
+			goodTDCcutstring += ">";
+			goodTDCcutstring += vetoTDCcutmin;
+			goodTDCcutstring += " && ";
+			goodTDCcutstring += goodTDCr;
+			goodTDCcutstring += "<";
+			goodTDCcutstring += vetoTDCcutmax;
+
+//			cout << "goodTDCcutstring: " << goodTDCcutstring << endl;
 			TCut goodTDCcut = goodTDCcutstring;
 
 			TString basicTDCcutstring = goodTDCl;
 			basicTDCcutstring += ">1 && ";
+			basicTDCcutstring += goodTDCl;
+			basicTDCcutstring += "<3000 && ";
 			basicTDCcutstring += goodTDCr;
-			basicTDCcutstring += ">1";
-			cout << "basicTDCcutstring: " << basicTDCcutstring << endl;
+			basicTDCcutstring += ">1 && ";
+			basicTDCcutstring += goodTDCr;
+			basicTDCcutstring += "<3000";
+//			cout << "basicTDCcutstring: " << basicTDCcutstring << endl;
 			TCut basicTDCcut = basicTDCcutstring;
 
 
 			TString thisplaneandbar = "NA.n.plane==";
-			thisplaneandbar += nplane-1;
+			thisplaneandbar += nplane;
 			thisplaneandbar += " && NA.n.pad==";
 			thisplaneandbar += thisbar;
-			TCut thisplaneandbarcut = thisplaneandbar;
+/*			TString thisplaneandbar = "NA.nd.p";
+			thisplaneandbar += nplane;
+			thisplaneandbar += ".lt_c[";
+			thisplaneandbar += thisbar;
+			thisplaneandbar += "]>0 && NA.nd.p";
+			thisplaneandbar += nplane;
+			thisplaneandbar += ".lt_c[";
+			thisplaneandbar += thisbar;
+			thisplaneandbar += "]<3000 && NA.nd.p";
+			thisplaneandbar += nplane;
+			thisplaneandbar += ".rt_c[";
+			thisplaneandbar += thisbar;
+			thisplaneandbar += "]>0 && NA.nd.p";
+			thisplaneandbar += nplane;
+			thisplaneandbar += ".rt_c[";
+			thisplaneandbar += thisbar;
+			thisplaneandbar += "]<3000";
+			if (nplane==0)
+			{
+				thisplaneandbar = "NA.veto.lt_c[";
+				thisplaneandbar += thisbar;
+				thisplaneandbar += "]>0 && NA.veto.lt_c[";
+				thisplaneandbar += thisbar;
+				thisplaneandbar += "]<3000";
+				thisplaneandbar += "NA.veto.rt_c[";
+				thisplaneandbar += thisbar;
+				thisplaneandbar += "]>0 && NA.veto.rt_c[";
+				thisplaneandbar += thisbar;
+				thisplaneandbar += "]<3000";
+
+			}
+*/			TCut thisplaneandbarcut = thisplaneandbar;
 
 			handpad02->cd();
 			handpad02->SetLogy();
@@ -382,7 +460,7 @@ void bar_theta_phi(){
 			TString plotHANDleftNoVetoscut = plotHANDleftNoVetos;
 			plotHANDleftNoVetoscut += "_cut";
 			TString cutstring = cuts;
-			cout << "goodTDCposition: " << goodTDCposition << ">>" << plotHANDleftNoVetos << endl << "Cuts: " << cutstring << endl;
+//			cout << "goodTDCposition: " << goodTDCposition << ">>" << plotHANDleftNoVetos << endl << "Cuts: " << cutstring << endl;
 			TH1F *HANDleftNoVetos = new TH1F(plotHANDleftNoVetos,titleHANDleftNoVetos,HANDbins,HANDmin,HANDmax);
 			TH1F *HANDleftNoVetoscut = new TH1F(plotHANDleftNoVetoscut,titleHANDleftNoVetos,HANDbins,HANDmin,HANDmax);
 			TString HANDleftNoVetosTDC = goodTDCposition;
@@ -391,20 +469,32 @@ void bar_theta_phi(){
 			TString HANDleftNoVetosTDCcut = goodTDCposition;
 			HANDleftNoVetosTDCcut += ">>";
 			HANDleftNoVetosTDCcut += plotHANDleftNoVetoscut;
-			chainHe->Draw(HANDleftNoVetosTDC, cuts && vetoTDCs && basicTDCcut,"");
+
+//			TCut allHANDcuts = cuts && vetoTDCs && basicTDCcut && goodTDCcut;
+			TCut allHANDcuts = vetoTDCs && basicTDCcut && goodTDCcut;
+
+			chainHe->Draw(HANDleftNoVetosTDC, allHANDcuts,"");
+//			TString allCuts = cuts; allCuts += " && "; allCuts += vetoTDCs; allCuts += " && "; allCuts+= basicTDCcut; allCuts += " && "; allCuts += goodTDCcutstring;
+			TString allCuts = allHANDcuts;
+			cout << "All HAND cuts: " << allCuts << endl;
 			HANDleftNoVetos->Draw();
-			chainHe->Draw(HANDleftNoVetosTDCcut, cuts && vetoTDCs && goodTDCcut && basicTDCcut,"same");
-			HANDleftNoVetoscut->SetFillColor(kViolet);
-			HANDleftNoVetoscut->Draw("same");
+//			chainHe->Draw(HANDleftNoVetosTDCcut, allHANDcuts,"same");
+//			HANDleftNoVetoscut->SetFillColor(kViolet);
+//			HANDleftNoVetoscut->Draw("same");
 			handpad02->Update();
 
 			handpad03->cd();
                         cout << "Drawing Theta and Phi kinematics..." << endl;
-                        TString kinematicstitleThetaPhiNokinematics = "Theta and Phi";
+                        TString kinematicstitleThetaPhiNokinematics = "Theta and Phi for Runs #";
+						kinematicstitleThetaPhiNokinematics += HeRunNumber;
+						kinematicstitleThetaPhiNokinematics += " - ";
+						kinematicstitleThetaPhiNokinematics += endHeRunNumber;
+//                        TH2F *HeThetaPhiNokinematics = new TH2F("HeThetaPhiNokinematics",kinematicstitleThetaPhiNokinematics,25,-0.05,0.05,25,-0.1,0.1);
                         TH2F *HeThetaPhiNokinematics = new TH2F("HeThetaPhiNokinematics",kinematicstitleThetaPhiNokinematics,100,-0.05,0.05,100,-0.1,0.1);
-                        chainHe->Draw("ExTgtCor_R.th:ExTgtCor_R.ph>>HeThetaPhiNokinematics", cuts && basicTDCcut && goodTDCcut && vetoTDCs && thisplaneandbar, "");
+//                        chainHe->Draw("ExTgtCor_R.th:ExTgtCor_R.ph>>HeThetaPhiNokinematics", cuts && basicTDCcut && goodTDCcut && vetoTDCs && thisplaneandbar, "");
+                        chainHe->Draw("ExTgtCor_R.th:ExTgtCor_R.ph>>HeThetaPhiNokinematics", allHANDcuts, "");
                         HeThetaPhiNokinematics->SetTitle(kinematicstitleThetaPhiNokinematics);
-                        HeThetaPhiNokinematics->SetStats(kFALSE);
+//                        HeThetaPhiNokinematics->SetStats(kFALSE);
                         HeThetaPhiNokinematics->Draw("COLZ");
 			handpad03->Update();
 
@@ -438,7 +528,12 @@ void bar_theta_phi(){
 			imageTitle += TDCcutmax;
 			imageTitle += ".png";
 			handCanvas->Print(imageTitle);
+			handCanvas->Destructor();
 			cout << "File printed to " << imageTitle << endl;
+
+			HANDleftNoVetos->Delete();
+//			HANDleftNoVetosCut.Delete();
+			HeThetaPhiNokinematics->Delete();
 
 		}
 	}
@@ -446,7 +541,7 @@ void bar_theta_phi(){
 
 
 	cout << "All done!" << endl;
-
+	gROOT->ProcessLine(".q");
 
 
 }

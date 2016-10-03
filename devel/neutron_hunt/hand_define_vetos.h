@@ -93,8 +93,12 @@ void hand_define_vetos(bool includeVetos, bool includeAntivetos, bool antivetosA
 
 	cout << "vvvvvvvvvvvvvvvvvvvvvvvvv hand_define_vetos.h vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << endl;
 	cout << "Running hand_define_vetos.h for p" << nplane << "b" << thisbar << " where includeVetos=" << includeVetos <<  " where includeAntivetos=" << includeAntivetos << " and antivetosAsVetos=" << antivetosAsVetos << endl;
-	TCut antiVetoCutL;
-	TCut antiVetoCutR;
+	TCut antiVetoCutL = "";
+	TCut antiVetoCutR = "";
+	TString blank = "";
+	vetoTDCs = blank;
+	vetoTDCsl = blank;
+	vetoTDCsr = blank;
 
 
 	// This huge set of if statements defines the vetos for each good bar we're
@@ -1368,7 +1372,7 @@ void hand_define_vetos(bool includeVetos, bool includeAntivetos, bool antivetosA
 	vetoTDCsrSt += vetoTDCcutmax;
 	vetoTDCsrSt += ")";
 
-	antivetosTDCsrSt += "((NA.";
+	antivetosTDCsrSt = "((NA.";
 	antivetosTDCsrSt += antiveto1plane;
 	antivetosTDCsrSt += ".rt_c[";
 	antivetosTDCsrSt += antiveto1bar;
@@ -1451,10 +1455,10 @@ void hand_define_vetos(bool includeVetos, bool includeAntivetos, bool antivetosA
 	}
 	vetoTDCsr = vetoTDCsrSt;
 	vetoTDCs = "";
-	if (includeVetos) {vetoTDCs = vetoTDCsl && vetoTDCsr;}
-	if (!includeVetos) {vetoTDCs = "";}
+	if (includeAntivetos && !includeVetos && antivetosAsVetos) {vetoTDCs = vetoTDCsl && vetoTDCsr;}
+//	if (!includeVetos) {vetoTDCs = "";}
 	if (!includeVetos && !includeAntivetos) {cout << "Veto Cut: " << "No Vetos" << endl;}
-	if (includeAntivetos && !antivetosAsVetos) {vetoTDCs = antiVetoCutL && antiVetoCutR;}
+	if (includeAntivetos && !antivetosAsVetos && !includeVetos) {vetoTDCs = antiVetoCutL && antiVetoCutR;}
 	if (includeVetos || includeAntivetos) 
 	{
 		cout << "Veto Cut: " << vetoTDCslSt << " && " << vetoTDCsrSt << endl;
