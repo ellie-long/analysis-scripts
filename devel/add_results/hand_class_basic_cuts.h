@@ -106,7 +106,7 @@ void hand_class_basic_cuts(int HeRunNumber, int endHeRunNumber, bool drawCuts, T
 	thetaphiRStr += " && ExTgtCor_R.th>";
 	thetaphiRStr += thboundlow;
 */
-	i/*bool thphGood = (ExTgtCor_R_ph<phboundhigh && ExTgtCor_R_ph>phboundlow && ExTgtCor_R_th<thboundhigh && ExTgtCor_R_th>thboundlow);
+	/*bool thphGood = (ExTgtCor_R_ph<phboundhigh && ExTgtCor_R_ph>phboundlow && ExTgtCor_R_th<thboundhigh && ExTgtCor_R_th>thboundlow);
 
 
 	bool xbjGood = (PriKineRHe3_x_bj<2.0);

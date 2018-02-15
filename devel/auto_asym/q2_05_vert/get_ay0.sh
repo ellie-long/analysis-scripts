@@ -1,4 +1,4 @@
-#!/bin/sh
+#/bin/sh
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 #
@@ -13,7 +13,8 @@
 
 echo "get_ay0.sh for Q2=0.5 GeV^2"
 
-ayhome="/lustre/expphy/work/halla/e05102/ellie/analysis-scripts/devel/auto_asym/q2_05_vert"
+workPrefix="/work/halla/e05102/disk1/ellie"
+ayhome="${workPrefix}/analysis-scripts/devel/auto_asym/q2_05_vert"
 
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_ssa_target_asymmetry_runs_20890-21006.txt $ayhome
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_asym_v_runnum_for_runs_20890-21006.txt $ayhome
@@ -87,8 +88,10 @@ file8="./temp_temptemp.txt"
 awk '{print '$chi2','$dof'}' $file8 > chi2_dof_ay0.txt
 
 chi2ovrdof=`awk 'BEGIN{printf("%0.5f", '$chi2' / '$dof')}'`
-S=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
-echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", S=" $S
+S=1
+calcS=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
+#S=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
+echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", calcS=" $calcS ", S=" $S
 
 #xmgrace\
 gracebat -hdevice PNG -printfile plot_q2_05_ay0.png \

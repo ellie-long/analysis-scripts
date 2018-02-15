@@ -86,8 +86,9 @@ file8="./temp_temptemp.txt"
 awk '{print '$chi2','$dof'}' $file8 > chi2_dof_ay0.txt
 
 chi2ovrdof=`awk 'BEGIN{printf("%0.5f", '$chi2' / '$dof')}'`
-S=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
-echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", S=" $S
+calcS=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
+S=1
+echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", calcS=" $calcS ", S=" $S
 
 
 
