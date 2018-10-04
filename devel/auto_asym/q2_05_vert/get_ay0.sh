@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 #
@@ -18,8 +18,8 @@ ayhome="${workPrefix}/analysis-scripts/devel/auto_asym/q2_05_vert"
 
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_ssa_target_asymmetry_runs_20890-21006.txt $ayhome
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_05_asym_v_runnum_for_runs_20890-21006.txt $ayhome
-#cp $ayhome/../ch-lt/q2_05_vert/q2_05_ch-lt.txt $ayhome
-cp $ayhome/../../../../results/q2_05_vert_3he/q2_05_vert_3he_run_info.txt $ayhome/q2_05_ch-lt.txt
+cp $ayhome/../ch-lt/q2_05_vert/q2_05_ch-lt.txt $ayhome
+#cp $ayhome/../../../../results/q2_05_vert_3he/q2_05_vert_3he_run_info.txt $ayhome/q2_05_ch-lt.txt
 sort -t ' ' -k1 vert_3he_q2_05_asym_v_runnum_for_runs_20890-21006.txt > temp_results.txt
 #sort -t ' ' -k1 q2_05_ch-lt.txt > temp_charge.txt
 sort -t ' ' -k1 $ayhome/q2_05_ch-lt.txt > $ayhome/temp_charge.txt

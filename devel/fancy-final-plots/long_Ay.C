@@ -91,11 +91,12 @@ void long_Ay() {
   cn->UseCurrentStyle();
   TH1F *frm = new TH1F("frm","",100,0.003,10.);
   frm->GetXaxis()->SetTitle("Q^{2}  (GeV/c)^{2}");
-//  gPad->SetLogy();
+  gPad->SetLogy();
   frm->GetYaxis()->SetTitle("A_{y}^{0}");
-  frm->SetMinimum(-.02);
-//  frm->SetMinimum(0.001);
-  frm->SetMaximum(1.0);
+//  frm->SetMinimum(-.02);
+  frm->SetMinimum(0);
+  frm->SetMinimum(0.001);
+  frm->SetMaximum(1.5);
 //  frm->SetMaximum(0.04);
   frm->UseCurrentStyle();
   frm->Draw();

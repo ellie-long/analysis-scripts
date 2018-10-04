@@ -13,16 +13,17 @@
 
 echo "get_ay0.sh for Q2=0.1 GeV^2"
 
-ayhome="/lustre/expphy/work/halla/e05102/ellie/analysis-scripts/devel/auto_asym/q2_01_vert"
+workPrefix="/w/halla-scifs17exp/e05102/disk1/ellie"
+ayhome="${workPrefix}/analysis-scripts/devel/auto_asym/q2_01_vert"
 
 #sort -t ' ' -k1 vert_3he_q2_01_eeprime_asym_v_runnum_for_runs_20487-20511.txt > temp_eeprime.txt
 #sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
 #cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/without_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
-cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
-cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
-#cp $ayhome/../ch-lt/q2_01_vert/q2_01_ch-lt.txt $ayhome
-cp $ayhome/../../../../results/q2_01_vert_3he/q2_01_vert_3he_run_info.txt $ayhome/q2_01_ch-lt.txt
+cp -v $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt $ayhome
+cp -v $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt $ayhome
+cp -v $ayhome/../ch-lt/q2_01_vert/q2_01_ch-lt.txt $ayhome
+#cp -v $ayhome/../../../../results/q2_01_vert_3he/q2_01_vert_3he_run_info.txt $ayhome/q2_01_ch-lt.txt
 sort -t ' ' -k1 vert_3he_q2_01_asym_v_runnum_for_runs_20487-20511.txt > temp_results.txt
 #sort -t ' ' -k1 q2_01_ch-lt.txt > temp_charge.txt
 sort -t ' ' -k1 $ayhome/q2_01_ch-lt.txt > $ayhome/temp_charge.txt
@@ -193,7 +194,7 @@ display $ayhome/plot_q2_01_nu_ay0.png
 
 
 
-rm $ayhome/temp*
+#rm $ayhome/temp*
 
 
 

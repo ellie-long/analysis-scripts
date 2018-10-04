@@ -55,6 +55,9 @@ using namespace std;
 
 void add_class_targ_asymmetry_vs_runnum(){
 
+	gRoot->Batch(kTRUE);
+
+	TString root = "/w/halla-scifs17exp/e05102/disk1/ellie/";
 	TString targ;
 	TString kine;
 	TString veto;
@@ -152,15 +155,16 @@ void add_class_targ_asymmetry_vs_runnum(){
 		double nuMax = 0.13;
 	}
 	
-	TString outputPlotsHere = "/home/ellie/physics/e05-102/images/plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
+	TString outputPlotsHere = root;
+	outputPlotsHere += "plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
 	const int nuBins = 10;
 
 	TChain* chainHe = new TChain("T");
-	TString filenameHe;
+	TString filenameHe = root;
 	TString outFileName;
 
-	filenameHe = "/home/ellie/physics/e05-102/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
+	filenameHe += "/analysis-scripts/devel/neutron_hunt/results/targ_ssa/";
 	if (veto == "w") {filenameHe += "with_vetos/";}			
 	if (veto == "wo") {filenameHe += "without_vetos/";}			
 	if (targ == "v") {filenameHe += "vert_3he_";}
@@ -209,9 +213,11 @@ void add_class_targ_asymmetry_vs_runnum(){
                 totesDownEvents = 0;
                 HeRunNumber = k;
                 endHeRunNumber = k;
-                outputPlotsHere = "/home/ellie/physics/e05-102/images/plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
+                outputPlotsHere = root;
+                outputPlotsHere += "/plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
-                filenameHe = "/work/halla/e05102/disk1/ellie/results/";
+                filenameHe = root;
+					 filenameHe += "results/";
                 if (kine == "1.0") {filenameHe += "q2_1_";}
                 if (kine == "0.5") {filenameHe += "q2_05_";}
                 if (kine == "0.1") {filenameHe += "q2_01_";}

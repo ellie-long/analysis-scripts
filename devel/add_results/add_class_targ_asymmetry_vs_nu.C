@@ -55,6 +55,8 @@ using namespace std;
 
 void add_class_targ_asymmetry_vs_nu(){
 
+	gROOT->SetBatch(kTRUE);
+
 	TString targ;
 	TString kine;
 	TString veto;

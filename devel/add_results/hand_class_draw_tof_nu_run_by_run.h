@@ -24,10 +24,11 @@ Double_t fline(Double_t *x, Double_t *par)
 
 
 
-void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString& asymOutFileText, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere)
+//void hand_class_draw_tof_nu(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString& asymOutFileText, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere)
+void hand_class_draw_tof_nu_run_by_run(int HeRunNumber, int endHeRunNumber, TString filenameHe, TString kine, TString targ, TString& asymOutFileText, bool includeVetos, const int nuBins, double nuMin, double nuMax, double HeChargeScaleUp, double HeChargeScaleDown, double HelivetimeUp, double HelivetimeDown, TString outputPlotsHere)
 {
 
-	cout << "vvvvvvvvvvvvvvvvvvvvvvv hand_class_draw_tof_nu.h vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << endl;
+	cout << "vvvvvvvvvvvvvvvvvvvvvvv hand_class_draw_tof_nu_run_by_run.h vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" << endl;
 
 	TString fitTypeHolder;
 
@@ -3026,7 +3027,7 @@ cout << "4" << endl;
 	cout << "Run #	TotalUp	TotalDown	Bin1Up	Bin1Down	Bin2Up	Bin2Down	Bin3Up	Bin3Down	Bin4Up	Bin4Down" << endl;
 	cout << asymOutFileText << endl;
 
-	cout << "^^^^^^^^^^^^^^^^^^^^^^^ hand_class_draw_tof_nu.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
+	cout << "^^^^^^^^^^^^^^^^^^^^^^^ hand_class_draw_tof_nu_run_by_run.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
 }
 
 

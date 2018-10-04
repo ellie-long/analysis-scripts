@@ -56,6 +56,9 @@ using namespace std;
 
 void add_class_targ_asymmetry_vs_runnum(){
 
+	gROOT->SetBatch(kTRUE);
+
+	TString root = "/w/halla-scifs17exp/e05102/disk1/ellie/";
 	TString targ;
 	TString kine;
 	TString veto;
@@ -217,7 +220,7 @@ void add_class_targ_asymmetry_vs_runnum(){
                 endHeRunNumber = k;
                 outputPlotsHere = "../../../plots_for_hand/add_class_targ_asymmetry_vs_runnum/";
 
-                filenameHe = "/work/halla/e05102/disk1/ellie/results/";
+                filenameHe = "/w/halla-scifs17exp/e05102/disk1/ellie/results/";
 //                filenameHe = "/home/ellie/physics/e05-102/results/";
                 if (kine == "1.0") {filenameHe += "q2_1_";}
                 if (kine == "0.5") {filenameHe += "q2_05_";}
@@ -315,8 +318,9 @@ void add_class_targ_asymmetry_vs_runnum(){
 		}
 	}
 
-	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere, asymOutFileText);
+//	hand_class_draw_tof_nu(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileName, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere, asymOutFileText);
 //	hand_class_draw_tof(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileText, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere);
+	hand_class_draw_tof_nu_run_by_run(HeRunNumber, endHeRunNumber, filenameHe, kine, targ, asymOutFileText, includeVetos, nuBins, nuMin, nuMax, HeChargeScaleUp, HeChargeScaleDown, HelivetimeUp, HelivetimeDown, outputPlotsHere);
         asymOutFile << asymOutFileText << endl;
 	} 
 

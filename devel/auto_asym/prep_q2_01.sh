@@ -18,17 +18,17 @@ bresults="$home/../../../results/q2_01_vert_3he"
 chlt="$home/ch-lt/q2_01_vert"
 
 # Copy recent batch results to the main results folder after backing up recent results
-ls $home/../../../batch/results
-read -rep $'\nWhich folder are the farmed result in?\n> ' farmDate
-farmFolder="$home/../../../batch/results/$farmDate"
-date=`date +"%Y-%m-%d-%T"`
-newFolder="$bresults/$date"
-mkdir "$newFolder"
-mv $bresults/*.log  $newFolder/.
-mv $bresults/*.out  $newFolder/.
-mv $bresults/*.txt  $newFolder/.
-mv $bresults/*.root $newFolder/.
-cp -v $farmFolder/* $bresults/.
+#ls $home/../../../batch/results
+#read -rep $'\nWhich folder are the farmed result in?\n> ' farmDate
+#farmFolder="$home/../../../batch/results/$farmDate"
+#date=`date +"%Y-%m-%d-%T"`
+#newFolder="$bresults/$date"
+#mkdir "$newFolder"
+#mv $bresults/*.log  $newFolder/.
+#mv $bresults/*.out  $newFolder/.
+#mv $bresults/*.txt  $newFolder/.
+#mv $bresults/*.root $newFolder/.
+#cp -v $farmFolder/* $bresults/.
 
 # Copy charge/livetime information and output in correct format
 cp -v $bresults/charge_lt_for_run_* $chlt/.

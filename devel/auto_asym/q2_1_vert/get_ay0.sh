@@ -17,8 +17,8 @@ ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_1_ver
 
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_1_ssa_target_asymmetry_runs_20596-20789.txt $ayhome
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_1_asym_v_runnum_for_runs_20596-20789.txt $ayhome
-#cp $ayhome/../ch-lt/q2_1_vert/q2_1_ch-lt.txt $ayhome
-cp $ayhome/../../../../results/q2_1_vert_3he/q2_1_vert_3he_run_info.txt $ayhome/q2_1_ch-lt.txt
+cp $ayhome/../ch-lt/q2_1_vert/q2_1_ch-lt.txt $ayhome
+#cp $ayhome/../../../../results/q2_1_vert_3he/q2_1_vert_3he_run_info.txt $ayhome/q2_1_ch-lt.txt
 
 
 
