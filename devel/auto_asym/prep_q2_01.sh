@@ -45,7 +45,7 @@ analyzer $home/../add_root_files/add_vert_3he_q2_01.C
 analyzer $home/../add_results/add_class_targ_asymmetry_vs_nu.C
 
 # Run final analysis script and get results
-$home/q2_01_vert/get_ay0.sh
+#$home/q2_01_vert/get_ay0.sh
 
 
 

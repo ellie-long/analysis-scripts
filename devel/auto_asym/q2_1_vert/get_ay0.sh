@@ -13,7 +13,33 @@
 
 echo "get_ay0.sh for Q2=1.0 GeV^2"
 
-ayhome="/work/halla/e05102/disk1/ellie/analysis-scripts/devel/auto_asym/q2_1_vert"
+workPrefix="/work/halla/e05102/disk1/ellie"
+ayhome="${workPrefix}/analysis-scripts/devel/auto_asym/q2_1_vert"
+
+# Definitions for Q2=0.1 GeV^2:
+#     Polarization         = 51.4 +/- 0.8 +/- 4.6%
+#                                 +/- 4.7% (total)
+#     N2 Dilution          = 94.7 +/- 0.8%
+#     Proton Contamination = 72.3 +/- 1.8%
+
+pol="0.514"
+dpol="0.047"
+
+dilN2="0.9721"
+ddilN2="0.0120"
+
+pCont="0.508"
+dpCont="0.005"
+
+
+#Old definitions I think are wrong (as of 10/5/18):
+#pol="0.514"
+#dpol="0.024"
+#dilN2="0.9721"
+#ddilN2="0.0120"
+#pCont="0.9907"
+#dpCont="0.000097"
+
 
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_1_ssa_target_asymmetry_runs_20596-20789.txt $ayhome
 cp $ayhome/../../../../analysis-scripts/devel/neutron_hunt/results/targ_ssa/with_vetos/vert_3he_q2_1_asym_v_runnum_for_runs_20596-20789.txt $ayhome
@@ -41,7 +67,7 @@ awk '$1>20000 && $1<30000 && $1!=20596 && $1!=20597 && $1!=20599 && $1!=20654 &&
 file1="./temp_q2_1_evt_ch_lt.txt"
 awk '$1>20000 && $1<30000 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$8/($4*$6),$9/($5*$7)}' $file1 > temp_q2_1_yields.txt
 #							Run #	YieldUp		YieldDwn	1/sqrt(N)	dYup	dYdown
-#							$1		$2			$3			$4			$5		$6
+#							$1		$2				$3			$4				$5		$6
 
 
 file2="./temp_q2_1_yields.txt"
@@ -50,13 +76,14 @@ file2="./temp_q2_1_yields.txt"
 #							Run #	Ay0		dAy0
 #							$1		$2		$3
 
-awk '$1>20000 && $1<30000 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/(0.514*0.9721*0.9907)),(1/(0.514*0.9721*0.9907))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file2 > temp_final_q2_1_asym_runnum.txt
+awk '$1>20000 && $1<30000 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/('$pol'*'$dilN2'*'$pCont')),(1/('$pol'*'$dilN2'*'$pCont'))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file2 > temp_final_q2_1_asym_runnum.txt
 
 file9="./temp_final_q2_1_asym_runnum.txt"
-awk '$1>20000 && $1<30000 {print $1,$2,sqrt(($2*0.0120/0.9721)^2 + ($2*0.000097/0.9907)^2 + ($2*0.024/0.514)^2 + $3^2)}' $file9 > final_q2_1_asym_runnum.txt
-#awk '$1>20000 && $1<30000 {print $1,$2,3.08822*sqrt(($2*0.0120/0.9721)^2 + ($2*0.000097/0.9907)^2 + ($2*0.024/0.514)^2 + $3^2)}' $file9 > final_q2_1_asym_runnum.txt
+awk '$1>20000 && $1<30000 {print $1,$2,sqrt(($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2 + $3^2)}' $file9 > final_q2_1_asym_runnum.txt
+#awk '$1>20000 && $1<30000 {print $1,$2,3.08822*sqrt(($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2 + $3^2)}' $file9 > final_q2_1_asym_runnum.txt
 #                           Run #   Ay0     dAy0
 #                           $1      $2      $3
+
 
 
 file7="./final_q2_1_asym_runnum.txt"
@@ -71,6 +98,7 @@ dof_temp="$(paste -sd+ temp_dof.txt | bc)"
 sumWi="$(paste -sd+ temp_wi.txt | bc)"
 sumWiAy0="$(paste -sd+ temp_wi_ay0.txt | bc)"
 aveAy0=`awk 'BEGIN{printf("%0.5f", '$sumWiAy0' / '$sumWi')}'`
+aveAy0err=`awk 'BEGIN{printf("%0.5f", 1/sqrt('$sumWi'))}'`
 dof=`awk 'BEGIN{printf("%0.5f", '$dof_temp'-1)}'`
 
 echo 0 $aveAy0 > temp_ave_ay0.txt
@@ -89,6 +117,8 @@ chi2ovrdof=`awk 'BEGIN{printf("%0.5f", '$chi2' / '$dof')}'`
 calcS=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
 S=1
 echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", calcS=" $calcS ", S=" $S
+echo "aveAy0		Err"
+echo $aveAy0"  "$aveAy0err
 
 
 
@@ -138,14 +168,14 @@ totScDn="$(paste -sd+ temp_t1c_down2.txt | bc)"
 totLtUp=`awk 'BEGIN{printf("%0.5f", '$totT2Up' / '$totScUp')}'`
 totLtDn=`awk 'BEGIN{printf("%0.5f", '$totT2Dn' / '$totScDn')}'`
 
-echo $totChUp
-echo $totChDn
-echo $totT2Up
-echo $totT2Dn
-echo $totScUp
-echo $totScDn
-echo $totLtUp
-echo $totLtDn
+#echo $totChUp
+#echo $totChDn
+#echo $totT2Up
+#echo $totT2Dn
+#echo $totScUp
+#echo $totScDn
+#echo $totLtUp
+#echo $totLtDn
 
 file3="temp_q2_1_nu.txt"
 awk '$1>0.010 && $1<3 && $2>0 && $3>0 && ($6+$8)>0 && $12>0 {print $1,$2,$3,'$totChUp','$totChDn','$totLtUp','$totLtDn',sqrt((sqrt($4)^2)+((1/(sqrt($6+$8)))*($10/$12))^2),sqrt((sqrt($5)^2)+((1/(sqrt($7+$9)))*($11/$12))^2) }' $file3 > temp_q2_1_evt_nu_ch_lt.txt
@@ -162,21 +192,24 @@ file5="./temp_q2_1_nu_yields.txt"
 #                           Run #   Ay0     dAy0
 #                           $1      $2      $3
 echo "S = "$S
-awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/(0.514*0.9721*0.9907)),'$S'*(1/(0.514*0.9721*0.9907))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > final_q2_1_nu_asym_stat.txt
+awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/('$pol'*'$dilN2'*'$pCont')),'$S'*(1/('$pol'*'$dilN2'*'$pCont'))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > final_q2_1_nu_asym_stat.txt
 
 file10="./final_q2_1_nu_asym_stat.txt"
-awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt(($2*0.0120/0.9721)^2 + ($2*0.000097/0.9907)^2 + ($2*0.024/0.514)^2)}' $file10 > temp_q2_1_nu_asym_all.txt
+awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt(($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2)}' $file10 > temp_q2_1_nu_asym_all.txt
 file11="./temp_q2_1_nu_asym_all.txt"
 
 echo "nu                  Ay0      e_s       e_N         e_p         e_t       e_n" > final_q2_1_nu_asym_all_errs.txt
-#awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*0.0120/0.9721,$2*0.000097/0.9907,$2*0.024/0.514,sqrt(('$S'^2-1)*(($2*0.0120/0.9721)^2 + ($2*0.000097/0.9907)^2 + ($2*0.024/0.514)^2 + $3^2))}' $file11 >> final_q2_1_nu_asym_all_errs.txt
-awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*0.0120/0.9721,$2*0.000097/0.9907,$2*0.024/0.514,0}' $file11 >> final_q2_1_nu_asym_all_errs.txt
+#awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*'$ddilN2'/'$dilN2',$2*'$dpCont'/'$pCont',$2*'$dpol'/'$pol',sqrt(('$S'^2-1)*(($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2 + $3^2))}' $file11 >> final_q2_1_nu_asym_all_errs.txt
+awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*'$ddilN2'/'$dilN2',$2*'$dpCont'/'$pCont',$2*'$dpol'/'$pol',0}' $file11 >> final_q2_1_nu_asym_all_errs.txt
 
 file12="./final_q2_1_nu_asym_all_errs.txt"
 awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt($4^2 + $5^2 + $6^2 + $7^2)}' $file12 > final_q2_1_nu_asym_stat_sys.txt
 awk '$1>0.010 && $1<3 {print $1,$2,sqrt($3^2 + $4^2 + $5^2 + $6^2 + $7^2)}' $file12 > final_q2_1_nu_asym_tot.txt
 #                           Run #   Ay0     dAy0
 #                           $1      $2      $3
+
+cat $ayhome/final_q2_1_nu_asym_all_errs.txt
+
 
 #xmgrace\
 gracebat -hdevice PNG -printfile plot_q2_1_nu_ay0.png \

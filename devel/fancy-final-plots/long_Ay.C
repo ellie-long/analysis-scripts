@@ -25,6 +25,8 @@ datafile_t datafiles[] = {
   { "asym_datafiles/Ay_NIKHEF.dat", "NIKHEF", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,26,9 },
   { "asym_datafiles/Ay_MAMI.dat", "MAMI", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,25,4 },
   { "asym_datafiles/Ay_Long.dat", "E08-005", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,20,6 },
+  { "asym_datafiles/Ay_for_fit.dat", "World Data", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,20,6 },
+//  { "asym_datafiles/Ay_fit_MAMI_NIKHEF.dat", "MAMI+NIKHEF", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,20,6 },
 //  { "asym_datafiles/Ay_Long_raw.dat", "E08-005", "[0]", "[1]", "sqrt([2]*[2]+[3]*[3])", "sqrt([2]*[2]+[3]*[3])", 0,0,20,6 },
   { NULL }
 };  
@@ -91,7 +93,7 @@ void long_Ay() {
   cn->UseCurrentStyle();
   TH1F *frm = new TH1F("frm","",100,0.003,10.);
   frm->GetXaxis()->SetTitle("Q^{2}  (GeV/c)^{2}");
-  gPad->SetLogy();
+//  gPad->SetLogy();
   frm->GetYaxis()->SetTitle("A_{y}^{0}");
 //  frm->SetMinimum(-.02);
   frm->SetMinimum(0);

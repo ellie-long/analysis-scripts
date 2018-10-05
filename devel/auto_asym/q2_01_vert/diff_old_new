@@ -1,0 +1,205 @@
+99d87
+< aveAy0err=`awk 'BEGIN{printf("%0.5f", 1/sqrt('$sumWi'))}'`
+102,103c90,91
+< echo 0 $aveAy0 > $ayhome/temp_ave_ay0.txt
+< echo 30000 $aveAy0 >> $ayhome/temp_ave_ay0.txt
+---
+> echo 0 $aveAy0 > temp_ave_ay0.txt
+> echo 30000 $aveAy0 >> temp_ave_ay0.txt
+105,107c93,95
+< awk '{print 1/($3*$3)*('$aveAy0'-$2)*('$aveAy0'-$2)}' $file7 > $ayhome/temp_chi2i2.txt
+< sed "s/e-0/*10^-/g" $ayhome/temp_chi2i2.txt > $ayhome/temp_chi2i.txt
+< chi2="$(paste -sd+ $ayhome/temp_chi2i.txt | bc)"
+---
+> awk '{print 1/($3*$3)*('$aveAy0'-$2)*('$aveAy0'-$2)}' $file7 > temp_chi2i2.txt
+> sed "s/e-0/*10^-/g" temp_chi2i2.txt > temp_chi2i.txt
+> chi2="$(paste -sd+ temp_chi2i.txt | bc)"
+109c97
+< echo "1" > $ayhome/temp_temptemp.txt
+---
+> echo "1" > temp_temptemp.txt
+111,112c99,100
+< file8="$ayhome/./temp_temptemp.txt"
+< awk '{print '$chi2','$dof'}' $file8 > $ayhome/chi2_dof_ay0.txt
+---
+> file8="./temp_temptemp.txt"
+> awk '{print '$chi2','$dof'}' $file8 > chi2_dof_ay0.txt
+115,119c103,105
+< S=1
+< calcS=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
+< echo "For 3He(e,e') Ay per run #, aveAy0=" $aveAy0", chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", calcS=" $calcS ", S=" $S
+< echo "aveAy0		Err"
+< echo $aveAy0"	"$aveAy0err
+---
+> S=`awk 'BEGIN{printf("%0.5f", sqrt('$chi2ovrdof'))}'`
+> echo "For 3He(e,e') Ay per run #, chi2=" $chi2 ", dof=" $dof ", chi2/dof=" $chi2ovrdof ", S=" $S
+> 
+122,126c108,112
+< gracebat -hdevice PNG -printfile $ayhome/plot_q2_01_ay0.png \
+< 	 -settype xydy		-block $ayhome/final_q2_01_asym_runnum.txt	-graph 0 -bxy 1:2:3 \
+< 	 -settype xydy		-block $ayhome/temp_final_q2_01_asym_runnum.txt	-graph 0 -bxy 1:2:3 \
+< 	 -settype xy		-block $ayhome/temp_ave_ay0.txt			-graph 0 -bxy 1:2 \
+< 	 -p $ayhome/q2_01_asym.par	-noask
+---
+> gracebat -hdevice PNG -printfile plot_q2_01_ay0.png \
+> 		 -settype xydy		-block final_q2_01_asym_runnum.txt		-graph 0 -bxy 1:2:3 \
+> 		 -settype xydy		-block temp_final_q2_01_asym_runnum.txt	-graph 0 -bxy 1:2:3 \
+> 		 -settype xy		-block temp_ave_ay0.txt			-graph 0 -bxy 1:2 \
+> 		 -p q2_01_asym.par	-noask
+128c114
+< display $ayhome/plot_q2_01_ay0.png
+---
+> display plot_q2_01_ay0.png
+135,136c121,122
+< file6="$ayhome/./vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt"
+< awk '$1>0.01 && $1<3 {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12}' $file6 > $ayhome/temp_q2_01_nu.txt
+---
+> file6="./vert_3he_q2_01_ssa_target_asymmetry_runs_20487-20511.txt"
+> awk '$1>0.01 && $1<3 {print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12}' $file6 > temp_q2_01_nu.txt
+143,165c129,151
+< awk '$1>0 && $1!=20506 && $1<20509 {print $21}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_charge_up.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_charge_up.txt > $ayhome/temp_charge_up2.txt
+< totChUp="$(paste -sd+ $ayhome/temp_charge_up2.txt | bc)"
+< 
+< awk '$1>0 && $1!=20506 && $1<20509 {print $23}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_charge_down.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_charge_down.txt > $ayhome/temp_charge_down2.txt
+< totChDn="$(paste -sd+ $ayhome/temp_charge_down2.txt | bc)"
+< 
+< awk '$1>0 && $1!=20506 && $1<20509 {print $6}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_t2_up.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_t2_up.txt > $ayhome/temp_t2_up2.txt
+< totT2Up="$(paste -sd+ $ayhome/temp_t2_up2.txt | bc)"
+< 
+< awk '$1>0 && $1!=20506 && $1<20509 {print $9}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_t2_down.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_t2_down.txt > $ayhome/temp_t2_down2.txt
+< totT2Dn="$(paste -sd+ $ayhome/temp_t2_down2.txt | bc)"
+< 
+< awk '$1>0 && $1!=20506 && $1<20509 {print $18}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_t1c_up.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_t1c_up.txt > $ayhome/temp_t1c_up2.txt
+< totScUp="$(paste -sd+ $ayhome/temp_t1c_up2.txt | bc)"
+< 
+< awk '$1>0 && $1!=20506 && $1<20509 {print $20}' $ayhome/q2_01_ch-lt.txt > $ayhome/temp_t1c_down.txt
+< sed "s/e+0/*10^/g" $ayhome/temp_t1c_down.txt > $ayhome/temp_t1c_down2.txt
+< totScDn="$(paste -sd+ $ayhome/temp_t1c_down2.txt | bc)"
+---
+> awk '$1>0 && $1!=20506 && $1<20509 {print $21}' q2_01_ch-lt.txt > temp_charge_up.txt
+> sed "s/e+0/*10^/g" temp_charge_up.txt > temp_charge_up2.txt
+> totChUp="$(paste -sd+ temp_charge_up2.txt | bc)"
+> 
+> awk '$1>0 && $1!=20506 && $1<20509 {print $23}' q2_01_ch-lt.txt > temp_charge_down.txt
+> sed "s/e+0/*10^/g" temp_charge_down.txt > temp_charge_down2.txt
+> totChDn="$(paste -sd+ temp_charge_down2.txt | bc)"
+> 
+> awk '$1>0 && $1!=20506 && $1<20509 {print $6}' q2_01_ch-lt.txt > temp_t2_up.txt
+> sed "s/e+0/*10^/g" temp_t2_up.txt > temp_t2_up2.txt
+> totT2Up="$(paste -sd+ temp_t2_up2.txt | bc)"
+> 
+> awk '$1>0 && $1!=20506 && $1<20509 {print $9}' q2_01_ch-lt.txt > temp_t2_down.txt
+> sed "s/e+0/*10^/g" temp_t2_down.txt > temp_t2_down2.txt
+> totT2Dn="$(paste -sd+ temp_t2_down2.txt | bc)"
+> 
+> awk '$1>0 && $1!=20506 && $1<20509 {print $18}' q2_01_ch-lt.txt > temp_t1c_up.txt
+> sed "s/e+0/*10^/g" temp_t1c_up.txt > temp_t1c_up2.txt
+> totScUp="$(paste -sd+ temp_t1c_up2.txt | bc)"
+> 
+> awk '$1>0 && $1!=20506 && $1<20509 {print $20}' q2_01_ch-lt.txt > temp_t1c_down.txt
+> sed "s/e+0/*10^/g" temp_t1c_down.txt > temp_t1c_down2.txt
+> totScDn="$(paste -sd+ temp_t1c_down2.txt | bc)"
+170,177c156,163
+< #echo $totChUp
+< #echo $totChDn
+< #echo $totT2Up
+< #echo $totT2Dn
+< #echo $totScUp
+< #echo $totScDn
+< #echo $totLtUp
+< #echo $totLtDn
+---
+> echo $totChUp
+> echo $totChDn
+> echo $totT2Up
+> echo $totT2Dn
+> echo $totScUp
+> echo $totScDn
+> echo $totLtUp
+> echo $totLtDn
+179,180c165,166
+< file3="$ayhome/temp_q2_01_nu.txt"
+< awk '$1>0.010 && $1<3 && $2>0 && $3>0 && ($6+$8)>0 && $12>0 {print $1,$2,$3,'$totChUp','$totChDn','$totLtUp','$totLtDn',sqrt((sqrt($4)^2)+((1/(sqrt($6+$8)))*($10/$12))^2),sqrt((sqrt($5)^2)+((1/(sqrt($7+$9)))*($11/$12))^2) }' $file3 > $ayhome/temp_q2_01_evt_nu_ch_lt.txt
+---
+> file3="temp_q2_01_nu.txt"
+> awk '$1>0.010 && $1<3 && $2>0 && $3>0 && ($6+$8)>0 && $12>0 {print $1,$2,$3,'$totChUp','$totChDn','$totLtUp','$totLtDn',sqrt((sqrt($4)^2)+((1/(sqrt($6+$8)))*($10/$12))^2),sqrt((sqrt($5)^2)+((1/(sqrt($7+$9)))*($11/$12))^2) }' $file3 > temp_q2_01_evt_nu_ch_lt.txt
+184c170
+< file4="$ayhome/./temp_q2_01_evt_nu_ch_lt.txt"
+---
+> file4="./temp_q2_01_evt_nu_ch_lt.txt"
+186c172
+< awk '$1>0.010 && $1<3 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$2*7/($4*$6)*sqrt(1/'$totT2Up'-1/'$totScUp'+1/($2)),$3*7/($5*$7)*sqrt(1/'$totT2Dn'-1/'$totScDn'+1/($3))}' $file4 > $ayhome/temp_q2_01_nu_yields.txt
+---
+> awk '$1>0.010 && $1<3 && $4*$6>0 && $5*$7>0 && ($2+$3)>0 {print $1,$2/($4*$6),$3/($5*$7),1/sqrt($2+$3),$2*7/($4*$6)*sqrt(1/'$totT2Up'-1/'$totScUp'+1/($2)),$3*7/($5*$7)*sqrt(1/'$totT2Dn'-1/'$totScDn'+1/($3))}' $file4 > temp_q2_01_nu_yields.txt
+190c176
+< file5="$ayhome/./temp_q2_01_nu_yields.txt"
+---
+> file5="./temp_q2_01_nu_yields.txt"
+194,213c180,200
+< #awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/('$pol'*'$dilN2'*'$pCont')),(1/('$pol'*'$dilN2'*'$pCont'))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > $ayhome/final_q2_01_nu_asym_stat.txt
+< #S=1
+< echo "S = " $S
+< awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/('$pol'*'$dilN2'*'$pCont')),'$S'*(1/('$pol'*'$dilN2'*'$pCont'))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > $ayhome/final_q2_01_nu_asym_stat.txt
+< # Definitions for Q2=0.1 GeV^2:
+< #		Polarization			= 51.4 +/- 0.8 +/- 4.6%
+< #		N2 Dilution				= 94.7 +/- 0.8%
+< #		Proton Contamination	= 72.3 +/- 1.8%
+< 
+< file10="$ayhome/./final_q2_01_nu_asym_stat.txt"
+< awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt(($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2)}' $file10 > $ayhome/temp_q2_01_nu_asym_all.txt
+< 
+< file11="$ayhome/./temp_q2_01_nu_asym_all.txt"
+< echo "nu                  Ay0      e_s       e_N         e_p         e_t       e_n" > $ayhome/final_q2_01_nu_asym_all_errs.txt
+< #awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*'$ddilN2'/'$dilN2',$2*'$dpCont'/'$pCont',$2*'$dpol'/'$pol',sqrt( ('$S'^2-1)*($2*'$ddilN2'/'$dilN2')^2 + ($2*'$dpCont'/'$pCont')^2 + ($2*'$dpol'/'$pol')^2 + $3^2)}' $file11 >> $ayhome/final_q2_01_nu_asym_all_errs.txt
+< awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*'$ddilN2'/'$dilN2',$2*'$dpCont'/'$pCont',$2*'$dpol'/'$pol',0}' $file11 >> $ayhome/final_q2_01_nu_asym_all_errs.txt
+< 
+< file12="$ayhome/./final_q2_01_nu_asym_all_errs.txt"
+< awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt($4^2 + $5^2 + $6^2 + $7^2)}' $file12 > $ayhome/final_q2_01_nu_asym_stat_sys.txt
+< awk '$1>0.010 && $1<3 {print $1,$2,sqrt($3^2 + $4^2 + $5^2 + $6^2 + $7^2)}' $file12 > $ayhome/final_q2_01_nu_asym_tot.txt
+---
+> awk '$1>0.010 && $1<3 && ($2+$3)>0 {print $1,(($2-$3)/($2+$3))*(1/('$Pt'*'$DN2'*'$Dp')),(1/('$Pt'*'$DN2'*'$Dp'))*(2/((($2/$3)+1)^2))*($2/$3)*sqrt(($5/$2)^2+($6/$3)^2)}' $file5 > final_q2_01_nu_asym_stat.txt
+> 
+> file10="./final_q2_01_nu_asym_stat.txt"
+> awk '$1>0.010 && $1<3 {print $1,$2,$3,sqrt(($2*'$dDN2'/'$DN2')^2 + ($2*'$dDp'/'$Dp')^2 + ($2*'$dPt'/'$Pt')^2)}' $file10 > temp_q2_01_nu_asym_all.txt
+> 
+> file11="./temp_q2_01_nu_asym_all.txt"
+> echo "nu                  Ay0      e_stat       e_DN2         e_Dp         e_Pt       e_Spread" > final_q2_01_nu_asym_all_errs.txt
+> 
+> 
+> 
+> if  (( $(echo "$S < 1" | bc -l) ));
+> then
+> S="1"
+> fi
+> echo "S Used for Statistics Error Scaling: $S"
+> awk '$1>0.010 && $1<3 {print $1,$2,$3,$2*'$dDN2'/'$DN2',$2*'$dDp'/'$Dp',$2*'$dPt'/'$Pt',sqrt(('$S'^2-1)*(($2*'$dDN2'/'$DN2')^2 + ($2*'$dDp'/'$Dp')^2 + ($2*'$dPt'/'$Pt')^2 + $3^2))}' $file11 >> final_q2_01_nu_asym_all_errs.txt
+> #!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!
+> 
+> file12="./final_q2_01_nu_asym_all_errs.txt"
+> awk '$1>0.010 && $1<3 {print $1,$2,sqrt($3^2+$7^2),sqrt($4^2 + $5^2 + $6^2)}' $file12 > final_q2_01_nu_asym_stat_sys.txt
+> awk '$1>0.010 && $1<3 {print $1,$2,sqrt($3^2 + $4^2 + $5^2 + $6^2 + $7^2)}' $file12 > final_q2_01_nu_asym_tot.txt
+217d203
+< cat $ayhome/final_q2_01_nu_asym_all_errs.txt
+220,223c206,209
+< gracebat -hdevice PNG -printfile $ayhome/plot_q2_01_nu_ay0.png \
+< 	-settype xydy	-block $ayhome/final_q2_01_nu_asym_stat.txt	-graph 0 -bxy 1:2:3 \
+< 	-settype xydy	-block $ayhome/final_q2_01_nu_asym_tot.txt	-graph 0 -bxy 1:2:3 \
+< 	-p $ayhome/q2_01_nu_asym.par	-noask
+---
+> gracebat -hdevice PNG -printfile plot_q2_01_nu_ay0.png \
+> 		 -settype xydy	-block final_q2_01_nu_asym_stat.txt	-graph 0 -bxy 1:2:3 \
+> 		 -settype xydy	-block final_q2_01_nu_asym_tot.txt		-graph 0 -bxy 1:2:3 \
+> 		 -p q2_01_nu_asym.par	-noask
+225c211
+< display $ayhome/plot_q2_01_nu_ay0.png
+---
+> display plot_q2_01_nu_ay0.png
+231c217
+< rm $ayhome/temp*
+---
+> #rm temp*
